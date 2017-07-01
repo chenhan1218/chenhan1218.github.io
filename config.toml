@@ -13,6 +13,8 @@ paginate = 10
 
 	favicon = "favicon.ico"
 	
+    header = " "
+
 	profilepic = "img/profile.png"
 	
 	title = "Chen-Han (Stanley) Hsiao"
