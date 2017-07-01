@@ -1,4 +1,4 @@
-baseURL = "http://swem.github.io/"
+baseURL = "https://swem.github.io/"
 theme = "hugo-geo"
 languageCode = "en-us"
 title = "ChenHan's blog"

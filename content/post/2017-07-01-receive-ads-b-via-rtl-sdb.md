@@ -5,9 +5,7 @@ comments: true
 categories: 
 ---
 Automatic dependent surveillance – broadcast (ADS–B) 是
-廣播式自動回報監視（ADS-B）
-
-周末跟同事借了 RTL-SDB 來玩。
+廣播式自動回報監視（ADS-B）[1]。航機每秒發射一次之航機位置、高度、位置完整性、航機識別、航機24 bit位址、速度及其他資料。只要準備一個簡易的 ADS-B 接收器，就可以收到這些訊息。下面介紹怎麼使用 dump1090 ，來觀察這些航機發送出來的訊息。
 
 無論使用哪種方式啟動，都要先確定一些 driver 不會被自動載入。設定 driver blacklist 後，重開機讓設定生效。
 ```
@@ -18,6 +16,12 @@ blacklist rtl2832
 EOF
 $ sudo mv /tmp/blacklist-rtl-sdr.conf /etc/modprobe.d
 $ sudo reboot
+```
+
+接上 Realtek 2838 DVB-T usb stick。可以用 lsusb 確認己連接
+```
+$ lsusb
+Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
 ```
 
 接下來可以選擇使用 docker 或 snap 來啟動 dump1090
@@ -47,4 +51,7 @@ sudo systemctl restart snap.adsb-box.piaware.service
 連接到 http://localhost:8080 就可以看到接收到的飛機訊號
 
 [1] [飛航服務總臺 > 設施介紹 > 監視裝備](http://www.anws.gov.tw/cht/index.php?code=list&ids=25)
-[2]
+
+[2] https://github.com/tsunghanliu/adsb-box.snap
+
+[3] https://github.com/mutability/dump1090
