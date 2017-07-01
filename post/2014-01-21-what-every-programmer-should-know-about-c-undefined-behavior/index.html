@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="每個C語言開發者都要了解的 Undefined Behavior">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-01-21">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>每個C語言開發者都要了解的 Undefined Behavior &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>每個C語言開發者都要了解的 Undefined Behavior</h1>
+	</header>
+
+	<article>
+		<p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #<sup>1</sup>&frasl;<sub>3</sub></a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
+
+<p><iframe src="//www.slideshare.net/slideshow/embed_code/36318298" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/ssusercd43c4/2014-0626-a-guide-to-undefined-behavior-in-c-and-c-stanley" title="2014-06-26 - A guide to undefined behavior in c and c++" target="_blank">2014-06-26 - A guide to undefined behavior in c and c++</a> </strong> from <strong><a href="http://www.slideshare.net/ssusercd43c4" target="_blank">辰翰 蕭</a></strong> </div></p>
+
+<p>如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章
+1. <a href="http://sohulinux.blog.sohu.com/176185110.html">未定义行为：What Every C Programmer Should Know #<sup>1</sup>&frasl;<sub>3</sub></a>
+2. <a href="http://sohulinux.blog.sohu.com/176211282.html">未定义行为：What Every C Programmer Should Know #<sup>2</sup>&frasl;<sub>3</sub></a>
+3. <a href="http://sohulinux.blog.sohu.com/176282266.html">未定义行为：What Every C Programmer Should Know #<sup>3</sup>&frasl;<sub>3</sub></a>
+4. <a href="http://www.cnblogs.com/foohack/p/3582239.html">About Undefined Behavior[译文]</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

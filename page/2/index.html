@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta property="og:type" content="website">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<header>
+	
+	
+		<h1> </h1>
+	
+</header>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/">在 NAS 上架設 ubuntu chroot 環境</a>
+			<br>
+			<small>
+				8 October 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		今天發現可以透過 Canonical Ltd. 的 linuxcontainer image 快速的在 NAS 上建立一個 chroot 環境。我的機器 cpu 是 armhf ，下面示範建立 Ubuntu 15.04 Vivid 的 chroot 環境。
+步驟1：下載 Image，解開後進入 rootfs，並修改 nameserver
+wget http://images.linuxcontainers.org/images/ubuntu/vivid/armhf/default/20151008_03:49/rootfs.tar.xz mkdir rootfs tar xvf rootfs.tar.xz -C rootfs cd rootfs echo &quot;nameserver 8.8.8.8&quot; &gt; etc/resolv.conf  步驟2：mount 需要的 sysfs
+mount -t proc proc proc/ mount -t sysfs sys sys/ mount -o bind /dev dev/ mount -t devpts pts dev/pts/  步驟3：chroot
+chroot . su -l  
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-09-17-backports-driver/">backports driver</a>
+			<br>
+			<small>
+				17 September 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		git clone git://git.kernel.org/pub/scm/linux/kernel/git/backports/backports.git git clone git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git cd backports/ ./gentree.py --clean --git-revision next-20150525 ../linux-next/ release cd release/ make menuconfig make  
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/">使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視</a>
+			<br>
+			<small>
+				11 September 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		手上有一支 UPMOST DVB193 數位電視棒，最近測試了它是不是能在 Ubuntu 14.04 下運作。原本以為需要自己編譯 driver，不過把數位電視棒插入筆電， lsusb 後發現其實 driver 已被 Kernel 收錄成為 built-in driver。 Driver 的訊息如下
+filename: /lib/modules/3.19.0-28-generic/kernel/drivers/media/tuners/it913x.ko license: GPL author: Antti Palosaari &lt;crope@iki.fi&gt; description: ITE IT913X silicon tuner driver srcversion: 3A631200871E9FCB4913859 alias: i2c:it913x depends: intree: Y vermagic: 3.19.0-28-generic SMP mod_unload modversions signer: Magrathea: Glacier signing key sig_key: 29:4D:C0:12:70:6F:48:B7:CD:DF:63:74:E2:D7:9F:E1:B0:60:92:69 sig_hashalgo: sha512  Firmware 也已經被收進 Ubuntu 的 linux-firmware
+$ dpkg -L linux-firmware| grep it9135 /lib/firmware/dvb-usb-it9135-02.fw /lib/firmware/dvb-usb-it9135-01.fw  所以接下來只要處理好看數位電視的軟體就可以。以 apt-get 安裝好 vlc ，再用 vlc 開啟 channels.
+		
+			... <a href="http://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-08-26-blacklist-kernel-module/">Debugging system hang by blacklist kernel module</a>
+			<br>
+			<small>
+				26 August 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		有時在機器上會遇到 system hang 的狀況，特別是在 enable 新硬體時。遇到這種情況，可以試著 blacklist 可疑的 kernel module
+以 mwifiex_sdio 為例
+# Do not load the 'mwifiex_sdio' module on boot. echo &gt; /etc/modprobe.d/debug.conf &lt;EOF blacklist mwifiex_sdio EOF  再重開機即可
+如果這個 module 仍會被其它 module depends 而載入，可以再進一步的 blacklist
+# Do not load the 'mwifiex_sdio' module on boot. echo &gt; /etc/modprobe.d/debug.conf &lt;EOF install mwifiex_sdio /bin/false EOF  Using files in /etc/modprobe.d/
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/">基於 upstream git-tree 產生 debian package patch</a>
+			<br>
+			<small>
+				19 August 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		最近在工作上遇到一個 bug，在某些狀況下執行 lshw (02.16-2ubuntu1.2) 會 segmentation fault。找了 lshw 最新的 code 編譯執行後發現沒有這個問題。於是就開始了 git bisect。最後找到是 d048d300b5daeb44887a7fc06ddeb120119cac8a 這筆修改在 src/core/scsi.cc 上面的 commit 解決了這個問題
+順著這筆 commit，找到了 lshw project 的 bug report lshw segfaults, with some 16GB USB-3 sticks from Patriot 。也了解是 USB3.0 stick plugged 時會出現問題。在手上的機器上試了一下，果然是這樣沒錯。原本沒有頭緒的 random segmentation fault，現在則是有了 root cause 的 issue。
+既然找到了 Solution，就開始要加 patch 進 Ubuntu source 了。為了將 patch 加到 Ubuntu 14.04 (Trusty) 目前的 lshw (02.16-2ubuntu1.2) 裡，我們還必須加上 src/core/scsi.cc 的前一個 commit b79f299319f61bc80e8d38e61631cfee7521a729
+# clone upstream git clone https://github.
+		
+			... <a href="http://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-07-05-bloxp-rss-to-ebook/">bloxp, rss to ebook</a>
+			<br>
+			<small>
+				5 July 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		今天用了一個很棒的服務，Bloxp, the blog to ebook exporter，可以把 blog 透過 rss 轉成 ebook (epub)。很方便，推薦給大家。
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/">一般使用者權限安裝 python package (無root 權限)</a>
+			<br>
+			<small>
+				17 June 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		在一些工作站上，有時需要用到一些 python package，但不具有 root 權限時。Python 設定了一個方法，可以安裝在家目錄下的 .local/ 資料夾中
+Alternate installation: the user scheme — Python 2.7.10 documentatio
+python setup.py install --user  之後再設定 PYTHONPATH, PATH 變數即可
+export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH PATH=$PATH:$HOME/.local/bin export PATH  
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/">debugging fork child process in GDB</a>
+			<br>
+			<small>
+				25 April 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		剛在 python 遇到 subprocess 的問題，處理一陣子後突然想到，如果是 C++ 的話要怎麼用 GDB 來 debug. 查了文件後發現有2個方式：
+ 讓 child sleep 一段時間，手動取得 PID 後，再讓 GDB attach 上去  這個方式可以想的到，有點暴力解的感覺。看來處理 multi-process 真的沒什麼好方法。 2. 設定 follow-fork-mode
+GDB 預設只會 attach 在 parent process 上，而不會控制 child process。但如果將 follow-fork-mode 設為 child，那在 fork() 之後，parent process 將不受 GDB 控制，只有 child process 在 GDB 的控制中。換句話說，同一時間只有一個 process 會被 attached。
+set follow-fork-mode parent # The original process is debugged after a fork. The child process runs unimpeded.
+		
+			... <a href="http://swem.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-04-22-linux-kernel-development-process/">Linux Kernel Development Process</a>
+			<br>
+			<small>
+				22 April 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		kernel.org - HOW THE DEVELOPMENT PROCESS WORKS
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/">python3 UnicodeDecodeError</a>
+			<br>
+			<small>
+				16 April 2015
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		遇到 python UnicodeDecodeError 其實有點頭大。
+#!/usr/bin/python3 # -*- coding: utf-8 -*- import subprocess import os import sys import locale if __name__ == &quot;__main__&quot;: locale.setlocale(locale.LC_ALL, 'en_US.UTF8') proc = subprocess.Popen(['date'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, env={'LANG': 'zh_TW.UTF8', 'LANGUAGE': 'zh_TW:zh'}, universal_newlines=True, shell=True) (out, err) = proc.communicate() import codecs sys.stdout = codecs.getwriter(&quot;utf-8&quot;)(sys.stdout.detach()) print(out) print(err)  $ ./date.py  再進一步查了一下，發現這跟環境變數有關。
+$ env -i LANG='en_US.UTF8' /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))' UTF-8 $ env -i /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))' ANSI_X3.
+		
+			... <a href="http://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+
+<div class="text-center center-block">
+	
+
+<ul class="pagination">
+    
+    <li>
+        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li
+    >
+    <a href="/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/">1</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    class="active"><a href="/page/2/">2</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/10/">10</a></li>
+    
+    
+    <li
+    >
+    <a href="/page/3/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li>
+        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

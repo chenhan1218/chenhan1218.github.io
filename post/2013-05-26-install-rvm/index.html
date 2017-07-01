@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Install RVM, Ruby and Gems without sudo permission">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-05-26">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2013-05-26-install-rvm/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Install RVM, Ruby and Gems without sudo permission &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Install RVM, Ruby and Gems without sudo permission</h1>
+	</header>
+
+	<article>
+		
+
+<p>最近接觸 Ruby on Rails，把一些使用心得補上。</p>
+
+<p>正如同很多進化中的語言，Ruby on Rails 經常會遇到函式庫版本、執行環境的管理問題。我們可以使用<a href="https://rvm.io/">Ruby Version Manager (RVM)</a>來解決這個問題。
+事實上我建議新手在第一次安裝 Ruby 前，就先安裝 RVM 來避免未來可能的問題。</p>
+
+<p>這邊我示範如何在沒有 sudo 的權限下，安裝 RVM, Ruby, Rails Gem在自己的家目錄下。每位使用者獨力安裝自己的 Ruby Environment 有個好處，就是不會相互干擾，容易除錯。
+我的環境是 Ubuntu 12.04，以下流程在 MAC OS 上也是可以運作的。(事實上這也是<a href="https://rvm.io/">Ruby Version Manager (RVM)</a>所提供的預設安裝方法，這裡只是提供我的經驗給大家參考)</p>
+
+<h2 id="安裝-rvm-ruby-rails-gem-於-rvm">安裝 RVM, Ruby, Rails Gem 於 ~/.rvm</h2>
+
+<p>1- 安裝 RVM</p>
+
+<pre><code># install rvm via internet.
+curl -L https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>2- 用 RVM 來安裝 Ruby</p>
+
+<pre><code># install ruby 1.9.3 with rvm
+rvm install 1.9.3
+</code></pre>
+
+<p>3- 用 Ruby 所附加的 gem 工具來安裝 Rails</p>
+
+<pre><code># install gem
+gem install rails
+</code></pre>
+
+<h2 id="ruby相依函式庫">Ruby相依函式庫</h2>
+
+<p>但是要特別注意的是，在安裝 Ruby 的時候，因為 Ruby 依賴 OpenSSL, YAML 等等的函式庫，
+如果你的電腦沒有這些函式庫，安裝 Ruby 時會遇到問題。有兩個方法來解決這個問題</p>
+
+<h4 id="請系統管理員手動安裝相依函式庫">請系統管理員手動安裝相依函式庫</h4>
+
+<p>以 Ubuntu12.04 為例，需要安裝 libreadline6-dev, libyaml-dev, sqlite3, libxslt1-dev, libgdbm-dev, libffi-dev
+然後依照上述步驟2，開始安裝 Ruby</p>
+
+<h4 id="設定-rvm-autolibs-為-enable">設定 RVM autolibs 為 enable</h4>
+
+<p>設定 autolibs 為 enable</p>
+
+<pre><code>rvm autolibs enable
+</code></pre>
+
+<p>然後依照上述步驟2，開始安裝 Ruby，此時，RVM會向你要求 sudo 權限，並安裝需要的函式庫。</p>
+
+<p>Ref:</p>
+
+<ol>
+<li><a href="http://stackoverflow.com/questions/16563115/how-to-install-rvm-debian-requirements-without-giving-sudo-for-rvm-user/">How to install RVM debian requirements without giving sudo for rvm user. Answered by Chen-Han Hsiao</a></li>
+<li><a href="https://rvm.io/rvm/autolibs">RVM Autolibs</a></li>
+</ol>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

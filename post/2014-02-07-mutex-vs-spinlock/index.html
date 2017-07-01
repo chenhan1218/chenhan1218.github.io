@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Mutex VS Spinlock">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-02-07">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2014-02-07-mutex-vs-spinlock/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Mutex VS Spinlock &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Mutex VS Spinlock</h1>
+	</header>
+
+	<article>
+		<p>這篇發問的最佳回答 <a href="http://stackoverflow.com/questions/5869825/when-should-one-use-a-spinlock-instead-of-mutex">When should one use a spinlock instead of mutex?</a> 說明了 mutex 與 spinlock 的不同。
+mutex 的機制是當 process 無法鎖定 mutex 時，process 會進入 sleep，中間會需要付出 context switch 的代價。spinlock 的機制是採用 busy-waiting，直到鎖定 spinlock 為止。
+依據兩者的特性，一般來說，在單核心的系統中，會採用 mutex。而多核心，且 critical section 只耗用一小段時間的狀況下，適合使用 spinlock。<br />
+解答者 Mecki 還補充了實務上的狀況。由於要預期應用情境下的 lock 狀況相當困難，現代的作業系統中也加入一些機制增加彈性，發展出了 hybrid mutex, hybrid spinlock。當 process 無法鎖住 hybrid mutex 時，作業系統不會馬上讓 process 進入睡眠，而是以類似 spinlock 的方式 busy-waiting 一小段時間，確定真的無法鎖住 hybrid mutex，才讓 process 進入睡眠。而當 process 無法鎖住 hybrid spinlock 時，作業系統會允許 process 進行 busy-waiting。但超過某個時間限制，則會讓 process 進入睡眠，讓其它 thread 運作。</p>
+
+<p><a href="http://www.alexonlinux.com/pthread-mutex-vs-pthread-spinlock">pthread mutex vs pthread spinlock</a> 這篇文章則是給出實作，實際表現出在多核環境，且critical section佔用極小時間的情況下，pthread spinlock 的表現優於 pthread mutex</p>
+
+<p>More Link: <a href="http://orzlab.blogspot.tw/2007/03/mutex.html">Jserv - Mutex與火車排班</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

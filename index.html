@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta property="og:type" content="website">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<header>
+	
+	
+		<h1> </h1>
+	
+</header>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2017-07-01-migrate-to-hugo/">Migrate to Hugo</a>
+			<br>
+			<small>
+				1 July 2017
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Due to some software issues not fixing for long time on logdown.com [2], I decided to finding other blog solutions for hosting my tech blog. After considering several options (Such as Hugo, Ghost, even back to Octopress). The final choice goes to Hugo. Hugo is a popular static website generator which built on top of Golang. The community support is actively. Over 18 thousands stars on Hugo github repository. And Debian/Ubuntu has hugo packages which is very easily for normal user to install.
+		
+			... <a href="http://swem.github.io/post/2017-07-01-migrate-to-hugo/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+		<small class="text-muted">
+			
+			
+				<a href="http://swem.github.io/tags/hugo"><span class="label label-success">hugo</span></a>
+			
+		</small>
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">利用 RTL-SDB 接收 ads-b 訊號</a>
+			<br>
+			<small>
+				1 July 2017
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Automatic dependent surveillance – broadcast (ADS–B) 是 廣播式自動回報監視（ADS-B）
+周末跟同事借了 RTL-SDB 來玩。
+無論使用哪種方式啟動，都要先確定一些 driver 不會被自動載入。設定 driver blacklist 後，重開機讓設定生效。
+$ cat &lt;&lt; EOF &gt; /tmp/blacklist-rtl-sdr.conf blacklist dvb_usb_rtl28xxu blacklist e4000 blacklist rtl2832 EOF $ sudo mv /tmp/blacklist-rtl-sdr.conf /etc/modprobe.d $ sudo reboot  接下來可以選擇使用 docker 或 snap 來啟動 dump1090
+Docker 我的測試環境是 Debian 9.0 Stretch AMD64
+使用 docker 來執行 docker hub 上己經包好的 dump1090
+docker run --rm --it -p 8080:8080 --device=/dev/bus/usb inodes/docker-x86-rtlsdr-dump1090 --net  連接到 http://localhost:8080 就可以看到接收到的飛機訊號
+		
+			... <a href="http://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2017-07-01-must-have-gnome-extensions/">推薦 gnome extensions</a>
+			<br>
+			<small>
+				1 July 2017
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Ubuntu 將在 17.10 切換到 Gnome Desktop。其實我覺得 Ubuntu Unity 的 UI 設計是很不錯的，簡潔又不失功能性。Gnome 3 的預設版型我反倒不這麼喜歡。
+關於 Gnome Shell 的設計文件：Projects/GnomeShell/Design - GNOME Wiki!
+不過使用者可以透過 gnome extensions 來改造自己的 UI。以下介紹 4 個我個人必裝的 gnome extensions：
+ Dash to Dock: https://extensions.gnome.org/extension/307/dash-to-dock/  安裝的首選。建議安裝完以後，再更改 extension 設定 [Position and size] -&gt; Position on screen: Left [Position and size] -&gt; Panel mode: extend to the screen edge [Behavior] -&gt; Show Application icon  TopIcons Plus: https://extensions.gnome.org/extension/1031/topicons/  讓 legacy tray icons (bottom left of Gnome Shell) 出現在 Top Bar。 #LegacyTrayIcon出現在左下角真的很惱人  Battery Percentage: https://extensions.
+		
+			... <a href="http://swem.github.io/post/2017-07-01-must-have-gnome-extensions/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-09-23-905130/">How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</a>
+			<br>
+			<small>
+				23 September 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Recently I&rsquo;ve trace how cloud-init is being run. First, I try to find service file in /etc/system/system or /lib/systemd/system. Although I can locate the unit files, I can&rsquo;t see any systemd target that will bring up these cloud-init services. I did&rsquo;t see how cloud-init.target is activated by systemd.
+Finally, I found that cloud-init project utilize the systemd generator to generate the unit files dynamically. The dynamic unit files is located at /run/system/generator.
+		
+			... <a href="http://swem.github.io/post/2016-09-23-905130/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/">use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</a>
+			<br>
+			<small>
+				16 August 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Snapper is a great tool for making snapshot on linux. You can download it on ArchLinux/Debian/OpenSUSE/Ubuntu
+Personally I use btrfs as underlying file system. Here are some basic command to snapshot my data.
+# install snapper sudo apt install -y snapper # Suppose /dev/sda3 is formatted as btrfs file system. # mount the file system sudo mount /dev/sda3 /mnt # create a btrfs subvolme &quot;data&quot; sudo btrfs subvolume create /mnt/data # unmount /dev/sda3 sudo umount /mnt # mount only the subvolume &quot;data&quot;, instead of whole file system sudo mount -o subvol=data /dev/sda3 /data # create the snapper config for &quot;/data&quot; folder.
+		
+			... <a href="http://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-08-14-lxd-container-getting-started/">LXD container Getting Started</a>
+			<br>
+			<small>
+				14 August 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.
+# check current status of lxd. If you install lxd the first time, it should containing no virtual machines.
+		
+			... <a href="http://swem.github.io/post/2016-08-14-lxd-container-getting-started/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-07-06-763254/">Build Debian/Ubuntu LiveCD</a>
+			<br>
+			<small>
+				6 July 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Note that this article introduces how to build Debian/Ubuntu LiveCD iso image from scratch. With this method, you have great flexibility to customize the LiveCD.
+However, if you only want to customize the LiveCD a little bit. Such as adding some packages for installation, or changing the preseed configuration, you can refer to DebianCustomCD, Simple-CDD and LiveCDCustomization
+Debian Jessie # within Debian jessie git clone git://anonscm.debian.org/git/debian-live/live-build.git cd live-build git checkout debian/4.
+		
+			... <a href="http://swem.github.io/post/2016-07-06-763254/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/">PuDB Python Debugging Tool. A full-screen, console-based Python debugger</a>
+			<br>
+			<small>
+				31 March 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		I highly recommened pudb, which is a full-screen, console-based visual debugger for Python. The user-interface is nicely designed for python developers.
+Here is an example debugging a simple python script: Introduction to the PuDB Python Debugging Tool 
+Also, another great tutorial is from Jordi Gutiérrez Hermoso. Montreal, QC, September 14, 2015 - Jordi Gutiérrez Hermoso presents PuDB, a full-screen, console-based visual debugger for Python. An interesting comment from the speaker: &gt; Everyone should use a debugger &gt; &hellip; &gt; &gt; But If pdb is the only debugger you&rsquo;ve every seen, I won&rsquo;t blame you not using a debugger &gt; &gt; &hellip; &gt; because the debugger is ugly, not because the source code is ugly
+		
+			... <a href="http://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/">How to prevent Linux from waking up due to USB devices</a>
+			<br>
+			<small>
+				26 March 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		最近換了一台工作機，但我發現在 Ubuntu 14.04.3 上，有時候會休眠失敗。 在失敗的時候，機器有 suspend 成功，但是過2秒後機器就會自動醒來。查看了 /var/log/kern.log, /var/log/syslog, /var/log/pm-suspend.log 沒有太異常的訊息。後來上網查了一下，這可能是有 BIOS 有問題或 device 不正常運作。
+在 /proc/acpi/wakeup 中，列出了數種 wakeup event, 以下面的表來說，代表了機器開放了 EHC1, EHC2, PWRB, LID0 這幾種 wakeup event
+RP06 S4 *disabled PXSX S4 *disabled RP07 S4 *disabled PXSX S4 *disabled EHC1 S0 *enabled pci:0000:00:1d.0 EHC2 S4 *enabled pci:0000:00:1a.0 PWRB S4 *enabled platform:PNP0C0C:00 LID0 S4 *enabled platform:PNP0C0D:00  試著開關 wakeup trigger 來找出問題
+# ignore XHC device wakeup event echo &quot;XHC&quot; &gt; /proc/acpi/wakeup # try suspend, still failed # ignore EHC1 device wakeup event echo &quot;EHC1&quot; &gt; /proc/acpi/wakeup # try suspend, still failed # ignore EHC1 device wakeup event echo &quot;EHC2&quot; &gt; /proc/acpi/wakeup # try suspend.
+		
+			... <a href="http://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/">AlphaGo is not the solution to AI</a>
+			<br>
+			<small>
+				15 March 2016
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Addressing global exploration effectively is only one of the significant challenges between what is well known now and what needs to be addressed for what I would consider a real AI.
+ Ref: AlphaGo is not the solution to AI
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+
+<div class="text-center center-block">
+	
+
+<ul class="pagination">
+    
+    <li>
+        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li
+    class="disabled">
+    <a href="" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    class="active"><a href="/">1</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/2/">2</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/10/">10</a></li>
+    
+    
+    <li
+    >
+    <a href="/page/2/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li>
+        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

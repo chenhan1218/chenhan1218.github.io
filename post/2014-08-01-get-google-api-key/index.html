@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="取得 Google API 金鑰">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-08-01">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2014-08-01-get-google-api-key/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>取得 Google API 金鑰 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>取得 Google API 金鑰</h1>
+	</header>
+
+	<article>
+		<p>Google API 提供了很多好用的 API，可以用來存取Google 提供的資源(包含資料、運算資源等等)。之前貢獻了一個 patch 在 Hackfoldr 上，就是透過 YouTube Data API v3 去取得 Youtube 的影片相關資訊。要發佈使用Google API的專案時，就要記得先去取得一組 Google API 金鑰。步驟可參考Google的說明 (介面可能稍有不同，但差異應該不大)。</p>
+
+<p><a href="https://developers.google.com/maps/documentation/javascript/tutorial?hl=zh-tw#api_key">取得 API 金鑰</a><br />
+如何建立 API 金鑰：</p>
+
+<ol>
+<li>請前往 API 控制台 (位於 <a href="https://code.google.com/apis/console)，並登入您的">https://code.google.com/apis/console)，並登入您的</a> Google 帳戶。</li>
+<li>按一下左選單中的 [Services] 連結。</li>
+<li>啟用 [Google Maps API v3] 服務。</li>
+<li>按一下左方選單中的 [API Access]。您可以從 [API Access] 頁面的 [Simple API Access] 區段取得 API 金鑰。Maps API 應用程式會使用 [Key for browser apps]。</li>
+</ol>
+
+<p>根據預設，金鑰可用於任何網站。我們強烈建議您將金鑰限制於使用在自己管理的網域中，以免遭未經授權的網站使用。只要您按一下金鑰的 [Edit allowed referrers&hellip;] 連結，即可指定允許使用 API 金鑰的網域。</p>
+
+<p>Referrers 就是允許向Google API發出請求的網域，如果你要發佈到 example.com，那麼就在這個欄位填寫 example.com/*。</p>
+
+<p>再依照自己的需求，在<a href="https://code.google.com/apis/console">API 控制台</a>打開相對應的API。以Hackfoldr來說，需要開啟 YouTube Data API v3 。</p>
+
+<p>最後，把這組 API 金鑰配置到自已網站設定中。以Hackfoldr來說，就是填寫在 app/config.jsenv 中。這樣，網站應用程式就可以串接 Google API 來提供服務了。</p>
+
+<p>註：Google API對每一個專案有流量上限。如果流量到達了就無法繼續使用，這時可以參考付費方案，來購買更多的使用量。</p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

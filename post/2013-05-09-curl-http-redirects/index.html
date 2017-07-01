@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="cURL HTTP redirects">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-05-09">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2013-05-09-curl-http-redirects/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>cURL HTTP redirects &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>cURL HTTP redirects</h1>
+	</header>
+
+	<article>
+		<p>cURL 是一個 unix 下以命令操作來取得檔案、頁面的工具，在網頁測試中經常使用到。不過要注意的是，cURL 預設並不處理 HTTP 重導向。</p>
+
+<p>昨天在 github 上看到了一個有趣的專案 <a href="https://github.com/fzaninotto/screenshot-as-a-service/">screenshot-as-a-service</a>，這個專案給使用者的第一個範例就是用 cURL 來進行操作。不過在 Readme.md 裡有點小錯誤。於是我就將它改正過來，並送了一個 Pull Request。
+<a href="https://github.com/fzaninotto/screenshot-as-a-service/pull/35">revise usage example in Readme.md</a></p>
+
+<p>今天發現作者已經將我的 patch 合併進了專案，有興趣的人可以抓下來試一試。</p>
+
+<p>註：現今的網頁設計中，重導向至少有三種。</p>
+
+<ol>
+<li>HTTP redirects</li>
+<li>Redirects with HTML tag</li>
+<li>Redirects with javascript</li>
+</ol>
+
+<p>在 cURL 中，可以下參數讓 cURL 進行第1種 HTTP 重導向。至於第 2, 3 種，cURL 則是完全不支援。原因很簡單，就如同 cURL 最初的設計，是用來取得檔案、頁面用的。它並不是特別用來處理 HTML 的工具，所以這2類重導向就交給其它的工具去處理了。</p>
+
+<p>Ref:</p>
+
+<ol>
+<li><a href="http://curl.haxx.se/docs/faq.html#How_do_I_tell_curl_to_follow_HTT">How do I tell curl to follow HTTP redirects?</a></li>
+<li><a href="http://curl.haxx.se/docs/faq.html#Redirects_work_in_browser_but_no">Redirects work in browser but not with curl!</a></li>
+</ol>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="python3 UnicodeDecodeError">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-04-16">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>python3 UnicodeDecodeError &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>python3 UnicodeDecodeError</h1>
+	</header>
+
+	<article>
+		<p>遇到 python UnicodeDecodeError 其實有點頭大。</p>
+
+<pre><code class="language-python">#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import subprocess
+import os
+import sys
+import locale
+
+if __name__ == &quot;__main__&quot;:
+    locale.setlocale(locale.LC_ALL, 'en_US.UTF8')
+    proc = subprocess.Popen(['date'], stdout=subprocess.PIPE,
+                                     stderr=subprocess.PIPE,
+                                     stdin=subprocess.PIPE,
+                                     env={'LANG': 'zh_TW.UTF8', 'LANGUAGE': 'zh_TW:zh'},
+                                     universal_newlines=True, shell=True)
+    (out, err) = proc.communicate()
+    import codecs
+    sys.stdout = codecs.getwriter(&quot;utf-8&quot;)(sys.stdout.detach())
+    print(out)
+    print(err)
+</code></pre>
+
+<pre><code class="language-bash">$ ./date.py
+</code></pre>
+
+<p>再進一步查了一下，發現這跟環境變數有關。</p>
+
+<pre><code>$ env -i LANG='en_US.UTF8' /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))'               
+UTF-8
+$ env -i  /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))'
+ANSI_X3.4-1968
+</code></pre>
+
+<p>看完這份 slides ，才比較知道 Unicode 在 Python 中較好的處理方法 <a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a></p>
+
+<blockquote>
+<p>Solution
+1. Decode early
+2. Unicode everywhere
+3. Encode late</p>
+</blockquote>
+
+<p>或是類似 Ubiquity 的直接強制使用 C.UTF
+<a href="http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44">http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="基於 upstream git-tree 產生 debian package patch">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-08-19">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>基於 upstream git-tree 產生 debian package patch &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>基於 upstream git-tree 產生 debian package patch</h1>
+	</header>
+
+	<article>
+		<p>最近在工作上遇到一個 bug，在某些狀況下執行 lshw (02.16-2ubuntu1.2) 會 segmentation fault。找了 <a href="https://github.com/lyonel/lshw">lshw</a> 最新的 code 編譯執行後發現沒有這個問題。於是就開始了 git bisect。最後找到是 <a href="https://github.com/lyonel/lshw/commit/d048d300b5daeb44887a7fc06ddeb120119cac8a">d048d300b5daeb44887a7fc06ddeb120119cac8a</a> 這筆修改在 src/core/scsi.cc 上面的 commit 解決了這個問題</p>
+
+<p>順著這筆 commit，找到了 lshw project 的 bug report <a href="http://www.ezix.org/project/ticket/653">lshw segfaults, with some 16GB USB-3 sticks from Patriot</a> 。也了解是 USB3.0 stick plugged 時會出現問題。在手上的機器上試了一下，果然是這樣沒錯。原本沒有頭緒的 random segmentation fault，現在則是有了 root cause 的 issue。</p>
+
+<p>既然找到了 Solution，就開始要加 patch 進 Ubuntu source 了。為了將 patch 加到 Ubuntu 14.04 (Trusty) 目前的 lshw (02.16-2ubuntu1.2) 裡，我們還必須加上 src/core/scsi.cc 的前一個 commit <a href="https://github.com/lyonel/lshw/commit/b79f299319f61bc80e8d38e61631cfee7521a729">b79f299319f61bc80e8d38e61631cfee7521a729</a></p>
+
+<pre><code class="language-bash"># clone upstream
+git clone https://github.com/lyonel/lshw lshw-lyonel
+# clone ubuntu source
+bzr branch lp:ubuntu/trusty-proposed/lshw
+
+# make patch from upstream git tree
+cd lshw-lyonel/
+git format-patch b79f299^..b79f299
+git format-patch d048d30^..d048d30
+cd ..
+
+# import patches to ubuntu source
+cd lshw/
+dquilt push -a # apply existing patches
+dquilt import ../lshw-lyonel/0001-use-a-different-approach-for-scanning-SCSI-generic-d.patch
+dquilt import ../lshw-lyonel/0001-presumably-fix-653.patch
+
+# edit changelog
+dch -v 02.16-2ubuntu1.3 -D trusty
+
+# local commit
+debcommit
+</code></pre>
+
+<p>這樣就完成了，最後這一包 source 就可以拿來做 debian package 的打包，並且開始跑 Ubuntu package propose 的流程。</p>
+
+<p>Ref:
+1. <a href="https://xpressubuntu.wordpress.com/2013/11/27/how-to-add-upstream-git-patches-to-an-existing-debian-package/">how to add upstream git patches to an existing debian package</a>
+2. <a href="https://www.debian.org/doc/manuals/maint-guide/modify.en.html">Chapter 3. Modifying the source</a>
+3. <a href="https://stuff.mit.edu/afs/athena/system/i386_deb50/os/usr/share/doc/quilt/quilt.html">How To Survive With Many Patches or Introduction to Quilt</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

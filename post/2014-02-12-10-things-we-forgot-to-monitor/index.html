@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="10項系統監控">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-02-12">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>10項系統監控 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>10項系統監控</h1>
+	</header>
+
+	<article>
+		<p><a href="http://word.bitly.com/post/74839060954/ten-things-to-monitor">10 Things We Forgot to Monitor</a>
+在做系統監控時，我們常想到Disk Usage, Memory Usage, CPU Load, Ping latency。<a href="https://bitly.com/">bitly</a>的工程師 Jehiah 分享10項有用但平常少提及的系統監控項目，有些項目甚至附上了 script 供 Devops 參考。</p>
+
+<ol>
+<li>Fork Rate
+
+<ul>
+<li>異常的 Fork Rate 可能表示系統設置有問題。作者舉了一個例子，某次系統設置錯誤， curl 不斷觸發 modprobe</li>
+</ul></li>
+<li>flow control packets
+
+<ul>
+<li>確定網路流量管控機制的設定不會使得系統在某一時刻停止接受封包</li>
+</ul></li>
+<li>Swap in/out rate
+
+<ul>
+<li>藉由記錄 <a href="http://en.wikipedia.org/wiki/Vmstat">vmstat</a> 的數據, 推算 swap in/out rate，確定系統流暢</li>
+</ul></li>
+<li>Server Boot Notification
+
+<ul>
+<li>系統重開機時，寄email給管理員</li>
+</ul></li>
+<li>NTP Clock Offset
+
+<ul>
+<li>確定 ntpd 在背景執行，並且記錄機器時鐘誤差，以及機房時間伺服器與外部的時鐘誤差</li>
+</ul></li>
+<li>DNS Resolutions
+
+<ul>
+<li>監控內部 DNS Resolutions 狀態，也監控外部 nameserver 的穩定性</li>
+</ul></li>
+<li>SSL Expiration
+
+<ul>
+<li>在 SSL 快過期前發出通知</li>
+</ul></li>
+<li>DELL OpenManage Server Administrator (OMSA)
+
+<ul>
+<li>購買硬體伺服器所需做的監控</li>
+</ul></li>
+<li>Connection Limits
+
+<ul>
+<li>了解系統並確定限制連線設定符合需求，作者這邊給的限制是 65536</li>
+</ul></li>
+<li>Load Balancer Status.
+
+<ul>
+<li>Load Balancer health check</li>
+</ul></li>
+</ol>
+
+<p>附註：看到 Hacker News 推文中有人另外列出一個也滿值得監控的數值： file descriptors 的最大數量</p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

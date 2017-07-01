@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="LXD container Getting Started">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-08-14">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2016-08-14-lxd-container-getting-started/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>LXD container Getting Started &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>LXD container Getting Started</h1>
+	</header>
+
+	<article>
+		<p>Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.</p>
+
+<pre><code># check current status of lxd. If you install lxd the first time, it should containing no virtual machines.
+lxc list
+
+# if my-ubuntu virtual machine not exist yet.
+lxc launch ubuntu:16.04 my-ubuntu
+# if my-ubuntu virtual machine already exist.
+lxc start my-ubuntu
+
+# check status of my-ubuntu virtual machine
+lxc list
+
+# login to root account
+lxc exec first -- /bin/bash
+# or login to ubuntu account
+lxc exec first -- /bin/su - ubuntu
+
+# stop the virtual machine
+lxc stop my-ubuntu
+
+# you can even copy virtual machine
+lxc copy my-ubuntu my-ubuntu2
+# or rename it
+lxc mv my-ubuntu stanley-ubuntu
+lxc mv stanley-ubuntu my-ubuntu
+
+# delete my-ubuntu virtual machine
+lxc delete my-ubuntu
+
+# check my-ubuntu is deleted
+lxc list
+</code></pre>
+
+<p>Varies images is provided by Canonical in <a href="http://images.linuxcontainers.org/">http://images.linuxcontainers.org/</a></p>
+
+<p>Note that lxd has some limitaions. Such as you can&rsquo;t
+- setup loopback device
+- mount fuse file system
+- have bridged network.
+- load/remove kernel module
+&hellip;
+(But if you choose to run a priviledged lxd virtual machine, some limitations might not exist anymore. But I haven&rsquo;t dig into it currently.)</p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

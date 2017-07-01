@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Build Debian/Ubuntu LiveCD">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-07-06">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2016-07-06-763254/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Build Debian/Ubuntu LiveCD &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Build Debian/Ubuntu LiveCD</h1>
+	</header>
+
+	<article>
+		
+
+<p>Note that this article introduces how to build Debian/Ubuntu LiveCD iso image from scratch. With this method, you have great flexibility to customize the LiveCD.</p>
+
+<p>However, if you only want to customize the LiveCD a little bit. Such as adding some packages for installation, or changing the preseed configuration, you can refer to <a href="https://wiki.debian.org/DebianCustomCD">DebianCustomCD</a>, <a href="https://wiki.debian.org/Simple-CDD/Howto">Simple-CDD</a> and <a href="https://help.ubuntu.com/community/LiveCDCustomization">LiveCDCustomization</a></p>
+
+<h2 id="debian-jessie">Debian Jessie</h2>
+
+<pre><code># within Debian jessie
+git clone git://anonscm.debian.org/git/debian-live/live-build.git
+cd live-build
+git checkout debian/4.0.5-1
+dpkg-buildpackage -b -uc -us
+cd ..
+sudo dpkg -i live-build_4.0.5-1_all.deb
+
+sudo apt-get install -y live-images
+cp -r /usr/share/live/images/standard .
+cd standard/
+lb config --source false # optional, would be faster if not build source
+sudo lb build
+# here we got live-image-amd64.hybrid.iso, about 417MB
+# refer to http://cdimage.debian.org/mirror/cdimage/archive/8.6.0-live/amd64/iso-hybrid/debian-live-8.6.0-amd64-standard.iso.log for more information
+</code></pre>
+
+<h2 id="ubuntu-xenial-16-04">Ubuntu Xenial 16.04</h2>
+
+<h3 id="automatically-build-with-ubuntu-defaults-builder">Automatically build with ubuntu-defaults-builder</h3>
+
+<pre><code>sudo apt install -y ubuntu-defaults-builder
+sudo apt install -y syslinux-utils
+ubuntu-defaults-template myconfig
+cd myconfig/
+dpkg-buildpackage
+cd ../
+ubuntu-defaults-image --package myconfig_0.1_all.deb --components main,restricted,universe,multiverse
+
+# here we got binary.hybrid.iso and livecd.ubuntu.iso
+</code></pre>
+
+<h3 id="build-with-ubuntu-cdimage">build with ubuntu-cdimage</h3>
+
+<pre><code>TODO:
+</code></pre>
+
+<h3 id="manually-build-with-live-build-not-working-right-now-might-need-hooks-to-allow-booting">Manually build with live-build (Not working right now, might need hooks to allow booting)</h3>
+
+<pre><code># First, set up the build tools and workspace.
+# The scripts require that you work in /build
+
+sudo apt-get install -y genisoimage syslinux-utils # tools for generate ISO image
+sudo apt-get install -y memtest86+ syslinux syslinux-themes-ubuntu-xenial gfxboot-theme-ubuntu
+
+sudo -i
+apt-get install -y livecd-rootfs
+mkdir -p /build/chroot
+cd /build
+cp -a /usr/share/livecd-rootfs/live-build/auto .
+
+# All the hard work is done with live-build (lb command)
+# and we have to configure it with environment variables
+
+export SUITE=xenial
+export ARCH=amd64
+export PROJECT=ubuntu
+export MIRROR=http://archive.ubuntu.com/ubuntu/
+export BINARYFORMAT=iso-hybrid
+export LB_SYSLINUX_THEME=ubuntu-xenial
+
+# Now we can have live-build set up the workspace
+
+lb config --initramfs-compression=gzip 
+
+# And finally, start the build
+
+lb build
+</code></pre>
+
+<p>Ref:
+[1] <a href="https://code.launchpad.net/~semiosis/livecd-rootfs/fix-for-1565985/+merge/298305/comments/768010">https://code.launchpad.net/~semiosis/livecd-rootfs/fix-for-1565985/+merge/298305/comments/768010</a>
+[2] <a href="https://lists.ubuntu.com/archives/ubuntu-devel/2011-June/033458.html">Ubuntu live filesystem builds moved to live-build</a>
+[3] <a href="https://wiki.ubuntu.com/DesktopTeam/Specs/Oneiric/LocalizedCDImageTools">LocalizedCDImageTools - Ubuntu Wiki</a>
+[4] <a href="http://summit.ubuntu.com/uos-1411/meeting/22380/development-1411-iso-l10n-uefi/">ISO with l10 preloaded for LoCo + UEFI</a>
+[5] <a href="https://wiki.ubuntu.com/UbuntuStudio/Seeds">UbuntuStudio/Seeds - Ubuntu Wiki</a>
+[6] <a href="https://docs.google.com/document/d/1RPPF14h1Sw2gQjGTuZjUIlNHnGrafS8ekhFjJM9MT00/edit#">Building large-scale Ubuntu derivatives using seeds - Google Docs
+</a>
+[7] <a href="https://wiki.ubuntu.com/ReleaseTeam/CDImageSetup">ReleaseTeam/CDImageSetup - Ubuntu Wiki</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

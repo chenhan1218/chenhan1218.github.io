@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Setup Domain Controller on Ubuntu 14.04">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-09-22">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Setup Domain Controller on Ubuntu 14.04 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Setup Domain Controller on Ubuntu 14.04</h1>
+	</header>
+
+	<article>
+		<p>在ubuntu 14.04 上架設 Samba Domain Controller 的步驟：
+1. 安裝 samba libpam-smbpass</p>
+
+<pre><code>sudo apt-get install samba libpam-smbpass
+</code></pre>
+
+<p>samba 版本目前是4.1.6 (4.0以上的 Samba 才有提供 Domain Controller 的功能)</p>
+
+<pre><code>samba -V
+Version 4.1.6-Ubuntu
+</code></pre>
+
+<ol>
+<li>使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io
+<code>
+samba-tool domain provision --use-rfc2307 --interactive
+</code></li>
+</ol>
+
+<p>設定成功，過程的設定記錄如下：</p>
+
+<pre><code>vagrant@vagrant-ubuntu-trusty-64:~$ sudo samba-tool domain provision --use-rfc2307 --interactive                                                   
+Realm: mysamba.test.io
+ Domain [mysamba]: 
+ Server Role (dc, member, standalone) [dc]: 
+ DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: 
+ DNS forwarder IP address (write 'none' to disable forwarding) [192.168.1.253]: 192.168.1.253
+Administrator password: 
+Retype password: 
+Looking up IPv4 addresses
+More than one IPv4 address found. Using 192.168.1.2
+Looking up IPv6 addresses
+No IPv6 address will be assigned
+Setting up secrets.ldb
+Setting up the registry
+Setting up the privileges database
+Setting up idmap db
+Setting up SAM db
+Setting up sam.ldb partitions and settings
+Setting up sam.ldb rootDSE
+Pre-loading the Samba 4 and AD schema
+Adding DomainDN: DC=mysamba,DC=test,DC=io
+Adding configuration container
+Setting up sam.ldb schema
+Setting up sam.ldb configuration data
+Setting up display specifiers
+Modifying display specifiers
+Adding users container
+Modifying users container
+Adding computers container
+Modifying computers container
+Setting up sam.ldb data
+Setting up well known security principals
+Setting up sam.ldb users and groups
+Setting up self join
+Adding DNS accounts
+Creating CN=MicrosoftDNS,CN=System,DC=mysamba,DC=test,DC=io
+Creating DomainDnsZones and ForestDnsZones partitions
+Populating DomainDnsZones and ForestDnsZones partitions
+Setting up sam.ldb rootDSE marking as synchronized
+Fixing provision GUIDs
+A Kerberos configuration suitable for Samba 4 has been generated at /var/lib/samba/private/krb5.conf
+Setting up fake yp server settings
+Once the above files are installed, your Samba4 server will be ready to use
+Server Role:           active directory domain controller
+Hostname:              vagrant-ubuntu-trusty-64
+NetBIOS Domain:        MYSAMBA
+DNS Domain:            mysamba.test.io
+DOMAIN SID:            S-1-5-21-711469164-2329730621-2401598146
+</code></pre>
+
+<p>附註：在使用 samba-tool 的過程式如果有設定錯誤，想再進行一行 samba-tool 操作，會出現錯誤訊息，提示你必須把 /var/lib/samba/private/sam.ldb /etc/samba/smb.conf 刪除，讓 samba-tool 來重新建立</p>
+
+<pre><code>sudo rm /var/lib/samba/private/sam.ldb
+sudo rm /etc/samba/smb.conf
+</code></pre>
+
+<p>Ref: <a href="https://wiki.samba.org/index.php/Samba_AD_DC_HOWTO">Samba AD DC HOWTO</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

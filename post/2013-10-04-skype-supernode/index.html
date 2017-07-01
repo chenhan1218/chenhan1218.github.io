@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Skype Supernode">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2013-10-04">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/post/2013-10-04-skype-supernode/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Skype Supernode &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Skype Supernode</h1>
+	</header>
+
+	<article>
+		<p>今天讀了一些關於<a href="http://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a>，才知道原來VOIP這一類的技術，如何穿越NAT。</p>
+
+<p>位在NAT後的A,B兩方要進行通話前，必須先透過一個STUN Server，取得對方於公開網路上的IP位址及PORT埠口，然後再進行<a href="http://en.wikipedia.org/wiki/NAT_traversal">NAT Traversal</a>。</p>
+
+<p>在Skype的實作中，本身具有Public IP位址的使用者，也可能擔任這個STUN server(Skype稱之為，Supernode)，分擔主伺服器的工作。因此，也需要耗用一些頻寬與運算效能。關於這點，台灣的網路追追追有訪問過Skype:</p>
+
+<blockquote>
+<p>這個Super Node技術用在每種P2P的服務中，已經發展了8～9年，Skype是第一個將它運用於語音服務上，Skype挑選比較好的等級以及比較大的頻寬的用戶來當Super Node，並不會讓一個配備很差的電腦，還繼續拖垮它，而頻寬與資源佔用也只是一點點，集合眾多Super Node的力量完成。</p>
+</blockquote>
+
+<p>不過在Microsoft買下Skype後，架構也有了調整，使用者將不再需要擔任STUN Server的角色，完全由微軟的伺服器來完成 Hole Punching 所需的資料交換。</p>
+
+<p>Ref:</p>
+
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/UDP_hole_punching">UDP hole punching</a></li>
+<li><a href="http://en.wikipedia.org/wiki/NAT_traversal">NAT traversal</a></li>
+<li><a href="http://www.cs.nccu.edu.tw/~lien/Writing/NGN/firewall.htm">VoIP 穿越防火牆的技術</a></li>
+<li>Supernode <a href="http://en.wikipedia.org/wiki/Supernode_(networking)">http://en.wikipedia.org/wiki/Supernode_(networking)</a></li>
+<li><a href="http://rumor.nownews.com/2007/11/15/515-1728533.htm">網路追追追／用Skype到底安不安全？　PChome回應</a></li>
+<li><a href="http://arstechnica.com/business/2012/05/skype-replaces-p2p-supernodes-with-linux-boxes-hosted-by-microsoft/">Skype replaces P2P supernodes with Linux boxes hosted by Microsoft</a></li>
+</ul>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" http://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

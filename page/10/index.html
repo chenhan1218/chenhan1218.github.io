@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta property="og:type" content="website">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://swem.github.io/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="http://swem.github.io/css/style.css">
+    
+    <link href="http://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="http://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://swem.github.io/about">About</a></li>
+				
+					<li><a href="http://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="http://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="http://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://swem.github.io/about">About</a>
+			
+				<a href="http://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<header>
+	
+	
+		<h1> </h1>
+	
+</header>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/">Memory blocks are possibly lost (Valgrind example again!!)</a>
+			<br>
+			<small>
+				25 December 2012
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		今天讀到的文章 Using Valgrind to debug memory leaks {% codeblock lang:c %} #include  #include  #include 
+char *lower;
+char *to_lower (const char *str) { char *l = strdup (str); char *c;
+for (c = l; *c; c++) { if (isupper(*c)) *c = tolower(*c); } return l;  }
+int main (int argc, char *argv[]) { lower = to_lower (argv[1]);
+while (*lower) putchar (*(lower++)); puts (&quot;&quot;); return 0;  } {% endcodeblock %}
+		
+			... <a href="http://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="http://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/">Valgrind - 檢查程式記憶體的小工具</a>
+			<br>
+			<small>
+				17 December 2012
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Octopress 的第一篇文章，簡單介紹 Valgrind - 檢查程式記憶體的小工具
+前陣子我對 project 進行 Debug 其中有一些 runtime error, 包含 memory leak
+我使用 Valgrind 來檢查 Memory Leak
+小範例，由 Valgrind 找出 test.cpp 第8行的 Bug ( Invalid read )
+{% codeblock lang:cpp %} #include  #include  using namespace std ;
+int main() { vector array(1024); cout &lt;&lt; array[1024] &lt;&lt; endl ; return 0; } {% endcodeblock %}
+$g++ -g test.cpp $valgrind ./a.out
+輸出訊息 {% codeblock %} ==9247== Memcheck, a memory error detector ==9247== Copyright &copy; 2002-2011, and GNU GPL&rsquo;d, by Julian Seward et al.
+		
+			... <a href="http://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+
+<div class="text-center center-block">
+	
+
+<ul class="pagination">
+    
+    <li>
+        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li
+    >
+    <a href="/page/9/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/">1</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/2/">2</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/3/">3</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/9/">9</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    class="active"><a href="/page/10/">10</a></li>
+    
+    
+    <li
+    class="disabled">
+    <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li>
+        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="http://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>
