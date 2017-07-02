@@ -1,44 +1,42 @@
 baseURL = "https://swem.github.io/"
-theme = "hyde-y"
+theme = "hyde-x"
 languageCode = "en-us"
 title = "ChenHan's Tech blog"
 paginate = 10
 
 [taxonomies]
-    tag = "tags"
+    # Optional. Use if you want tags and lists.
+    tags = "tags"
+    category = "categories"
 
+#
+# All parameters below here are optional and can be mixed and matched.
+#
 [params]
-    # You can use markdown here.
-    brand = "Chen-Han (Stanley) Hsiao"
-    topline = "ChenHan's Tech blog"
-    footline = ""
+    # If false display full article contents in blog index.
+    # Otherwise show description and 'read on' link to individual blog post page.
+    # Default (if omitted) is true.
+    truncate = false
 
-    # Sidebar position
-    # false, true, "left", "right"
-    sidebar = "left"
-
+    # Changes sidebar background and link/accent colours.
+    # See below for more colour options.
+    # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
+    theme = "theme-base-08"
 
     # Select a syntax highight.
     # Check the static/css/highlight directory for options.
     highlight = "default"
 
-    # Sidebar social links.
-    github = "swem" # Your Github profile ID
-    bitbucket = "" # Your Bitbucket profile ID
-    linkedin = "chen-han-hsiao-2b486049" # Your LinkedIn profile ID (from public URL)
-    googleplus = "" # Your Google+ profile ID
-    facebook = "" # Your Facebook profile ID
-    twitter = "" # Your Twitter profile ID
-    youtube = ""  # Your Youtube channel ID
-    flattr = ""  # populate with your flattr uid
-    flickr = "" # Your Flickr profile ID
-    vimeo = "" # Your Vimeo profile ID
+    # Displays under the author name in the sidebar, keep it short.
+    # You can use markdown here.
+    tagline = "Chen-Han (Stanley) Hsiao"
 
-[blackfriday]
-    angledQuotes = true
-    fractions = false
-    hrefTargetBlank = false
-    latexDashes = true
-    plainIdAnchors = true
-    extensions = []
-    extensionmask = []
+    # Sidebar social links, these must be full URLs.
+    github = "https://github.com/swem"
+    bitbucket = ""
+    stackOverflow = ""
+    linkedin = "https://www.linkedin.com/in/chen-han-hsiao-2b486049"
+    googleplus = ""
+    facebook = ""
+    twitter = ""
+    youtube = ""
