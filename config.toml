@@ -9,8 +9,6 @@ paginate = 10
 	tutorial = "tutorials"
 
 [params]
-	showglobe = true
-
 	favicon = "favicon.ico"
 	
     header = " "
