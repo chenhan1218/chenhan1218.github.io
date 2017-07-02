@@ -1,42 +1,39 @@
 baseURL = "https://swem.github.io/"
-theme = "hyde-x"
+theme = "hugo-geo"
 languageCode = "en-us"
-title = "ChenHan's Tech blog"
+title = "ChenHan's blog"
 paginate = 10
 
 [taxonomies]
-    # Optional. Use if you want tags and lists.
-    tags = "tags"
-    category = "categories"
+	tag = "tags"
+	tutorial = "tutorials"
 
-#
-# All parameters below here are optional and can be mixed and matched.
-#
 [params]
-    # If false display full article contents in blog index.
-    # Otherwise show description and 'read on' link to individual blog post page.
-    # Default (if omitted) is true.
-    truncate = false
+	favicon = "favicon.ico"
+	
+    header = " "
 
-    # Changes sidebar background and link/accent colours.
-    # See below for more colour options.
-    # This also works: "theme-base-08 layout-reverse", or just "layout-reverse".
-    theme = "theme-base-08"
+	profilepic = "img/profile.png"
+	
+	title = "Chen-Han (Stanley) Hsiao"
+	subtitle = "Tech Blog"
 
-    # Select a syntax highight.
-    # Check the static/css/highlight directory for options.
-    highlight = "default"
+	# Social buttons for sidebar
+	# Each of these are optional
+	[[params.socialbuttons]]
+	faicon = "github"
+	url = "https://github.com/swem"
+	[[params.socialbuttons]]
+	faicon = "linkedin"
+	url = "https://www.linkedin.com/in/chen-han-hsiao-2b486049"
+	[[params.socialbuttons]]
+	faicon = "google-plus"
+	url = "https://plus.google.com/u/0/115154486338673377998"
 
-    # Displays under the author name in the sidebar, keep it short.
-    # You can use markdown here.
-    tagline = "Chen-Han (Stanley) Hsiao"
-
-    # Sidebar social links, these must be full URLs.
-    github = "https://github.com/swem"
-    bitbucket = ""
-    stackOverflow = ""
-    linkedin = "https://www.linkedin.com/in/chen-han-hsiao-2b486049"
-    googleplus = ""
-    facebook = ""
-    twitter = ""
-    youtube = ""
+	[[params.navlinks]]
+	name = "About"
+	url = "about"
+	
+	[[params.navlinks]]
+	name = "Post"
+	url = "post"
