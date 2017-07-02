@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ChenHan&#39;s Tech blog</title>
+    <title>Chen-Han (Stanley) Hsiao</title>
     <link>https://swem.github.io/</link>
-    <description>Recent content on ChenHan&#39;s Tech blog</description>
+    <description>Recent content on Chen-Han (Stanley) Hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 01 Jul 2017 23:35:17 +0800</lastBuildDate>
@@ -1126,15 +1126,6 @@ Experience  Translator in TEDTalks community Teaching assistant, CALCULUS (GENER
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://swem.github.io/categories/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Post</title>
-      <link>https://swem.github.io/post/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://swem.github.io/post/</guid>
       <description></description>
     </item>
     
