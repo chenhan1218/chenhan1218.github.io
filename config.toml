@@ -16,7 +16,7 @@ paginate = 10
 	profilepic = "img/profile.png"
 	
 	title = "Chen-Han (Stanley) Hsiao"
-	subtitle = "BLOG"
+	subtitle = "Tech Blog"
 
 	# Social buttons for sidebar
 	# Each of these are optional
