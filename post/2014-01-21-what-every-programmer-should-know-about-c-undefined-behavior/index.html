@@ -1,246 +1,105 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>每個C語言開發者都要了解的 Undefined Behavior  &middot; ChenHan&#39;s Tech blog</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-<meta name="description" content="" />
+  <title>每個C語言開發者都要了解的 Undefined Behavior &middot; </title>
 
-<meta name="keywords" content="">
-
-
-<meta property="og:title" content="每個C語言開發者都要了解的 Undefined Behavior  &middot; ChenHan&#39;s Tech blog ">
-<meta property="og:site_name" content="ChenHan&#39;s Tech blog"/>
-<meta property="og:url" content="https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/" />
-<meta property="og:locale" content="en-us">
-
-
-<meta property="og:type" content="article" />
-<meta property="og:description" content=""/>
-<meta property="og:article:published_time" content="2014-01-21T00:54:00Z" />
-<meta property="og:article:modified_time" content="2014-01-21T00:54:00Z" />
-
+  
+  <link rel="stylesheet" href="https://swem.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://swem.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://swem.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://swem.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://swem.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://swem.github.io/css/highlight/default.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
   
-
-<script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "Article",
-    "headline": "每個C語言開發者都要了解的 Undefined Behavior",
-    "author": {
-      "@type": "Person",
-      "name": "http://profiles.google.com/+?rel=author"
-    },
-    "datePublished": "2014-01-21",
-    "description": "",
-    "wordCount": 61
-  }
-</script>
-
-
-
-<link rel="canonical" href="https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/" />
-
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://swem.github.io/touch-icon-144-precomposed.png">
-<link href="https://swem.github.io/favicon.png" rel="icon">
-
-<meta name="generator" content="Hugo 0.22.1" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://swem.github.io/touch-icon-144-precomposed.png">
+  <link href="https://swem.github.io/favicon.png" rel="icon">
 
   
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-
-<link href='https://fonts.googleapis.com/css?family=Merriweather:300%7CRaleway%7COpen+Sans' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://swem.github.io/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://swem.github.io/css/style.css">
-<link rel="stylesheet" href="https://swem.github.io/css/highlight/default.css">
-
   
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
   
 </head>
-<body>
-  <main id="main-wrapper" class="container main_wrapper has-sidebar">
-    <header id="main-header" class="container main_header">
-  <div class="container brand">
-  <div class="container title h1-like">
-  <a class="baselink" href="https://swem.github.io/">
-  Chen-Han (Stanley) Hsiao
+<body class="theme-base-08">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1></h1>
+      <p class="lead">Chen-Han (Stanley) Hsiao</p>
+    </div>
 
-</a>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://swem.github.io/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://swem.github.io/about/">About</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://swem.github.io/post/">Post</a></li>
+      
+    </ul>
 
-</div>
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/swem"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      <a href="https://www.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      </li>
+    </ul>
 
-  
-<div class="container topline">
-  
-  ChenHan&rsquo;s Tech blog
+    
 
-
-</div>
-
-
-</div>
-
-  <nav class="container nav primary no-print">
-  
-
-
-  
-<a href="https://swem.github.io/about">About</a>
-
-<a href="https://swem.github.io/post" title="Show list of posts">Posts</a>
-
-<a href="https://swem.github.io/tags" title="Show list of tags">Tags</a>
-
-
-</nav>
-
-<div class="container nav secondary no-print">
-  
-
-
-<a id="contact-link-github" class="contact_link" href="https://github.com/swem">
-  <span class="fa fa-github-square"></span><span>github</span></a>
-
-
-
-
-
-<a id="contact-link-linkedin" class="contact_link" href="https://www.linkedin.com/in/chen-han-hsiao-2b486049">
-  <span class="fa fa-linkedin-square"></span><span>linkedin</span></a>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <p>Copyright &copy; 2017 <a href="https://swem.github.io/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
 </div>
 
 
-  
-
-</header>
-
-
-<article id="main-content" class="container main_content single">
-  <header class="container hat">
-  <h1>每個C語言開發者都要了解的 Undefined Behavior
-</h1>
-
-  <div class="metas">
-<time datetime="2014-01-21">21 Jan, 2014</time>
-
-
-  
-  &middot; Read in about 1 min
-  &middot; (61 Words)
-  <br>
-  
-
-
-</div>
-
-</header>
-
-  <div class="container content">
-  <p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #1/3</a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">每個C語言開發者都要了解的 Undefined Behavior</h1>
+    <span class="post-date">Jan 21, 2014 &middot; 1 minute read
+    
+    <br/>
+    
+    </span>
+    <p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #<sup>1</sup>&frasl;<sub>3</sub></a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
 
 <p><iframe src="//www.slideshare.net/slideshow/embed_code/36318298" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/ssusercd43c4/2014-0626-a-guide-to-undefined-behavior-in-c-and-c-stanley" title="2014-06-26 - A guide to undefined behavior in c and c++" target="_blank">2014-06-26 - A guide to undefined behavior in c and c++</a> </strong> from <strong><a href="http://www.slideshare.net/ssusercd43c4" target="_blank">辰翰 蕭</a></strong> </div></p>
 
 <p>如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章
-1. <a href="http://sohulinux.blog.sohu.com/176185110.html">未定义行为：What Every C Programmer Should Know #1/3</a>
-2. <a href="http://sohulinux.blog.sohu.com/176211282.html">未定义行为：What Every C Programmer Should Know #2/3</a>
-3. <a href="http://sohulinux.blog.sohu.com/176282266.html">未定义行为：What Every C Programmer Should Know #3/3</a>
+1. <a href="http://sohulinux.blog.sohu.com/176185110.html">未定义行为：What Every C Programmer Should Know #<sup>1</sup>&frasl;<sub>3</sub></a>
+2. <a href="http://sohulinux.blog.sohu.com/176211282.html">未定义行为：What Every C Programmer Should Know #<sup>2</sup>&frasl;<sub>3</sub></a>
+3. <a href="http://sohulinux.blog.sohu.com/176282266.html">未定义行为：What Every C Programmer Should Know #<sup>3</sup>&frasl;<sub>3</sub></a>
 4. <a href="http://www.cnblogs.com/foohack/p/3582239.html">About Undefined Behavior[译文]</a></p>
 
+  </div>
+  
 </div>
 
 
-  <footer class="container">
-  <div class="container navigation no-print">
-  <h2>Navigation</h2>
-  
-  
-
-    
-    <a class="prev" href="https://swem.github.io/post/2014-01-20-kaggle-playing/" title="kaggle 試玩">
-      Previous
-    </a>
-    
-
-    
-    <a class="next" href="https://swem.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/" title="Mutexes VS Semaphores 大揭秘">
-      Next
-    </a>
-    
-
-  
-
-
-</div>
-
-  <div class="container comments">
-  <h2>Comments</h2>
-  
-
-</div>
-
-</footer>
-
-</article>
-      <footer id="main-footer" class="container main_footer">
-  
-
-  <div class="container nav foot no-print">
-  
-
-  <a class="toplink" href="#">back to top</a>
-
-</div>
-
-  <div class="container credits">
-  
-
-  
-
-</div>
-
-</footer>
-
-    </main>
-    
 
 
 <script src="https://swem.github.io/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-
-    
-  </body>
+</body>
 </html>
 

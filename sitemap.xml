@@ -463,6 +463,19 @@
   </url>
   
   <url>
+    <loc>https://swem.github.io/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/categories/</loc>
+  </url>
+  
+  <url>
     <loc>https://swem.github.io/</loc>
     <lastmod>2017-07-01T23:35:17+08:00</lastmod>
     <priority>0</priority>
@@ -472,6 +485,10 @@
     <loc>https://swem.github.io/tags/hugo/</loc>
     <lastmod>2017-07-01T23:35:17+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/</loc>
   </url>
   
   <url>
@@ -487,7 +504,7 @@
   </url>
   
   <url>
-    <loc>https://swem.github.io/about/</loc>
+    <loc>https://swem.github.io/tags/</loc>
   </url>
   
 </urlset>

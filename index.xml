@@ -333,7 +333,7 @@ qemu-system-x86_64 -hda debian_wheezy_amd64_standard.</description>
       <pubDate>Tue, 23 Sep 2014 05:01:00 +0000</pubDate>
       
       <guid>https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</guid>
-      <description>在 Stack Overflow 上看到的問答。稍微修改了一下為可執行的版本，下面的Python程式碼可以對一個檔案做lock。同時執行2個這樣的 python script，先取得 file lock 的 process 可以順利印出 &amp;laquo;No error&amp;raquo;，沒取得 file lock 的 process 則會得到 IOError, 印出 &amp;laquo;can&amp;rsquo;t immediately lock the file&amp;raquo; 後結束程式。
+      <description>在 Stack Overflow 上看到的問答。稍微修改了一下為可執行的版本，下面的Python程式碼可以對一個檔案做lock。同時執行2個這樣的 python script，先取得 file lock 的 process 可以順利印出 &amp;ldquo;No error&amp;rdquo;，沒取得 file lock 的 process 則會得到 IOError, 印出 &amp;ldquo;can&amp;rsquo;t immediately lock the file&amp;rdquo; 後結束程式。
 #!/usr/bin/env python # -*- coding: utf-8 -*- import fcntl import time f = open(&#39;/tmp/locktest&#39;, &#39;r&#39;) try: fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB) except IOError: print(&amp;quot;can&#39;t immediately lock the file&amp;quot;) else: print(&amp;quot;No error&amp;quot;) time.sleep(10) f.close()  先取得 file lock 的 process：
 # python test.py No error  沒取得 file lock 的 process：</description>
     </item>
@@ -448,7 +448,7 @@ http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來�
 14.04上面可以安裝 hime (有hime-chewing套件提供注音輸入) ，安裝好以後把嘸蝦米字典檔放到 ~/.config/hime/ ，再用 im-config 把預設輸入法改為 hime 即可.
 hime 細部設定可以用 hime-setup
 ====================
-Update: &amp;laquo;發現在 Ubuntu 14.04 上使用 fcitx 更為方便，也不需要準備字典檔。安裝方式: :00&amp;raquo;
+Update: &amp;ldquo;發現在 Ubuntu 14.04 上使用 fcitx 更為方便，也不需要準備字典檔。安裝方式: :00&amp;rdquo;
 sudo apt-get install fcitx-table-boshiamy  另外可以再安裝 fcitx 注音輸入法
 sudo apt-get install fcitx-chewing  進入 System Settings 的 Lauguage Support 設定輸入法為 fcitx 後，登出再登入即可。</description>
     </item>
@@ -651,9 +651,9 @@ Mutex 與 Semaphore 要解決的是不同的問題。了解這個部份後，就
       <pubDate>Tue, 21 Jan 2014 00:54:00 +0000</pubDate>
       
       <guid>https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</guid>
-      <description>在閱讀LLVM 部落格中的 What Every C Programmer Should Know About Undefined Behavior #1/3 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。
+      <description>在閱讀LLVM 部落格中的 What Every C Programmer Should Know About Undefined Behavior #1&amp;frasl;3 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。
   2014-06-26 - A guide to undefined behavior in c and c++  from 辰翰 蕭 
-如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章 1. 未定义行为：What Every C Programmer Should Know #1/3 2. 未定义行为：What Every C Programmer Should Know #2/3 3. 未定义行为：What Every C Programmer Should Know #3/3 4. About Undefined Behavior[译文]</description>
+如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章 1. 未定义行为：What Every C Programmer Should Know #1&amp;frasl;3 2. 未定义行为：What Every C Programmer Should Know #2&amp;frasl;3 3. 未定义行为：What Every C Programmer Should Know #3&amp;frasl;3 4. About Undefined Behavior[译文]</description>
     </item>
     
     <item>
@@ -895,7 +895,7 @@ Ref:
       
       <guid>https://swem.github.io/post/2013-05-26-toeic-preparation/</guid>
       <description>昨天參加了一場 TOEIC 英語測驗。我趕在這個場次最後一個報名日2013/4/17日報名，而後大約花5個星期的時間準備。 我第一次寫模擬測驗的成績大約是815分。現在考完估計應該有900分，如果沒有應該就是他們的讀卡機有問題(誤)。這邊分享一下我考試的心得。
-Update: &amp;laquo; :00&amp;raquo; 聽力成績： 475 閱讀成績： 470 總成績： 945 成績公佈，閱讀發揮的比考前模疑好。在考試的當下就感覺的出來，快速的閱讀很重要。全部寫完我還剩約5~8分鐘檢查。
+Update: &amp;ldquo; :00&amp;rdquo; 聽力成績： 475 閱讀成績： 470 總成績： 945 成績公佈，閱讀發揮的比考前模疑好。在考試的當下就感覺的出來，快速的閱讀很重要。全部寫完我還剩約5~8分鐘檢查。
 考前準備 準備用書有：
  國際學村 NEW TOEIC 新多益聽力題庫大全 國際學村 NEW TOEIC 新多益閱讀題庫大全 國際學村 NEW TOEIC 新多益題庫解析【全新試題版】 多益測驗官方全真試題指南III TOEIC Official Test-Preparation Guide Vol.3 【1 Book + 2 CDs】  聽力題庫大全、閱讀題庫大全裡面已經幫忙排好課表，只要照表操課即可。 不過寫了1,2周，就發現自己的進度開始落後了，畢竟現在是工作中，回家後時間並不是這麼充裕。 原本打算寫完上面4本書，再另外到圖書館借閱幾本書來練習。因為時間緊迫，只好專注把上面的書讀過，並想辦法複習。
 事實上到最後，題庫解析我只寫了一回，聽力題庫大全、閱讀題庫大全最後部份模擬測驗沒寫。OG全真試題2回全寫完。 然後概略的複習我比較不擅長的聽力題庫part4，及閱讀題庫的文法單元。
@@ -904,7 +904,7 @@ Update: &amp;laquo; :00&amp;raquo; 聽力成績： 475 閱讀成績： 470 總�
 上考場 考試過程跟寫全真試題的感覺很像，難度也差不多，所以我想成績應該會很接近我的模擬測驗。真的要說，考試時聽力稍微表現的比模擬時差了一點，但應該差不了太多。
 這段時間的進步，我想主要有4項
  文法，提昇約25分。我過去的文法不算很好，尤其是副詞。藉由這次準備測驗讓我弄清了一些觀念。 商業單字，提昇約20分。TOEIC的考題類型其實滿固定，多看商業單字有很大的幫助。聽力題庫大全後面附的單字表、mp3有很大的幫助(除了少數醫療的用詞，那些真的太少接觸，也背不起來)。 聽清楚關鍵字，提昇約20分。例如以聽力Part2來說，聽清楚when, where, how。或是Par3, Part4的時間詞 hourly 等等 適應口音、熟悉考試的對話型態，提昇約20分。  日常生活 我相信平常打好基礎會比考前1，2個月努力讀來的重要。而且我學英文不是為了考試，而是可以透過語言來接觸更多事物。 下面是我的小撇步。
- 高中時聽空中英語教室，後來上大學後轉 Advanced。雖然從大二開始就荒廢了， 到近1,2年才開始有一搭沒一搭的聽，不過我仍然覺得彭蒙惠出版社的東西真的很不錯， 每日課程內容的多元化讓台灣人在自學英文時能多點樂趣，而且提供一個合適的談話速度。 在我的能力提昇到可以聽出完整細節前，Advanced 仍然會是我聽力進步的方式。 未來實力提昇了，可以再挑戰美國廣播電台Fresh Air的人物訪談之類。 平時上網盡量使用英文介面。不管是 Google Search, Gmail, Facebook, Twitter, 都有提供設定語言的介面。 記得我第一次把 Gmail 介面改成英文的時候，&amp;raquo;編寫新信&amp;raquo;這個詞馬上換成了&amp;raquo;Compose&amp;raquo;。 這個我以前總沒記熟的字，從此我再也沒忘記它。 甚至你可以使用全英文介面的作業系統。這一點一滴的累積到最後都會有不小的影響。 上網使用 Google Chrome 瀏覽器的人，我建議可以安裝Google Dictionary (by Google)。 Google Dictionary的巧妙設計，讓你在網路上閱讀英文文章看到不懂的字，可以馬上點兩下提供翻譯、字典服務。 我們可以將翻譯語言設定為English，這樣馬上就有了一個英英字典可以使用。透過英英字典可以讓自己更了解單字的意思、或是再去發掘更多單字。 另一個Google Chrome專屬的應用程式NYTimes 則是提供了很好的新聞閱讀介面。當然以美國的新聞報導來說，沒有大量的單字量是很難讀下去的，不過我通常是試著讀TOP News的第一段，或是照片的描述。 閱讀國外新聞除了練習英文外，也可以增進自己接受資訊的廣度，認識這個世界正在發生的事，了解很多台灣媒體從不注意的新聞。  上述這些事並不是我想考多益才開始做，而是幾年前開始就陸續的進行。 未來一樣要繼續努力，即使達成了階段性目標，還是希望以後可以在聽英文演講時更順暢，掌握更多細節。</description>
+ 高中時聽空中英語教室，後來上大學後轉 Advanced。雖然從大二開始就荒廢了， 到近1,2年才開始有一搭沒一搭的聽，不過我仍然覺得彭蒙惠出版社的東西真的很不錯， 每日課程內容的多元化讓台灣人在自學英文時能多點樂趣，而且提供一個合適的談話速度。 在我的能力提昇到可以聽出完整細節前，Advanced 仍然會是我聽力進步的方式。 未來實力提昇了，可以再挑戰美國廣播電台Fresh Air的人物訪談之類。 平時上網盡量使用英文介面。不管是 Google Search, Gmail, Facebook, Twitter, 都有提供設定語言的介面。 記得我第一次把 Gmail 介面改成英文的時候，&amp;rdquo;編寫新信&amp;rdquo;這個詞馬上換成了&amp;rdquo;Compose&amp;rdquo;。 這個我以前總沒記熟的字，從此我再也沒忘記它。 甚至你可以使用全英文介面的作業系統。這一點一滴的累積到最後都會有不小的影響。 上網使用 Google Chrome 瀏覽器的人，我建議可以安裝Google Dictionary (by Google)。 Google Dictionary的巧妙設計，讓你在網路上閱讀英文文章看到不懂的字，可以馬上點兩下提供翻譯、字典服務。 我們可以將翻譯語言設定為English，這樣馬上就有了一個英英字典可以使用。透過英英字典可以讓自己更了解單字的意思、或是再去發掘更多單字。 另一個Google Chrome專屬的應用程式NYTimes 則是提供了很好的新聞閱讀介面。當然以美國的新聞報導來說，沒有大量的單字量是很難讀下去的，不過我通常是試著讀TOP News的第一段，或是照片的描述。 閱讀國外新聞除了練習英文外，也可以增進自己接受資訊的廣度，認識這個世界正在發生的事，了解很多台灣媒體從不注意的新聞。  上述這些事並不是我想考多益才開始做，而是幾年前開始就陸續的進行。 未來一樣要繼續努力，即使達成了階段性目標，還是希望以後可以在聽英文演講時更順暢，掌握更多細節。</description>
     </item>
     
     <item>
@@ -1110,7 +1110,7 @@ $g++ -g test.cpp $valgrind ./a.out
     </item>
     
     <item>
-      <title>about me</title>
+      <title>About</title>
       <link>https://swem.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1118,6 +1118,33 @@ $g++ -g test.cpp $valgrind ./a.out
       <description>Chen-Han(Stanley) Hsiao (a.k.a. swem). Geek of open source software. Studied in Mathematics and Computer Science (Especilly Robotics and Artificial Intelligence fields.) in National Taiwan University. Interesting in web servies build upon Node.js, Ruby on Rails. Believe the information technology would change people&amp;rsquo;s lives.
 蕭辰翰，自由軟體愛好者。希望透過軟體來讓這個世界變的更美好
 Experience  Translator in TEDTalks community Teaching assistant, CALCULUS (GENERAL MATHEMATICS), National Taiwan University (Fall 2008 &amp;amp; Spring 2009). Teaching assistant, Introduction to Computer Programming, National Taiwan University (Fall 2009).</description>
+    </item>
+    
+    <item>
+      <title>Categories</title>
+      <link>https://swem.github.io/categories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://swem.github.io/categories/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Post</title>
+      <link>https://swem.github.io/post/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://swem.github.io/post/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tags</title>
+      <link>https://swem.github.io/tags/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://swem.github.io/tags/</guid>
+      <description></description>
     </item>
     
   </channel>
