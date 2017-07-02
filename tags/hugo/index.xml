@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Chen-Han (Stanley) Hsiao</title>
+    <link>https://swem.github.io/tags/hugo/</link>
+    <description>Recent content in Hugo on Chen-Han (Stanley) Hsiao</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Jul 2017 23:35:17 +0800</lastBuildDate>
+    
+	<atom:link href="https://swem.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Migrate to Hugo</title>
+      <link>https://swem.github.io/post/2017-07-01-migrate-to-hugo/</link>
+      <pubDate>Sat, 01 Jul 2017 23:35:17 +0800</pubDate>
+      
+      <guid>https://swem.github.io/post/2017-07-01-migrate-to-hugo/</guid>
+      <description>Due to some software issues not fixing for long time on logdown.com [2], I decided to finding other blog solutions for hosting my tech blog. After considering several options (Such as Hugo, Ghost, Octopress, Jekyll, Jekyll-Now). The final choice goes to Hugo. Hugo is a popular static website generator which built on top of Golang. The community support is actively. Over 18 thousands stars on Hugo github repository. And Debian/Ubuntu has hugo packages which is very easily for normal user to install.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Openfire 即時訊息伺服器">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2014-07-09">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Openfire 即時訊息伺服器 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    
+    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="https://swem.github.io/about">About</a></li>
+				
+					<li><a href="https://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="https://swem.github.io/about">About</a>
+			
+				<a href="https://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Openfire 即時訊息伺服器</h1>
+	</header>
+
+	<article>
+		<p>最近嘗試使用 Openfire，來架構私人使用的即時訊息server。 Openfire 是一套使用 xmpp protocol 的開源軟體，安裝上也非常簡單，提供有 deb 安裝檔。在 Debian/Ubuntu 上很快就可以安裝好了。之後就可以透過 9090 port 登入 admin 帳號進行設定。</p>
+
+<p>這裡分享一下我設定的心得，我架設的是單一伺服器。假設我決定 xmpp domain 為 openfire.example.io，那麼就必須把 dns 設定好，讓 openfire.example.io 指向安裝有 openfire 的機器。並且在 Openfire 的軟體設定， xmpp.domain 的值設定為 openfire.example.io。之後再新增 user1, user2 的帳號，就可以讓雙方(user1@openfire.example.io, user2@openfire.example.io )相互傳訊息。 Client端我是使用 <a href="http://www.xabber.org/">Xabber</a> on Android, <a href="https://jitsi.org/">Jitsi</a> on Ubuntu14.04</p>
+
+<p>如果手上沒有 domain，xmpp domain也是可以直接設定成 ip ，像是 192.168.0.2。</p>
+
+<p>另外，Openfire也有 Group Chat Rooms 的功能，很方便大家在同一個頻道上加入討論。</p>
+
+<p>之後希望可以看看 Openfire 是否能再結合 libjingle 做到 VOIP 的功能。如果可以的話，我想會是很棒的私人訊息軟體。</p>
+
+<p>Ref:
+<a href="https://www.digitalocean.com/community/tutorials/how-to-install-openfire-xmpp-server-on-a-debian-or-ubuntu-vps">How To Install Openfire XMPP Server on a Debian or Ubuntu VPS</a></p>
+
+<p>註：不過目前還有個小問題，client雙方可以互相傳文字訊息，卻看不到對方上線。看其它網友也有遇到相同狀況，之後有空再來看怎麼解決</p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" https://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  
+  <script src="https://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

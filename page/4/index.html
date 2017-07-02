@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta property="og:type" content="website">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://swem.github.io/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    
+    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="https://swem.github.io/about">About</a></li>
+				
+					<li><a href="https://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="https://swem.github.io/about">About</a>
+			
+				<a href="https://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<header>
+	
+	
+		<h1> </h1>
+	
+</header>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/">Setup Domain Controller on Ubuntu 14.04</a>
+			<br>
+			<small>
+				22 September 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		在ubuntu 14.04 上架設 Samba Domain Controller 的步驟： 1. 安裝 samba libpam-smbpass
+sudo apt-get install samba libpam-smbpass  samba 版本目前是4.1.6 (4.0以上的 Samba 才有提供 Domain Controller 的功能)
+samba -V Version 4.1.6-Ubuntu   使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io  samba-tool domain provision --use-rfc2307 --interactive   設定成功，過程的設定記錄如下：
+vagrant@vagrant-ubuntu-trusty-64:~$ sudo samba-tool domain provision --use-rfc2307 --interactive Realm: mysamba.test.io Domain [mysamba]: Server Role (dc, member, standalone) [dc]: DNS backend (SAMBA_INTERNAL, BIND9_FLATFILE, BIND9_DLZ, NONE) [SAMBA_INTERNAL]: DNS forwarder IP address (write 'none' to disable forwarding) [192.
+		
+			... <a href="https://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-09-20-compile-the-upstart/">編譯 Upstart 1.13.2</a>
+			<br>
+			<small>
+				20 September 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		編譯 Upstart 1.13.2：
+sudo apt-get install libnih-dbus-dev libjson-c-dev cd upstart 1.13.2/ ./configure make  編譯完成後，會得到以下的執行檔，這樣就得到一組 userspace 上開關機所需要的 utility 了
+init/init util/initctl util/reboot util/runlevel shutdown telinit upstart-event-bridge upstart--bridge upstart-dbus-bridge upstart-socket-bridge upstart-local-bridge  
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-09-19-interactive-map-of-linux-kernel/">Interactive map of Linux kernel</a>
+			<br>
+			<small>
+				19 September 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		博大精深的 Linux kernel
+Interactive map of Linux kernel: 
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/">GNU Autotools自動編譯</a>
+			<br>
+			<small>
+				30 August 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		在開發 Open Source 項目時，經常會遇到 Autotools。翻了一下網路文章，覺得這張圖給出不錯的表示。 瘋狂駭客的技術隨筆 - 使用GNU Autotools自動編譯項目
+ 圖中橢圓形狀的就是gnu autotools里的主要工具了，包括１autoscan２aclocal３autoheader４automake５autoconf等.而方形形狀只有Makefile.am和configure.ac是需要我們寫的，别的方框里除了Makefile是最終的配置文件，其它都是中間文件。(Makefile文件是由６configure生成的)
+ Ref: http://en.wikipedia.org/wiki/Autoconf
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/">Comparing two Git Branch with common ancestor</a>
+			<br>
+			<small>
+				26 August 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		今天在c9s的 facebook 上看到這個，才發現有這種用法。
+http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來還有這種用法 two dots 跟three dots 是不一樣的
+# produce the diff between the tips of the two branches. git diff branch_1..branch_2 # use three dots instead of two to find the diff from their common ancestor git diff branch_1...branch_2  
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-08-14-wikipedia-donate/">資助維基百科</a>
+			<br>
+			<small>
+				14 August 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		以前捐過一次，那時捐贈金額只能以美金計價，用VISA金融卡捐了 $35 美元，換算台幣是1033元，手續費15元(約1.45%)。現在在 wikipedia 上的捐贈可以用台幣計價了，上周在Wikipedia 上一樣用VISA金融卡捐了台幣1000元，手續費是13元 (換算起來是1.3%)。
+本來以為用台幣計價是不是可以省去一些手續費，不過看起來是差不多的。但平常 Wikipedia 惠我良多，這些錢付出的很值得。刷完卡以後會收到一封信，感謝捐贈者的付出(其實我才要好好感謝Wikimedia foundation的貢獻)。
+ 您好 辰翰,
+感谢您将自己无价的学识在这里贡献给了全世界的每一个人。
+我的名字是里拉•特雷梯科夫，现任维基百科基金会的执行董事。在过去的一年里，全靠捐赠者作出的贡献帮助我们将百科全书增加了287种语言，让全世界更容易使用。我们致力于让那些没有机会接受教育的人们得到我们的帮助。我们将知识带给像来自印度Solapur的阿克沙雅•里颜加。她自小成长在一个纺织业小镇，并以维基百科作为主要的学习工具。在这些处于书本资源匮乏却拥有手机因特网服务区域的学生们，维基百科不可少的。在阿克沙雅毕业于一个印度大学后，就来到了美国任职软件工程师。她十分感激维基百科，她认为自己有一半的知识都来自于此。
+像这样的故事并不少见，我们团队任重道远，前途曲折，充满挑战。很多使用维基的人们在得知它是由非盈利组织和捐款下运作后，都十分震惊。每年，都会有恰好人数的捐款者帮助我们把知识得以带给全世界任何人。我再次感谢你们，让我们能完成这个任务。
+我再次代表近五亿阅读维基百科的人们，上千维基编辑者和基金会的成员们，感谢你让我们得以使维基百科今年依旧上线而无广告。
+感谢您， 里拉
+里拉·特雷梯科夫 执行董事 维基媒体基金会 donate.wikimedia.org
+特此证明：你于2014-08-06日做出NT$ 1000.00的捐款，捐款号CNTCT-6788186。
+这封邮件可以证明您的捐款金额记录。对此捐款没有提供任何商品和服务。维基基金会符合美国501 &copy;(3)规定的非盈利的慈善机构，我们的地址是美国加州旧金山新蒙哥马利大厦149号3层。免税号：20-0049703
+ 
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-08-08-taiwan-weather-imagery/">台灣天氣雲圖 cwb-radarmap</a>
+			<br>
+			<small>
+				8 August 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		最近做了一款簡單的 Web App cwb-radarmap
+其實我想做這個是因為看到這篇文章 其實我覺得中央氣象局的資料不輸日本 只差在資料的開放性跟呈現程度 https://www.facebook.com/chihchun/posts/10152654161372915
+點開 cwb-radarmap ，可以幫你定出自己的位置，並顯示15分鐘內的雷達回波圖。在快出門的時候點開看一下，可以簡單的判斷即時天氣。
+附注：雖然雷達回波僅約略呈現空中雲雨系統含水量〈包括三態之水〉的分布情形，不能直接換算成地面降水量的多寡。但還是有一定的參考程度。
+(夏天就不一定了，因為午後雷陣雨常是長出雷雨胞所降下的大雨。但冬天來說，藉由觀察雲帶的走向，還滿能夠推測降雨的可能性。)
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-08-01-get-google-api-key/">取得 Google API 金鑰</a>
+			<br>
+			<small>
+				1 August 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Google API 提供了很多好用的 API，可以用來存取Google 提供的資源(包含資料、運算資源等等)。之前貢獻了一個 patch 在 Hackfoldr 上，就是透過 YouTube Data API v3 去取得 Youtube 的影片相關資訊。要發佈使用Google API的專案時，就要記得先去取得一組 Google API 金鑰。步驟可參考Google的說明 (介面可能稍有不同，但差異應該不大)。
+取得 API 金鑰
+如何建立 API 金鑰：
+ 請前往 API 控制台 (位於 https://code.google.com/apis/console)，並登入您的 Google 帳戶。 按一下左選單中的 [Services] 連結。 啟用 [Google Maps API v3] 服務。 按一下左方選單中的 [API Access]。您可以從 [API Access] 頁面的 [Simple API Access] 區段取得 API 金鑰。Maps API 應用程式會使用 [Key for browser apps]。  根據預設，金鑰可用於任何網站。我們強烈建議您將金鑰限制於使用在自己管理的網域中，以免遭未經授權的網站使用。只要您按一下金鑰的 [Edit allowed referrers&hellip;] 連結，即可指定允許使用 API 金鑰的網域。
+		
+			... <a href="https://swem.github.io/post/2014-08-01-get-google-api-key/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/">Ubuntu 14.04 上使用嘸蝦米輸入法 with hime</a>
+			<br>
+			<small>
+				30 July 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		Facebook Ubuntu 正體中文社團 上有人提問如何在 Ubuntu 14.04 上使用嘸蝦米輸入法。我的回應看來有幫忙解決問題了，順手貼在自己的部落格供大家參考。
+14.04上面可以安裝 hime (有hime-chewing套件提供注音輸入) ，安裝好以後把嘸蝦米字典檔放到 ~/.config/hime/ ，再用 im-config 把預設輸入法改為 hime 即可.
+hime 細部設定可以用 hime-setup
+====================
+Update: &ldquo;發現在 Ubuntu 14.04 上使用 fcitx 更為方便，也不需要準備字典檔。安裝方式: :00&rdquo;
+sudo apt-get install fcitx-table-boshiamy  另外可以再安裝 fcitx 注音輸入法
+sudo apt-get install fcitx-chewing  進入 System Settings 的 Lauguage Support 設定輸入法為 fcitx 後，登出再登入即可。
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/">Openfire 即時訊息伺服器</a>
+			<br>
+			<small>
+				9 July 2014
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		最近嘗試使用 Openfire，來架構私人使用的即時訊息server。 Openfire 是一套使用 xmpp protocol 的開源軟體，安裝上也非常簡單，提供有 deb 安裝檔。在 Debian/Ubuntu 上很快就可以安裝好了。之後就可以透過 9090 port 登入 admin 帳號進行設定。
+這裡分享一下我設定的心得，我架設的是單一伺服器。假設我決定 xmpp domain 為 openfire.example.io，那麼就必須把 dns 設定好，讓 openfire.example.io 指向安裝有 openfire 的機器。並且在 Openfire 的軟體設定， xmpp.domain 的值設定為 openfire.example.io。之後再新增 user1, user2 的帳號，就可以讓雙方(user1@openfire.example.io, user2@openfire.example.io )相互傳訊息。 Client端我是使用 Xabber on Android, Jitsi on Ubuntu14.04
+如果手上沒有 domain，xmpp domain也是可以直接設定成 ip ，像是 192.168.0.2。
+另外，Openfire也有 Group Chat Rooms 的功能，很方便大家在同一個頻道上加入討論。
+之後希望可以看看 Openfire 是否能再結合 libjingle 做到 VOIP 的功能。如果可以的話，我想會是很棒的私人訊息軟體。
+Ref: How To Install Openfire XMPP Server on a Debian or Ubuntu VPS
+		
+			... <a href="https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/">Read More</a>
+		
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+
+<div class="text-center center-block">
+	
+
+<ul class="pagination">
+    
+    <li>
+        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
+    
+    <li
+    >
+    <a href="/page/3/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/">1</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/2/">2</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/3/">3</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    class="active"><a href="/page/4/">4</a></li>
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/5/">5</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    
+    
+    
+    
+     
+        
+        
+    
+    
+    <li
+    ><a href="/page/10/">10</a></li>
+    
+    
+    <li
+    >
+    <a href="/page/5/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li>
+        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
+</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  
+  <script src="https://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

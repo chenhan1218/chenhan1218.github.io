@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://swem.github.io/post/2017-07-01-migrate-to-hugo/</loc>
+    <lastmod>2017-07-01T23:35:17+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/</loc>
+    <lastmod>2017-07-01T05:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2017-07-01-must-have-gnome-extensions/</loc>
+    <lastmod>2017-07-01T01:35:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-09-23-905130/</loc>
+    <lastmod>2016-09-23T07:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/</loc>
+    <lastmod>2016-08-16T04:13:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-08-14-lxd-container-getting-started/</loc>
+    <lastmod>2016-08-14T04:04:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-07-06-763254/</loc>
+    <lastmod>2016-07-06T11:39:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/</loc>
+    <lastmod>2016-03-31T02:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/</loc>
+    <lastmod>2016-03-26T03:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/</loc>
+    <lastmod>2016-03-15T04:53:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/</loc>
+    <lastmod>2015-10-08T15:47:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-09-17-backports-driver/</loc>
+    <lastmod>2015-09-17T03:12:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/</loc>
+    <lastmod>2015-09-11T12:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-08-26-blacklist-kernel-module/</loc>
+    <lastmod>2015-08-26T06:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/</loc>
+    <lastmod>2015-08-19T03:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-07-05-bloxp-rss-to-ebook/</loc>
+    <lastmod>2015-07-05T05:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/</loc>
+    <lastmod>2015-06-17T16:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/</loc>
+    <lastmod>2015-04-25T08:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-04-22-linux-kernel-development-process/</loc>
+    <lastmod>2015-04-22T02:20:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/</loc>
+    <lastmod>2015-04-16T10:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2015-01-10-kindle-7-2014/</loc>
+    <lastmod>2015-01-10T01:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-12-11-docker-insight/</loc>
+    <lastmod>2014-12-11T23:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-12-10-qemu-advent-calendar/</loc>
+    <lastmod>2014-12-10T00:25:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-11-26-backtrace-debian-package/</loc>
+    <lastmod>2014-11-26T06:13:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-11-22-established-at-launchpad-ppa/</loc>
+    <lastmod>2014-11-22T02:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-11-20-an-expert-is-a-person-who-has-made-all-the-mistakes-that-can-be-made-in-a-very-narrow-field/</loc>
+    <lastmod>2014-11-20T02:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-11-15-xvfb-x-virtual-framebuffer/</loc>
+    <lastmod>2014-11-15T17:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-10-30-debian-using-qemu-vm/</loc>
+    <lastmod>2014-10-30T00:14:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/</loc>
+    <lastmod>2014-10-28T02:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</loc>
+    <lastmod>2014-09-23T05:01:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/</loc>
+    <lastmod>2014-09-22T11:09:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-09-20-compile-the-upstart/</loc>
+    <lastmod>2014-09-20T04:55:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-09-19-interactive-map-of-linux-kernel/</loc>
+    <lastmod>2014-09-19T00:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/</loc>
+    <lastmod>2014-08-30T07:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/</loc>
+    <lastmod>2014-08-26T10:16:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-08-14-wikipedia-donate/</loc>
+    <lastmod>2014-08-14T23:57:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-08-08-taiwan-weather-imagery/</loc>
+    <lastmod>2014-08-08T00:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-08-01-get-google-api-key/</loc>
+    <lastmod>2014-08-01T05:27:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/</loc>
+    <lastmod>2014-07-30T05:12:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/</loc>
+    <lastmod>2014-07-09T10:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-06-09-standard-predefined-macros/</loc>
+    <lastmod>2014-06-09T13:51:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-06-09-the-developer-gadget/</loc>
+    <lastmod>2014-06-09T03:38:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-05-24-taipei-city-land-price-query-system-to-calculate-their-own-land-value-tax/</loc>
+    <lastmod>2014-05-24T15:33:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-05-14-cairo-dock-on-ubuntu/</loc>
+    <lastmod>2014-05-14T02:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-04-30-mozmill-tests-debugging/</loc>
+    <lastmod>2014-04-30T13:29:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-04-10-hangouts-clock-add-time-note-for-your-hangouts-video/</loc>
+    <lastmod>2014-04-10T10:59:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-03-18-quality-without-a-name/</loc>
+    <lastmod>2014-03-18T13:31:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-03-04-growth-environment/</loc>
+    <lastmod>2014-03-04T15:03:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-28-youre-doing-a-job-or-a-career-step/</loc>
+    <lastmod>2014-02-28T15:26:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/</loc>
+    <lastmod>2014-02-17T09:19:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-17-news-the-word-deadlock/</loc>
+    <lastmod>2014-02-17T04:32:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-14-understanding-javascript-delete/</loc>
+    <lastmod>2014-02-14T01:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/</loc>
+    <lastmod>2014-02-12T03:36:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-07-mutex-vs-spinlock/</loc>
+    <lastmod>2014-02-07T04:10:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-02-04-the-magic-of-strace/</loc>
+    <lastmod>2014-02-04T03:22:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/</loc>
+    <lastmod>2014-01-30T02:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</loc>
+    <lastmod>2014-01-21T00:54:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-20-kaggle-playing/</loc>
+    <lastmod>2014-01-20T09:08:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-20-operating-systems-three-easy-pieces/</loc>
+    <lastmod>2014-01-20T08:50:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/</loc>
+    <lastmod>2014-01-16T01:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/</loc>
+    <lastmod>2014-01-15T12:52:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/</loc>
+    <lastmod>2014-01-15T11:28:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/</loc>
+    <lastmod>2014-01-13T15:58:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-11-embed-base64-image-in-markdown/</loc>
+    <lastmod>2014-01-11T13:03:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/</loc>
+    <lastmod>2014-01-10T11:21:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-10-move-to-logdown/</loc>
+    <lastmod>2014-01-10T09:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/</loc>
+    <lastmod>2014-01-09T12:06:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-07-3d-real-estate-firm-access-service/</loc>
+    <lastmod>2014-01-07T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-07-digital-ocean-vs-linode/</loc>
+    <lastmod>2014-01-07T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/</loc>
+    <lastmod>2014-01-07T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-06-hacker-news-outage/</loc>
+    <lastmod>2014-01-06T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-06-far-conduction-collection-etag-website-passwords-leaked/</loc>
+    <lastmod>2014-01-06T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2014-01-02-sql-practice/</loc>
+    <lastmod>2014-01-02T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-10-06-fastmails-servers-are-in-the-us-what-this-means-for-you/</loc>
+    <lastmod>2013-10-06T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-10-04-skype-supernode/</loc>
+    <lastmod>2013-10-04T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-26-install-rvm/</loc>
+    <lastmod>2013-05-26T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-26-software-community-meeting-in-taiwan/</loc>
+    <lastmod>2013-05-26T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-26-toeic-preparation/</loc>
+    <lastmod>2013-05-26T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-22-service-component/</loc>
+    <lastmod>2013-05-22T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/</loc>
+    <lastmod>2013-05-15T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-12-offline-access-for-google-drive/</loc>
+    <lastmod>2013-05-12T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-09-curl-http-redirects/</loc>
+    <lastmod>2013-05-09T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-08-file-descriptor-in-bash-shell/</loc>
+    <lastmod>2013-05-08T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-05-git-submodule/</loc>
+    <lastmod>2013-05-05T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-05-01-git-subtree-merge-strategy/</loc>
+    <lastmod>2013-05-01T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-04-24-npm-install/</loc>
+    <lastmod>2013-04-24T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-04-23-code-school-hall-passes/</loc>
+    <lastmod>2013-04-23T16:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-04-10-digitalocean/</loc>
+    <lastmod>2013-04-10T07:02:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/</loc>
+    <lastmod>2013-03-27T08:07:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2013-03-14-rip/</loc>
+    <lastmod>2013-03-14T04:15:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/</loc>
+    <lastmod>2012-12-25T01:47:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/</loc>
+    <lastmod>2012-12-17T04:46:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/</loc>
+    <lastmod>2017-07-01T23:35:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/tags/hugo/</loc>
+    <lastmod>2017-07-01T23:35:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/post/</loc>
+    <lastmod>2017-07-01T23:35:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/tags/</loc>
+    <lastmod>2017-07-01T23:35:17+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/tutorials/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://swem.github.io/about/</loc>
+  </url>
+  
+</urlset>

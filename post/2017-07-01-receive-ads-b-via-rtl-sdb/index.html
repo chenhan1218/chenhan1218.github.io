@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="利用 RTL-SDB 接收 ads-b 訊號">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-01">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>利用 RTL-SDB 接收 ads-b 訊號 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    
+    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="https://swem.github.io/about">About</a></li>
+				
+					<li><a href="https://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="https://swem.github.io/about">About</a>
+			
+				<a href="https://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>利用 RTL-SDB 接收 ads-b 訊號</h1>
+	</header>
+
+	<article>
+		
+
+<p>Automatic dependent surveillance – broadcast (ADS–B) 是
+廣播式自動回報監視（ADS-B）[1]。航機每秒發射一次之航機位置、高度、位置完整性、航機識別、航機24 bit位址、速度及其他資料。只要準備一個簡易的 ADS-B 接收器，就可以收到這些訊息。下面介紹怎麼使用 dump1090 ，來觀察這些航機發送出來的訊息。</p>
+
+<p>無論使用哪種方式啟動，都要先確定一些 driver 不會被自動載入。設定 driver blacklist 後，重開機讓設定生效。</p>
+
+<pre><code>$ cat &lt;&lt; EOF &gt; /tmp/blacklist-rtl-sdr.conf
+blacklist dvb_usb_rtl28xxu
+blacklist e4000
+blacklist rtl2832
+EOF
+$ sudo mv /tmp/blacklist-rtl-sdr.conf /etc/modprobe.d
+$ sudo reboot
+</code></pre>
+
+<p>接上 Realtek 2838 DVB-T usb stick。可以用 lsusb 確認己連接</p>
+
+<pre><code>$ lsusb
+Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB-T
+</code></pre>
+
+<p>接下來可以選擇使用 docker 或 snap 來啟動 dump1090</p>
+
+<h2 id="docker">Docker</h2>
+
+<p>我的測試環境是 Debian 9.0 Stretch AMD64</p>
+
+<p>使用 docker 來執行 docker hub 上己經包好的 dump1090</p>
+
+<pre><code>docker run --rm --it -p 8080:8080 --device=/dev/bus/usb inodes/docker-x86-rtlsdr-dump1090 --net
+</code></pre>
+
+<p>連接到 <a href="http://localhost:8080">http://localhost:8080</a> 就可以看到接收到的飛機訊號</p>
+
+<h2 id="snap">Snap</h2>
+
+<p>我的測試環境是 Ubuntu 16.04 Xenial AMD64</p>
+
+<p>安裝 adsb-box 並連接 snap interface。最後重新啟動服務</p>
+
+<pre><code>sudo snap install --beta adsb-box
+
+sudo snap connect adsb-box:raw-usb
+sudo snap connect adsb-box:process-control
+sudo snap connect adsb-box:system-observe
+sudo snap connect adsb-box:network-observe
+sudo systemctl restart snap.adsb-box.dump1090.service
+sudo systemctl restart snap.adsb-box.piaware.service
+</code></pre>
+
+<p>連接到 <a href="http://localhost:8080">http://localhost:8080</a> 就可以看到接收到的飛機訊號</p>
+
+<p>[1] <a href="http://www.anws.gov.tw/cht/index.php?code=list&amp;ids=25">飛航服務總臺 &gt; 設施介紹 &gt; 監視裝備</a></p>
+
+<p>[2] <a href="https://github.com/tsunghanliu/adsb-box.snap">https://github.com/tsunghanliu/adsb-box.snap</a></p>
+
+<p>[3] <a href="https://github.com/mutability/dump1090">https://github.com/mutability/dump1090</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" https://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  
+  <script src="https://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>

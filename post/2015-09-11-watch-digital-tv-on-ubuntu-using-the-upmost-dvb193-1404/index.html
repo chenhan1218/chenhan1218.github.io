@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2015-09-11">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視 &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    
+    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="https://swem.github.io/about">About</a></li>
+				
+					<li><a href="https://swem.github.io/">Blog</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">BLOG</small>
+		
+		
+		
+			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://tw.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="https://swem.github.io/about">About</a>
+			
+				<a href="https://swem.github.io/">Blog</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視</h1>
+	</header>
+
+	<article>
+		
+
+<p>手上有一支 UPMOST DVB193 數位電視棒，最近測試了它是不是能在 Ubuntu 14.04 下運作。原本以為需要自己編譯 driver，不過把數位電視棒插入筆電， lsusb 後發現其實 driver 已被 Kernel 收錄成為 built-in driver。 Driver 的訊息如下</p>
+
+<pre><code>filename:       /lib/modules/3.19.0-28-generic/kernel/drivers/media/tuners/it913x.ko
+license:        GPL
+author:         Antti Palosaari &lt;crope@iki.fi&gt;
+description:    ITE IT913X silicon tuner driver
+srcversion:     3A631200871E9FCB4913859
+alias:          i2c:it913x
+depends:        
+intree:         Y
+vermagic:       3.19.0-28-generic SMP mod_unload modversions 
+signer:         Magrathea: Glacier signing key
+sig_key:        29:4D:C0:12:70:6F:48:B7:CD:DF:63:74:E2:D7:9F:E1:B0:60:92:69
+sig_hashalgo:   sha512
+</code></pre>
+
+<p>Firmware 也已經被收進 Ubuntu 的 linux-firmware</p>
+
+<pre><code>$ dpkg -L linux-firmware| grep it9135
+/lib/firmware/dvb-usb-it9135-02.fw
+/lib/firmware/dvb-usb-it9135-01.fw
+</code></pre>
+
+<p>所以接下來只要處理好看數位電視的軟體就可以。以 apt-get 安裝好 vlc ，再用 vlc 開啟 channels.conf</p>
+
+<p>channels.conf</p>
+
+<pre><code>中視數位台:533000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:1001:1002:100
+中視新聞台:533000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:1011:1012:101
+中視綜藝台:533000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:1021:1022:102
+中視 HD 台:533000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:1031:1032:103
+公共電視 PTS:545000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:2011:2012:201
+公視 2 台 PTS2:545000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:2021:2022:202
+客家電視 HTV:545000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:2031:2032:203
+民視綜合台:557000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_AUTO:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:3001:3002:300
+民視交通台:557000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_AUTO:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:3011:3012:301
+民視新聞台:557000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_AUTO:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:3021:3022:302
+民視資料廣播:557000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_AUTO:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:0:0:303
+民視 HD 台:557000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_AUTO:QAM_16:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:3041:3042:304
+公視 HD:569000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:2001:2002:200
+台灣電視台:581000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:4001:4002:400
+台視財經台:581000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:4011:4012:401
+台視綜合台:581000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:4021:4022:402
+台視 HD 台:581000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:4031:4032:403
+華視 CTS:593000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:5011:5012:501
+華視教育台:593000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:5021:5022:502
+華視新聞資訊台:593000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:5031:5032:503
+華視 HD:593000000:INVERSION_AUTO:BANDWIDTH_6_MHZ:FEC_2_3:FEC_2_3:QAM_64:TRANSMISSION_MODE_8K:GUARD_INTERVAL_1_4:HIERARCHY_NONE:5041:5042:504
+</code></pre>
+
+<p>就可以收看了。過程相當順利。</p>
+
+<p>如果未來台灣有新增或更新頻道，想要自己產生頻道列表，那可以這樣做：</p>
+
+<pre><code>sudo apt-get install -y dvb-apps
+sudo apt-get install vlc
+scan /usr/share/dvb/dvb-t/tw-All &gt;channels.conf
+</code></pre>
+
+<p>這個 channels.conf ，就可以用 vlc 打開收看。</p>
+
+<h2 id="update-for-debian-9-0-stretch">Update for Debian 9.0 Stretch</h2>
+
+<p>Debian 預設並沒有安裝 it9135 的 firmware，必須開啟 non-free repository ，並安裝 firmware-misc-free</p>
+
+<pre><code># enable non-free repository, then
+sudo apt install -y firmware-misc-non-free
+</code></pre>
+
+<p>Ref:
+- <a href="http://fullshinetw.blogspot.tw/2012/07/ubuntu-1204-usbad-525.html">Ubuntu 12.04 使用大通USB電視棒AD-525</a>
+- <a href="http://git.linuxtv.org/cgit.cgi/dtv-scan-tables.git">http://git.linuxtv.org/cgit.cgi/dtv-scan-tables.git</a>
+- <a href="https://github.com/oliv3r/dtv-scan-tables">github.com/oliv3r/dtv-scan-tables Digital TV scan tables</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" https://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  
+  <script src="https://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>
