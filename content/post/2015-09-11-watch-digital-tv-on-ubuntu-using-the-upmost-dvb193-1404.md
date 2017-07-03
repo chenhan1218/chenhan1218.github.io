@@ -60,7 +60,7 @@ channels.conf
 ```
 sudo apt-get install -y dvb-apps
 sudo apt-get install vlc
-scan /usr/share/dvb/dvb-t/tw-All >channels.conf
+scan /usr/share/dvb/dvb-legacy/dvb-t/tw-All >channels.conf
 ```
 這個 channels.conf ，就可以用 vlc 打開收看。
 
