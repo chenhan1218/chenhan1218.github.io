@@ -107,6 +107,52 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2017-07-06-launchpad-api/">Launchpad API</a>
+			<br>
+			<small>
+				2017-07-06
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>Launchpad provide a web service api for developer. The main area I use launchpad api on:</p>
+
+<ol>
+<li>Grab/Edit bug information</li>
+<li>Grab/Attach attachment</li>
+</ol>
+
+<p>For full functionality, please refer to online document: <a href="https://api.launchpad.net/devel.html">https://api.launchpad.net/devel.html</a></p>
+
+<p>There is a launchpadapi python client/library let you use launchpad web api easily.
+The key concept is to get the launchpad object. And then manipulate the objects.</p>
+
+<p>I recommended trying lp-shell in lptools packages. With lp-shell utility which provides an interactive python shell, developer could use launchpadlib python library interactively and explore functions and properties of launchpadlib.
+Example:</p>
+
+<pre><code>b = lp.bugs[1]
+
+print(b.title)
+print(b.message_count)
+</code></pre>
+
+<p>Here is more sample scripts: <a href="https://help.launchpad.net/API/Examples">https://help.launchpad.net/API/Examples</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+		<small class="text-muted">
+			
+			
+		</small>
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2017-07-01-migrate-to-hugo/">Migrate to Hugo</a>
 			<br>
 			<small>
@@ -682,30 +728,6 @@ end script
 - <a href="https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate#Instantaneous_wakeups_from_suspend">Power management/Suspend and hibernate - ArchWiki</a>
 - <a href="http://linux.die.net/man/1/acpitool">acpitool(1) - Linux man page</a>
 - <a href="https://01.org/blogs/rzhang/2015/best-practice-debug-linux-suspend/hibernate-issues">Best practice to debug Linux* suspend/hibernate issues | 01.org</a></p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/">AlphaGo is not the solution to AI</a>
-			<br>
-			<small>
-				2016-03-15
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<blockquote>
-<p>Addressing global exploration effectively is only one of the significant challenges between what is well known now and what needs to be addressed for what I would consider a real AI.</p>
-</blockquote>
-
-<p>Ref: <a href="http://hunch.net/?p=3692542">AlphaGo is not the solution to AI</a></p>
 
 	</div>
 	<div class="panel-footer">

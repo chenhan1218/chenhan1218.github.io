@@ -107,6 +107,71 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/">python3 UnicodeDecodeError</a>
+			<br>
+			<small>
+				2015-04-16
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>遇到 python UnicodeDecodeError 其實有點頭大。</p>
+
+<pre><code class="language-python">#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+import subprocess
+import os
+import sys
+import locale
+
+if __name__ == &quot;__main__&quot;:
+	locale.setlocale(locale.LC_ALL, 'en_US.UTF8')
+	proc = subprocess.Popen(['date'], stdout=subprocess.PIPE,
+									 stderr=subprocess.PIPE,
+									 stdin=subprocess.PIPE,
+									 env={'LANG': 'zh_TW.UTF8', 'LANGUAGE': 'zh_TW:zh'},
+									 universal_newlines=True, shell=True)
+	(out, err) = proc.communicate()
+	import codecs
+	sys.stdout = codecs.getwriter(&quot;utf-8&quot;)(sys.stdout.detach())
+	print(out)
+	print(err)
+</code></pre>
+
+<pre><code class="language-bash">$ ./date.py
+</code></pre>
+
+<p>再進一步查了一下，發現這跟環境變數有關。</p>
+
+<pre><code>$ env -i LANG='en_US.UTF8' /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))'               
+UTF-8
+$ env -i  /usr/bin/python3 -c 'import locale; print(locale.getpreferredencoding(False))'
+ANSI_X3.4-1968
+</code></pre>
+
+<p>看完這份 slides ，才比較知道 Unicode 在 Python 中較好的處理方法 <a href="http://farmdev.com/talks/unicode/">Unicode In Python, Completely Demystified</a></p>
+
+<blockquote>
+<p>Solution
+1. Decode early
+2. Unicode everywhere
+3. Encode late</p>
+</blockquote>
+
+<p>或是類似 Ubiquity 的直接強制使用 C.UTF
+<a href="http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44">http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2015-01-10-kindle-7-2014/">kindle 7 (2014)</a>
 			<br>
 			<small>
@@ -508,57 +573,6 @@ nano /etc/nsswitch.conf This file tells the C library how to obtain name-service
 </ol>
 
 <p><a href="http://unix.stackexchange.com/a/146025/89399">How do I get to use .local hostnames with Arch Linux?</a></p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/">用python fcntl 取得 file lock</a>
-			<br>
-			<small>
-				2014-09-23
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>在 Stack Overflow 上看到的問答。稍微修改了一下為可執行的版本，下面的Python程式碼可以對一個檔案做lock。同時執行2個這樣的 python script，先取得 file lock 的 process 可以順利印出 &ldquo;No error&rdquo;，沒取得 file lock 的 process 則會得到 IOError, 印出 &ldquo;can&rsquo;t immediately lock the file&rdquo; 後結束程式。</p>
-
-<pre><code class="language-python">#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-import fcntl
-import time
-f = open('/tmp/locktest', 'r')
-try:
-    fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB)
-except IOError:
-    print(&quot;can't immediately lock the file&quot;)
-else:
-    print(&quot;No error&quot;)
-    time.sleep(10)
-f.close()
-</code></pre>
-
-<p>先取得 file lock 的 process：</p>
-
-<pre><code class="language-bash"># python test.py
-No error
-</code></pre>
-
-<p>沒取得 file lock 的 process：</p>
-
-<pre><code class="language-bash"># python test.py
-can't immediately lock the file
-</code></pre>
-
-<p>離 Python System Programming 更近一步了!</p>
-
-<p>Ref: <a href="http://stackoverflow.com/questions/9907616/python-fcntl-does-not-lock-as-expected">Python fcntl does not lock as expected</a></p>
 
 	</div>
 	<div class="panel-footer">

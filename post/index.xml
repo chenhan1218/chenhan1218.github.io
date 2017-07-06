@@ -6,10 +6,22 @@
     <description>Recent content in Posts on Chen-Han (Stanley) Hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Jul 2017 23:35:17 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jul 2017 16:08:26 +0800</lastBuildDate>
     
 	<atom:link href="https://swem.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Launchpad API</title>
+      <link>https://swem.github.io/post/2017-07-06-launchpad-api/</link>
+      <pubDate>Thu, 06 Jul 2017 16:08:26 +0800</pubDate>
+      
+      <guid>https://swem.github.io/post/2017-07-06-launchpad-api/</guid>
+      <description>Launchpad provide a web service api for developer. The main area I use launchpad api on:
+ Grab/Edit bug information Grab/Attach attachment  For full functionality, please refer to online document: https://api.launchpad.net/devel.html
+There is a launchpadapi python client/library let you use launchpad web api easily. The key concept is to get the launchpad object. And then manipulate the objects.
+I recommended trying lp-shell in lptools packages. With lp-shell utility which provides an interactive python shell, developer could use launchpadlib python library interactively and explore functions and properties of launchpadlib.</description>
+    </item>
     
     <item>
       <title>Migrate to Hugo</title>

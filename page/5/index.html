@@ -107,6 +107,39 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/">Openfire 即時訊息伺服器</a>
+			<br>
+			<small>
+				2014-07-09
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>最近嘗試使用 Openfire，來架構私人使用的即時訊息server。 Openfire 是一套使用 xmpp protocol 的開源軟體，安裝上也非常簡單，提供有 deb 安裝檔。在 Debian/Ubuntu 上很快就可以安裝好了。之後就可以透過 9090 port 登入 admin 帳號進行設定。</p>
+
+<p>這裡分享一下我設定的心得，我架設的是單一伺服器。假設我決定 xmpp domain 為 openfire.example.io，那麼就必須把 dns 設定好，讓 openfire.example.io 指向安裝有 openfire 的機器。並且在 Openfire 的軟體設定， xmpp.domain 的值設定為 openfire.example.io。之後再新增 user1, user2 的帳號，就可以讓雙方(user1@openfire.example.io, user2@openfire.example.io )相互傳訊息。 Client端我是使用 <a href="http://www.xabber.org/">Xabber</a> on Android, <a href="https://jitsi.org/">Jitsi</a> on Ubuntu14.04</p>
+
+<p>如果手上沒有 domain，xmpp domain也是可以直接設定成 ip ，像是 192.168.0.2。</p>
+
+<p>另外，Openfire也有 Group Chat Rooms 的功能，很方便大家在同一個頻道上加入討論。</p>
+
+<p>之後希望可以看看 Openfire 是否能再結合 libjingle 做到 VOIP 的功能。如果可以的話，我想會是很棒的私人訊息軟體。</p>
+
+<p>Ref:
+<a href="https://www.digitalocean.com/community/tutorials/how-to-install-openfire-xmpp-server-on-a-debian-or-ubuntu-vps">How To Install Openfire XMPP Server on a Debian or Ubuntu VPS</a></p>
+
+<p>註：不過目前還有個小問題，client雙方可以互相傳文字訊息，卻看不到對方上線。看其它網友也有遇到相同狀況，之後有空再來看怎麼解決</p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2014-06-09-standard-predefined-macros/">Standard Predefined Macros</a>
 			<br>
 			<small>
@@ -366,27 +399,6 @@
 	<div class="panel-body">
 		<p><a href="https://www.facebook.com/ben.jai/posts/10152277923144113">翟本喬 - 你做的是一份工作，還是事業上的一步？</a>
 翟本喬說的這一句精準的點出我很認同的想法。未來要好好為自己的前途計劃、努力改進。</p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/">圖書館休館日與四色定理</a>
-			<br>
-			<small>
-				2014-02-17
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>最近注意到台北市圖書館是每月第一個星期四為清館日不開放，而新北市圖書館是最後一個星期四為清館日不開放。這樣恰好錯開了不開放的時間。<br />
-進一步想到如果其它縣市像是桃園縣、基隆市等等也希望跟相鄰的縣市錯開清館日的時間，而且都要安排在周四。考慮到一個月通常有4個星期四，這樣就變成是四色定理的問題了..</p>
 
 	</div>
 	<div class="panel-footer">

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Launchpad API">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2017-07-06">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="https://swem.github.io/post/2017-07-06-launchpad-api/">
+    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    
+    <meta name="generator" content="Hugo 0.22.1" />
+    <title>Launchpad API &middot; Chen-Han (Stanley) Hsiao</title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    
+    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    
+    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    
+    
+    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    
+
+    
+    
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="https://swem.github.io/about">About</a></li>
+				
+					<li><a href="https://swem.github.io/post">Post</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+		
+		
+		
+			<small class="text-center center-block">Tech Blog</small>
+		
+		
+		
+			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+			
+				<a href="https://www.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
+			
+				<a href="https://plus.google.com/u/0/115154486338673377998"><i class="fa fa-google-plus fa-2x"></i></a>
+			
+
+			
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="https://swem.github.io/about">About</a>
+			
+				<a href="https://swem.github.io/post">Post</a>
+			
+		</div>
+	</div>
+</div>
+
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-10 col-md-10 col-lg-8">
+
+<main>
+	<header>
+		<h1>Launchpad API</h1>
+	</header>
+			<small>
+				2017-07-06
+			</small>
+
+	<div>
+		
+		<small class="text-muted">
+			
+			
+		</small>
+		
+	</div>
+
+	<article>
+		<p>Launchpad provide a web service api for developer. The main area I use launchpad api on:</p>
+
+<ol>
+<li>Grab/Edit bug information</li>
+<li>Grab/Attach attachment</li>
+</ol>
+
+<p>For full functionality, please refer to online document: <a href="https://api.launchpad.net/devel.html">https://api.launchpad.net/devel.html</a></p>
+
+<p>There is a launchpadapi python client/library let you use launchpad web api easily.
+The key concept is to get the launchpad object. And then manipulate the objects.</p>
+
+<p>I recommended trying lp-shell in lptools packages. With lp-shell utility which provides an interactive python shell, developer could use launchpadlib python library interactively and explore functions and properties of launchpadlib.
+Example:</p>
+
+<pre><code>b = lp.bugs[1]
+
+print(b.title)
+print(b.message_count)
+</code></pre>
+
+<p>Here is more sample scripts: <a href="https://help.launchpad.net/API/Examples">https://help.launchpad.net/API/Examples</a></p>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	<a href=" https://swem.github.io/" class="btn btn-default"><i class="fa fa-home"></i> Home</a>
+</div>
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  
+  <script src="https://swem.github.io//js/App.js"></script>
+  
+</body>
+</html>
