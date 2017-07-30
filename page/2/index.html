@@ -107,6 +107,72 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/">How to prevent Linux from waking up due to USB devices</a>
+			<br>
+			<small>
+				2016-03-26
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>最近換了一台工作機，但我發現在 Ubuntu 14.04.3 上，有時候會休眠失敗。
+在失敗的時候，機器有 suspend 成功，但是過2秒後機器就會自動醒來。查看了 /var/log/kern.log, /var/log/syslog, /var/log/pm-suspend.log 沒有太異常的訊息。後來上網查了一下，這可能是有 BIOS 有問題或 device 不正常運作。</p>
+
+<p>在 /proc/acpi/wakeup 中，列出了數種 wakeup event, 以下面的表來說，代表了機器開放了 EHC1, EHC2, PWRB, LID0 這幾種 wakeup event</p>
+
+<pre><code>RP06      S4    *disabled
+PXSX      S4    *disabled
+RP07      S4    *disabled
+PXSX      S4    *disabled
+EHC1      S0    *enabled   pci:0000:00:1d.0
+EHC2      S4    *enabled  pci:0000:00:1a.0
+PWRB      S4    *enabled   platform:PNP0C0C:00
+LID0      S4    *enabled   platform:PNP0C0D:00
+</code></pre>
+
+<p>試著開關 wakeup trigger 來找出問題</p>
+
+<pre><code class="language-bash"># ignore XHC device wakeup event
+echo &quot;XHC&quot; &gt; /proc/acpi/wakeup
+# try suspend, still failed
+
+# ignore EHC1 device wakeup event
+echo &quot;EHC1&quot; &gt; /proc/acpi/wakeup
+# try suspend, still failed
+
+# ignore EHC1 device wakeup event
+echo &quot;EHC2&quot; &gt; /proc/acpi/wakeup
+# try suspend. Bingo!! It suspend successfully!
+</code></pre>
+
+<p>發現只要關閉 EHC2 wakeup trigger, 機器就能正常 suspend。可以放罝一個 upstart script，讓每次開機時，都自動關閉 EHC2 wakeup trigger</p>
+
+<pre><code># /etc/init/disable-EHC2.conf
+start on started dbus
+stop on stopping dbus
+
+script
+   sudo -u root sh -c &quot;echo 'EHC2' &gt; /proc/acpi/wakeup&quot;
+end script
+</code></pre>
+
+<p>Ref:
+- <a href="http://askubuntu.com/questions/479254/ubuntu-14-04-wake-up-immediately-after-suspend">Ubuntu 14.04 wake up immediately after suspend - Ask Ubuntu</a>
+- <a href="https://wiki.ubuntu.com/UnderstandingSuspend">UnderstandingSuspend - Ubuntu Wiki</a>
+- <a href="https://wiki.archlinux.org/index.php/Power_management/Suspend_and_hibernate#Instantaneous_wakeups_from_suspend">Power management/Suspend and hibernate - ArchWiki</a>
+- <a href="http://linux.die.net/man/1/acpitool">acpitool(1) - Linux man page</a>
+- <a href="https://01.org/blogs/rzhang/2015/best-practice-debug-linux-suspend/hibernate-issues">Best practice to debug Linux* suspend/hibernate issues | 01.org</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/">AlphaGo is not the solution to AI</a>
 			<br>
 			<small>
@@ -470,26 +536,6 @@ set follow-fork-mode child
 <p>由 folow-fork-mode 還延伸出 detach-on-fork，預設值開啟代表沒被 attached 的 process 會獨立的運作。關閉代表沒被 attached 的 process 會被 suspend。</p>
 
 <p>Ref: <a href="https://sourceware.org/gdb/onlinedocs/gdb/Forks.html">Forks - Debugging with GDB</a></p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2015-04-22-linux-kernel-development-process/">Linux Kernel Development Process</a>
-			<br>
-			<small>
-				2015-04-22
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="https://www.kernel.org/doc/Documentation/development-process/2.Process">kernel.org - HOW THE DEVELOPMENT PROCESS WORKS</a></p>
 
 	</div>
 	<div class="panel-footer">

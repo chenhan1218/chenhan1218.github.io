@@ -107,6 +107,36 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/">在 Archlinux 上啟動Avahi-daemon</a>
+			<br>
+			<small>
+				2014-10-28
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>這篇回覆介紹了如何在 Archlinux 上使用 systemd 來開啟 avahi-daemon，使得區域網路內的電腦可以用 .local 來連線到其它電腦。</p>
+
+<ol>
+<li><code>pacman -S avahi nss-mdns</code> Installs the Avahi services daemon and the Multicast DNS resolver.
+nano /etc/nsswitch.conf This file tells the C library how to obtain name-service information.</li>
+<li>Change the line <code>hosts: files dns myhostname</code> to <code>hosts: files mdns_minimal [NOTFOUND=return] dns myhostname</code>, save and exit.</li>
+<li><code>systemctl start avahi-daemon</code> Starts the Avahi service manually since we&rsquo;re already booted.look for errors)</li>
+<li><code>systemctl enable avahi-daemon</code> Enables the Avahi service on boot.</li>
+</ol>
+
+<p><a href="http://unix.stackexchange.com/a/146025/89399">How do I get to use .local hostnames with Arch Linux?</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/">用python fcntl 取得 file lock</a>
 			<br>
 			<small>
@@ -480,45 +510,6 @@ donate.wikimedia.org</p>
 <p>最後，把這組 API 金鑰配置到自已網站設定中。以Hackfoldr來說，就是填寫在 app/config.jsenv 中。這樣，網站應用程式就可以串接 Google API 來提供服務了。</p>
 
 <p>註：Google API對每一個專案有流量上限。如果流量到達了就無法繼續使用，這時可以參考付費方案，來購買更多的使用量。</p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/">Ubuntu 14.04 上使用嘸蝦米輸入法 with hime</a>
-			<br>
-			<small>
-				2014-07-30
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Facebook <a href="https://www.facebook.com/groups/ubuntu.zh.hant/711655822223076/">Ubuntu 正體中文社團</a> 上有人提問如何在 Ubuntu 14.04 上使用嘸蝦米輸入法。我的回應看來有幫忙解決問題了，順手貼在自己的部落格供大家參考。</p>
-
-<p>14.04上面可以安裝 hime (有hime-chewing套件提供注音輸入) ，安裝好以後把嘸蝦米字典檔放到 ~/.config/hime/ ，再用 im-config 把預設輸入法改為 hime 即可.</p>
-
-<p>hime 細部設定可以用 hime-setup</p>
-
-<p>====================</p>
-
-<p>Update: &ldquo;發現在 Ubuntu 14.04 上使用 fcitx 更為方便，也不需要準備字典檔。安裝方式:
-:00&rdquo;</p>
-
-<pre><code class="language-bash">sudo apt-get install fcitx-table-boshiamy
-</code></pre>
-
-<p>另外可以再安裝 fcitx 注音輸入法</p>
-
-<pre><code class="language-bash">sudo apt-get install fcitx-chewing
-</code></pre>
-
-<p>進入 System Settings 的 Lauguage Support 設定輸入法為 fcitx 後，登出再登入即可。</p>
 
 	</div>
 	<div class="panel-footer">

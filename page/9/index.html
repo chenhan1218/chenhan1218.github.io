@@ -107,6 +107,69 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
+			<a href="https://swem.github.io/post/2013-05-22-service-component/">雲端架構的構成要件</a>
+			<br>
+			<small>
+				2013-05-22
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>在Slide Share上看到<a href="http://www.slideshare.net/bpiatt/openstack-tutorial">Openstack Tutorial</a> ，其中第12頁點出了雲端架構的構成要件。</p>
+
+<ol>
+<li><p>Strategic Planning 策略規畫</p>
+
+<ul>
+<li>Consultants 顧問</li>
+<li>Business Process Automation 自動化商業流程</li>
+</ul></li>
+
+<li><p>Operations 運作</p>
+
+<ul>
+<li>Database Engineers 資料庫工程師</li>
+<li>Operating System Techinicians 作業系統工程師</li>
+<li>Systems Security Professionals 系統安全工程師</li>
+<li>Network Experts 網路工程師</li>
+</ul></li>
+
+<li><p>Systems 系統</p>
+
+<ul>
+<li>Servers, Firewalls, Load Balancers 伺服器、防火牆、負載平衡</li>
+<li>Operating Systems 作業系統</li>
+<li>Storage 儲存</li>
+<li>Management Tools 管理工具</li>
+<li>Virtualization 虛擬化</li>
+</ul></li>
+
+<li><p>Facilities 設備</p>
+
+<ul>
+<li>Data Center 資訊中心</li>
+<li>Networking 網路</li>
+<li>Power 電力</li>
+</ul></li>
+</ol>
+
+<p>其中 OpenStack 是包含了系統中的 儲存、管理工具、虛擬化。</p>
+
+<p>讓我想到翟本喬學長的話，不是把幾台機器塞到幾個貨櫃裡面就叫雲端。重點在於，資訊服務能不能隨著需求而跟著加大、減少、改變。</p>
+
+<p>Ref:
+1. <a href="http://www.slideshare.net/bpiatt/openstack-tutorial">Openstack Tutorial</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
 			<a href="https://swem.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/">AWSome Day on May 16 in Taipei.</a>
 			<br>
 			<small>
@@ -547,112 +610,6 @@ $ git commit -m &quot;Merge boost as our subdirectory&quot;
 <p>Ref[1]: <a href="http://blog.gslin.org/archives/2013/02/13/3203/digitalocean-%E8%88%87-linode-%E7%9A%84%E6%AF%94%E8%BC%83/">DigitalOcean 與 Linode 的比較…</a></p>
 
 <p>Ref[2]: <a href="http://jasonormand.com/2013/02/08/linode-vs-digitalocean-performance-benchmarks/">Linode vs DigitalOcean, performance benchmarks</a></p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/">Boost Unit Test Framework in UVa Online Judge</a>
-			<br>
-			<small>
-				2013-03-27
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>利用 Boost Unit Test Framework，可以方便的進行單元測試。
-而在 UVa Online Judge 的練習中，我們也可以導入 Boost Unit Test Framework 來對我們寫的 function 進行測試。
-不過 UVa Online Judge 的編譯環境是不支援 Boost 的，但在編譯時，它會給一個特別的編譯參數 -DONLINE_JUDGE。
-所以我們可以利用Uva 這個特有的編譯參數，在導入 Boost Unit Test Framework 時，又不會發生Compiler Error.</p>
-
-<p>單元測試時：</p>
-
-<pre><code class="language-bash">$ g++ 530.cpp -lboost_unit_test_framework
-$ ./a.out 
-Running 2 test cases...
-
-*** No errors detected
-</code></pre>
-
-<p>以測資做為輸入的測試：</p>
-
-<pre><code class="language-bash">$ g++ 530.cpp -DONLINE_JUDGE
-$ ./a.out &lt;input.txt
-6
-252
-13983816
-</code></pre>
-
-<p>程式碼：</p>
-
-<pre><code class="language-cpp">//============================================================================
-// Name        : 530.cpp
-// Author      :
-// Version     :
-// Copyright   : copyright notice
-//============================================================================
-
-#include &lt;iostream&gt;
-#include &lt;cstdlib&gt;
-#include &lt;string&gt;
-using namespace std;
-
-#ifndef ONLINE_JUDGE
-#define BOOST_TEST_DYN_LINK
-#define BOOST_TEST_MODULE acm
-#include &lt;boost/test/unit_test.hpp&gt;
-#endif
-
-long long combinations(long long int n, long long int k) {
-	long long int ans = 1;
-	if (k &gt; n - k) {
-		k = n - k;
-	}
-
-	for (long long int idx = 1; idx &lt;= k; idx++) {
-		ans *= (n - idx + 1);
-		ans = ans / idx;
-	}
-	return ans;
-}
-
-#ifdef ONLINE_JUDGE
-int main() {
-	long long int n, k;
-	while (cin &gt;&gt; n &gt;&gt; k) {
-		if (n == 0 &amp;&amp; k == 0) {
-			break;
-		}
-
-		cout &lt;&lt; combinations(n, k) &lt;&lt; endl;
-	}
-	return 0;
-}
-#else
-BOOST_AUTO_TEST_SUITE(test)
-
-BOOST_AUTO_TEST_CASE(testSmall) {
-	BOOST_CHECK(combinations(0, 0) == 1);
-	BOOST_CHECK(combinations(2, 2) == 1);
-	BOOST_CHECK(combinations(2, 1) == 2);
-	BOOST_CHECK(combinations(4, 2) == 6);
-	BOOST_CHECK(combinations(6, 3) == 20);
-	BOOST_CHECK(combinations(10, 5) == 252);
-}
-
-BOOST_AUTO_TEST_CASE(testLarge) {
-	BOOST_CHECK(combinations(49, 6) == 13983816);
-}
-
-BOOST_AUTO_TEST_SUITE_END()
-#endif
-</code></pre>
 
 	</div>
 	<div class="panel-footer">

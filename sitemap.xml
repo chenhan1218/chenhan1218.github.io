@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://swem.github.io/post/2017-07-30-build-ubuntu-kernel/</loc>
+    <lastmod>2017-07-30T11:13:57+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://swem.github.io/post/2017-07-06-launchpad-api/</loc>
     <lastmod>2017-07-06T16:08:26+08:00</lastmod>
   </url>
@@ -477,7 +482,7 @@
   
   <url>
     <loc>https://swem.github.io/</loc>
-    <lastmod>2017-07-06T16:08:26+08:00</lastmod>
+    <lastmod>2017-07-30T11:13:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -489,7 +494,7 @@
   
   <url>
     <loc>https://swem.github.io/post/</loc>
-    <lastmod>2017-07-06T16:08:26+08:00</lastmod>
+    <lastmod>2017-07-30T11:13:57+08:00</lastmod>
     <priority>0</priority>
   </url>
   
