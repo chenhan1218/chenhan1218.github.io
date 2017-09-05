@@ -41,7 +41,7 @@ Finally I decided to use [hugo-geo](https://themes.gohugo.io/hugo-geo/) theme wh
 2. Show tag information in article
 3. Show full article in front page.
 
-Customized hugo-geo: https://github.com/swem/hugo-geo
+Customized hugo-geo: https://github.com/chenhan1218/hugo-geo
 
 Will file pull request about 1. feature to upstream later. (Which I think might benefit a lot users.)
 

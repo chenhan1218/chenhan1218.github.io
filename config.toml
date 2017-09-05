@@ -1,4 +1,4 @@
-baseURL = "https://swem.github.io/"
+baseURL = "https://chenhan1218.github.io/"
 theme = "hugo-geo"
 languageCode = "en-us"
 title = "ChenHan's blog"
@@ -22,7 +22,7 @@ paginate = 10
 	# Each of these are optional
 	[[params.socialbuttons]]
 	faicon = "github"
-	url = "https://github.com/swem"
+	url = "https://github.com/chenhan1218"
 	[[params.socialbuttons]]
 	faicon = "linkedin"
 	url = "https://www.linkedin.com/in/chen-han-hsiao-2b486049"
