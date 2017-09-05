@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
-    <meta property="og:url" content="https://swem.github.io/">
+    <meta property="og:url" content="https://chenhan1218.github.io/">
     <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
     
     <meta name="generator" content="Hugo 0.22.1" />
@@ -17,12 +17,12 @@
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
     
     
-    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
     
 
     
@@ -40,16 +40,16 @@
 				<span class="icon-bar"></span>
 			</button>
 			
-				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+				<a class="navbar-brand" href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a>
 			
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				
 				
-					<li><a href="https://swem.github.io/about">About</a></li>
+					<li><a href="https://chenhan1218.github.io/about">About</a></li>
 				
-					<li><a href="https://swem.github.io/post">Post</a></li>
+					<li><a href="https://chenhan1218.github.io/post">Post</a></li>
 				
 			</ul>
 		</div>
@@ -60,7 +60,7 @@
 		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
 	<div id="menu-content" class="vertical-align">
 		
-			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+			<h1 class="text-center"><a href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
 		
 		
 		
@@ -68,11 +68,11 @@
 		
 		
 		
-			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+			<img id="profile-pic" src="https://chenhan1218.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
 		
 		<div id="social" class="text-center">
 			
-				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+				<a href="https://github.com/chenhan1218"><i class="fa fa-github fa-2x"></i></a>
 			
 				<a href="https://www.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
 			
@@ -84,9 +84,9 @@
 		<div id="links" class="text-center">
 			
 			
-				<a href="https://swem.github.io/about">About</a>
+				<a href="https://chenhan1218.github.io/about">About</a>
 			
-				<a href="https://swem.github.io/post">Post</a>
+				<a href="https://chenhan1218.github.io/post">Post</a>
 			
 		</div>
 	</div>
@@ -107,7 +107,113 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/">Boost Unit Test Framework in UVa Online Judge</a>
+			<a href="https://chenhan1218.github.io/post/2013-04-24-npm-install/">npm install</a>
+			<br>
+			<small>
+				2013-04-24
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>NPM (Node Packaged Modules) 是 Node.js 裡很好用的模組安裝工具。從 npm 1.0 開始，有兩個方式來安裝模組。</p>
+
+<ol>
+<li><p>全域安裝，通常會把模組安裝在 /usr/local/lib/node_modules 的位置。</p>
+
+<pre><code class="language-bash">$ npm install -g express
+</code></pre></li>
+
+<li><p>專案資料夾內的安裝，</p>
+
+<pre><code class="language-bash">$ npm install express
+</code></pre></li>
+</ol>
+
+<p>如何決定要用什麼方式來安裝呢。Node.js 提供了以下的原則：</p>
+
+<ol>
+<li>如果你要安裝的模組是用在專案中，以 require(&lsquo;whatever&rsquo;) 的方式來引用。那麼就在專案的資料夾安裝</li>
+<li>如果你安裝的模組是要在 shell 裡使用的，那麼就用全域安裝。</li>
+</ol>
+
+<p>不過，有些模組你既需要在專案中 require 它，也需要在 shell 中執行它所附加的小工具。像是常用的<a href="http://coffeescript.org/">Coffee-script</a>、<a href="http://expressjs.com/">Express</a>。
+那該怎麼做比較好呢。我建議你在全域還有專案資料夾內各安裝一份，這樣子很簡單也容易維護。</p>
+
+<p>P.S. 你可以用 npm -v 來確定自己的 npm 是否為1.0 以上的版本。</p>
+
+<p>Ref:
+<a href="http://blog.nodejs.org/2011/03/23/npm-1-0-global-vs-local-installation/">npm 1.0: Global vs Local installation</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2013-04-23-code-school-hall-passes/">Code School Hall Passes</a>
+			<br>
+			<small>
+				2013-04-23
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>Code School 現在可以啟用兩天完全免費的課程
+<a href="http://www.codeschool.com/hall_passes/fdd59c145dca/claim_shared">Code School - Hall Pass</a></p>
+
+<p>目前他們的商業模式是少部份課程免費，其餘課程要成為收費會員才能上課，1個月 25 美元。
+大多是 Web development 相關，課程的品質很好，對初學者很好上手，有興趣的人可以試一試。</p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2013-04-10-digitalocean/">DigitalOcean 初體驗</a>
+			<br>
+			<small>
+				2013-04-10
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>前幾天剛好有虛擬機器的需要，所以上 <a href="https://www.digitalocean.com">DigitalOcean</a> 開了一台最便宜的來試試。</p>
+
+<p>架設 Server 十分容易，方案選一下，信用卡開下去就有了。
+設備：512MB Memory, 1 Core, 20GB SSD Disk, 1TB Transfer</p>
+
+<p>我選在 New York 的 Data Center，從台灣連過去的 Latency 大約是230ms。差強人意，但以我的用途可接受。
+使用12小時花了 $0.09 美元，實在是非常划算。</p>
+
+<p>後來因為用不到了，所以把機器做了個 Snapshot，然後就把機器刪除了。
+這樣就不會產生任何花費。等到以後需要再從 Snapshot 重新建一台 Server 回來用就好。</p>
+
+<p>能夠以使用時數計費，還有價格相對於 <a href="http://www.linode.com/">Linode</a> 便宜，是我選擇 DigitalOcean 的原因。</p>
+
+<p>Ref[1]: <a href="http://blog.gslin.org/archives/2013/02/13/3203/digitalocean-%E8%88%87-linode-%E7%9A%84%E6%AF%94%E8%BC%83/">DigitalOcean 與 Linode 的比較…</a></p>
+
+<p>Ref[2]: <a href="http://jasonormand.com/2013/02/08/linode-vs-digitalocean-performance-benchmarks/">Linode vs DigitalOcean, performance benchmarks</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/">Boost Unit Test Framework in UVa Online Judge</a>
 			<br>
 			<small>
 				2013-03-27
@@ -213,7 +319,7 @@ BOOST_AUTO_TEST_SUITE_END()
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2013-03-14-rip/">RIP, Google Reader</a>
+			<a href="https://chenhan1218.github.io/post/2013-03-14-rip/">RIP, Google Reader</a>
 			<br>
 			<small>
 				2013-03-14
@@ -250,7 +356,7 @@ Feedly 這項服務提供 Google Reader 使用者連結自己所訂閱的 RSS,
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/">Memory blocks are possibly lost (Valgrind example again!!)</a>
+			<a href="https://chenhan1218.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/">Memory blocks are possibly lost (Valgrind example again!!)</a>
 			<br>
 			<small>
 				2012-12-25
@@ -322,7 +428,7 @@ return 0;
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/">Valgrind - 檢查程式記憶體的小工具</a>
+			<a href="https://chenhan1218.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/">Valgrind - 檢查程式記憶體的小工具</a>
 			<br>
 			<small>
 				2012-12-17
@@ -538,7 +644,7 @@ $valgrind ./a.out</p>
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
   
   
-  <script src="https://swem.github.io//js/App.js"></script>
+  <script src="https://chenhan1218.github.io//js/App.js"></script>
   
 </body>
 </html>

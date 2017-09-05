@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
-    <meta property="og:url" content="https://swem.github.io/">
+    <meta property="og:url" content="https://chenhan1218.github.io/">
     <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
     
     <meta name="generator" content="Hugo 0.22.1" />
@@ -17,12 +17,12 @@
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
     
     
-    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
     
 
     
@@ -40,16 +40,16 @@
 				<span class="icon-bar"></span>
 			</button>
 			
-				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+				<a class="navbar-brand" href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a>
 			
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				
 				
-					<li><a href="https://swem.github.io/about">About</a></li>
+					<li><a href="https://chenhan1218.github.io/about">About</a></li>
 				
-					<li><a href="https://swem.github.io/post">Post</a></li>
+					<li><a href="https://chenhan1218.github.io/post">Post</a></li>
 				
 			</ul>
 		</div>
@@ -60,7 +60,7 @@
 		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
 	<div id="menu-content" class="vertical-align">
 		
-			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+			<h1 class="text-center"><a href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
 		
 		
 		
@@ -68,11 +68,11 @@
 		
 		
 		
-			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+			<img id="profile-pic" src="https://chenhan1218.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
 		
 		<div id="social" class="text-center">
 			
-				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+				<a href="https://github.com/chenhan1218"><i class="fa fa-github fa-2x"></i></a>
 			
 				<a href="https://www.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
 			
@@ -84,9 +84,9 @@
 		<div id="links" class="text-center">
 			
 			
-				<a href="https://swem.github.io/about">About</a>
+				<a href="https://chenhan1218.github.io/about">About</a>
 			
-				<a href="https://swem.github.io/post">Post</a>
+				<a href="https://chenhan1218.github.io/post">Post</a>
 			
 		</div>
 	</div>
@@ -107,7 +107,117 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2017-07-30-build-ubuntu-kernel/">Build Ubuntu kernel</a>
+			<a href="https://chenhan1218.github.io/post/2017-08-30-disable-suspend/">disable suspend via polkit</a>
+			<br>
+			<small>
+				2017-08-30
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p><a href="https://gist.github.com/schlomo/183524530d17d6a888d0">https://gist.github.com/schlomo/183524530d17d6a888d0</a></p>
+
+<p>/var/lib/polkit-1/localauthority/50-local.d/disable-suspend.pkla</p>
+
+<pre><code>[Completely disable suspend and hibernate]
+Identity=unix-user:*
+Action=org.freedesktop.upower.suspend;org.freedesktop.upower.hibernate;org.freedesktop.login1.suspend*;org.freedesktop.login1.hibernate*
+ResultAny=no
+ResultInactive=no
+ResultActive=no
+</code></pre>
+
+	</div>
+	<div class="panel-footer">
+		
+		<small class="text-muted">
+			
+			
+		</small>
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2017-08-09-gnome-session-autostart/">autostart x11vnc in gnome-session</a>
+			<br>
+			<small>
+				2017-08-09
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<pre><code>$ cat ~/.config/autostart/x11vnc.desktop
+[Desktop Entry]
+Type=Application
+Exec=sh -c &quot;/usr/bin/x11vnc -auth $XAUTHORITY -rfbauth $HOME/.x11vnc/passwd -forever -shared -bg --noxfixes -noxrecord -noxdamage -rfbport 5900 -display $DISPLAY -o $HOME/.x11vnc/vnc_server.log&quot;
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=x11vnc
+Name=x11vnc
+Comment[en_US]=
+Comment=
+</code></pre>
+
+	</div>
+	<div class="panel-footer">
+		
+		<small class="text-muted">
+			
+			
+		</small>
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2017-08-08-build-external-kernel-module/">Build external kernel module</a>
+			<br>
+			<small>
+				2017-08-08
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>First, apply patches if any.</p>
+
+<pre><code>git am --whitespace=nowarn ${patches}/*.patch
+</code></pre>
+
+<p>Second, built the module</p>
+
+<pre><code># take amdgpu as an example
+cd drivers/gpu/drm/amd/amdgpu/
+make -C /lib/modules/`uname -r`/build M=$PWD
+</code></pre>
+
+<ol>
+<li><a href="https://www.kernel.org/doc/Documentation/kbuild/modules.txt">https://www.kernel.org/doc/Documentation/kbuild/modules.txt</a></li>
+</ol>
+
+	</div>
+	<div class="panel-footer">
+		
+		<small class="text-muted">
+			
+			
+		</small>
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2017-07-30-build-ubuntu-kernel/">Build Ubuntu kernel</a>
 			<br>
 			<small>
 				2017-07-30
@@ -161,7 +271,7 @@ dput &lt;Your ppa&gt; ../linux_4.13.0-2.3_source.changes
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2017-07-06-launchpad-api/">Launchpad API</a>
+			<a href="https://chenhan1218.github.io/post/2017-07-06-launchpad-api/">Launchpad API</a>
 			<br>
 			<small>
 				2017-07-06
@@ -207,7 +317,7 @@ print(b.message_count)
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2017-07-01-migrate-to-hugo/">Migrate to Hugo</a>
+			<a href="https://chenhan1218.github.io/post/2017-07-01-migrate-to-hugo/">Migrate to Hugo</a>
 			<br>
 			<small>
 				2017-07-01
@@ -253,7 +363,7 @@ print(b.message_count)
 <li>Show full article in front page.</li>
 </ol>
 
-<p>Customized hugo-geo: <a href="https://github.com/swem/hugo-geo">https://github.com/swem/hugo-geo</a></p>
+<p>Customized hugo-geo: <a href="https://github.com/chenhan1218/hugo-geo">https://github.com/chenhan1218/hugo-geo</a></p>
 
 <p>Will file pull request about 1. feature to upstream later. (Which I think might benefit a lot users.)</p>
 
@@ -267,7 +377,7 @@ print(b.message_count)
 		<small class="text-muted">
 			
 			
-				<a href="https://swem.github.io/tags/hugo"><span class="label label-success">hugo</span></a>
+				<a href="https://chenhan1218.github.io/tags/hugo"><span class="label label-success">hugo</span></a>
 			
 		</small>
 		
@@ -278,7 +388,7 @@ print(b.message_count)
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">利用 RTL-SDB 接收 ads-b 訊號</a>
+			<a href="https://chenhan1218.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">利用 RTL-SDB 接收 ads-b 訊號</a>
 			<br>
 			<small>
 				2017-07-01
@@ -355,7 +465,7 @@ sudo systemctl restart snap.adsb-box.piaware.service
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2017-07-01-must-have-gnome-extensions/">推薦 gnome extensions</a>
+			<a href="https://chenhan1218.github.io/post/2017-07-01-must-have-gnome-extensions/">推薦 gnome extensions</a>
 			<br>
 			<small>
 				2017-07-01
@@ -406,7 +516,7 @@ sudo systemctl restart snap.adsb-box.piaware.service
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2016-09-23-905130/">How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</a>
+			<a href="https://chenhan1218.github.io/post/2016-09-23-905130/">How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</a>
 			<br>
 			<small>
 				2016-09-23
@@ -446,7 +556,7 @@ lrwxrwxrwx 1 root root 37 Jul 14 07:52 /run/systemd/generator.early/multi-user.t
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/">use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</a>
+			<a href="https://chenhan1218.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/">use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</a>
 			<br>
 			<small>
 				2016-08-16
@@ -500,221 +610,6 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
 <p>If your root file system is also a btrfs subvolume. That would be even better. You can snapshot your whole system!</p>
 
 <pre><code>sudo snapper -c root create-config /
-</code></pre>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2016-08-14-lxd-container-getting-started/">LXD container Getting Started</a>
-			<br>
-			<small>
-				2016-08-14
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.</p>
-
-<pre><code># check current status of lxd. If you install lxd the first time, it should containing no virtual machines.
-lxc list
-
-# if my-ubuntu virtual machine not exist yet.
-lxc launch ubuntu:16.04 my-ubuntu
-# if my-ubuntu virtual machine already exist.
-lxc start my-ubuntu
-
-# check status of my-ubuntu virtual machine
-lxc list
-
-# login to root account
-lxc exec first -- /bin/bash
-# or login to ubuntu account
-lxc exec first -- /bin/su - ubuntu
-
-# stop the virtual machine
-lxc stop my-ubuntu
-
-# you can even copy virtual machine
-lxc copy my-ubuntu my-ubuntu2
-# or rename it
-lxc mv my-ubuntu stanley-ubuntu
-lxc mv stanley-ubuntu my-ubuntu
-
-# delete my-ubuntu virtual machine
-lxc delete my-ubuntu
-
-# check my-ubuntu is deleted
-lxc list
-</code></pre>
-
-<p>Varies images is provided by Canonical in <a href="http://images.linuxcontainers.org/">http://images.linuxcontainers.org/</a></p>
-
-<p>Note that lxd has some limitaions. Such as you can&rsquo;t
-- setup loopback device
-- mount fuse file system
-- have bridged network.
-- load/remove kernel module
-&hellip;
-(But if you choose to run a priviledged lxd virtual machine, some limitations might not exist anymore. But I haven&rsquo;t dig into it currently.)</p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2016-07-06-763254/">Build Debian/Ubuntu LiveCD</a>
-			<br>
-			<small>
-				2016-07-06
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		
-
-<p>Note that this article introduces how to build Debian/Ubuntu LiveCD iso image from scratch. With this method, you have great flexibility to customize the LiveCD.</p>
-
-<p>However, if you only want to customize the LiveCD a little bit. Such as adding some packages for installation, or changing the preseed configuration, you can refer to <a href="https://wiki.debian.org/DebianCustomCD">DebianCustomCD</a>, <a href="https://wiki.debian.org/Simple-CDD/Howto">Simple-CDD</a> and <a href="https://help.ubuntu.com/community/LiveCDCustomization">LiveCDCustomization</a></p>
-
-<h2 id="debian-jessie">Debian Jessie</h2>
-
-<pre><code># within Debian jessie
-git clone git://anonscm.debian.org/git/debian-live/live-build.git
-cd live-build
-git checkout debian/4.0.5-1
-dpkg-buildpackage -b -uc -us
-cd ..
-sudo dpkg -i live-build_4.0.5-1_all.deb
-
-sudo apt-get install -y live-images
-cp -r /usr/share/live/images/standard .
-cd standard/
-lb config --source false # optional, would be faster if not build source
-sudo lb build
-# here we got live-image-amd64.hybrid.iso, about 417MB
-# refer to http://cdimage.debian.org/mirror/cdimage/archive/8.6.0-live/amd64/iso-hybrid/debian-live-8.6.0-amd64-standard.iso.log for more information
-</code></pre>
-
-<h2 id="ubuntu-xenial-16-04">Ubuntu Xenial 16.04</h2>
-
-<h3 id="automatically-build-with-ubuntu-defaults-builder">Automatically build with ubuntu-defaults-builder</h3>
-
-<pre><code>sudo apt install -y ubuntu-defaults-builder
-sudo apt install -y syslinux-utils
-ubuntu-defaults-template myconfig
-cd myconfig/
-dpkg-buildpackage
-cd ../
-ubuntu-defaults-image --package myconfig_0.1_all.deb --components main,restricted,universe,multiverse
-
-# here we got binary.hybrid.iso and livecd.ubuntu.iso
-</code></pre>
-
-<h3 id="build-with-ubuntu-cdimage">build with ubuntu-cdimage</h3>
-
-<pre><code>TODO:
-</code></pre>
-
-<h3 id="manually-build-with-live-build-not-working-right-now-might-need-hooks-to-allow-booting">Manually build with live-build (Not working right now, might need hooks to allow booting)</h3>
-
-<pre><code># First, set up the build tools and workspace.
-# The scripts require that you work in /build
-
-sudo apt-get install -y genisoimage syslinux-utils # tools for generate ISO image
-sudo apt-get install -y memtest86+ syslinux syslinux-themes-ubuntu-xenial gfxboot-theme-ubuntu
-
-sudo -i
-apt-get install -y livecd-rootfs
-mkdir -p /build/chroot
-cd /build
-cp -a /usr/share/livecd-rootfs/live-build/auto .
-
-# All the hard work is done with live-build (lb command)
-# and we have to configure it with environment variables
-
-export SUITE=xenial
-export ARCH=amd64
-export PROJECT=ubuntu
-export MIRROR=http://archive.ubuntu.com/ubuntu/
-export BINARYFORMAT=iso-hybrid
-export LB_SYSLINUX_THEME=ubuntu-xenial
-
-# Now we can have live-build set up the workspace
-
-lb config --initramfs-compression=gzip 
-
-# And finally, start the build
-
-lb build
-</code></pre>
-
-<p>Ref:
-[1] <a href="https://code.launchpad.net/~semiosis/livecd-rootfs/fix-for-1565985/+merge/298305/comments/768010">https://code.launchpad.net/~semiosis/livecd-rootfs/fix-for-1565985/+merge/298305/comments/768010</a>
-[2] <a href="https://lists.ubuntu.com/archives/ubuntu-devel/2011-June/033458.html">Ubuntu live filesystem builds moved to live-build</a>
-[3] <a href="https://wiki.ubuntu.com/DesktopTeam/Specs/Oneiric/LocalizedCDImageTools">LocalizedCDImageTools - Ubuntu Wiki</a>
-[4] <a href="http://summit.ubuntu.com/uos-1411/meeting/22380/development-1411-iso-l10n-uefi/">ISO with l10 preloaded for LoCo + UEFI</a>
-[5] <a href="https://wiki.ubuntu.com/UbuntuStudio/Seeds">UbuntuStudio/Seeds - Ubuntu Wiki</a>
-[6] <a href="https://docs.google.com/document/d/1RPPF14h1Sw2gQjGTuZjUIlNHnGrafS8ekhFjJM9MT00/edit#">Building large-scale Ubuntu derivatives using seeds - Google Docs
-</a>
-[7] <a href="https://wiki.ubuntu.com/ReleaseTeam/CDImageSetup">ReleaseTeam/CDImageSetup - Ubuntu Wiki</a></p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/">PuDB Python Debugging Tool. A full-screen, console-based Python debugger</a>
-			<br>
-			<small>
-				2016-03-31
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>I highly recommened pudb, which is a full-screen, console-based visual debugger for Python. The user-interface is nicely designed for python developers.</p>
-
-<p>Here is an example debugging a simple python script:
-<a href="http://heather.cs.ucdavis.edu/~matloff/pudb.html">Introduction to the PuDB Python Debugging Tool
-</a></p>
-
-<p>Also, another great tutorial is from Jordi Gutiérrez Hermoso.
-<a href="https://www.youtube.com/watch?v=IEXx-AQLOBk">Montreal, QC, September 14, 2015 - Jordi Gutiérrez Hermoso presents PuDB, a full-screen, console-based visual debugger for Python.</a>
-An interesting comment from the speaker:
-&gt; Everyone should use a debugger
-&gt; &hellip;
-&gt;
-&gt; But If pdb is the only debugger you&rsquo;ve every seen, I won&rsquo;t blame you not using a debugger
-&gt;
-&gt; &hellip;
-&gt; because the debugger is ugly, not because the source code is ugly</p>
-
-<p>To install pudb on Debian/Ubuntu, you can use apt-get to install the package</p>
-
-<pre><code class="language-bash"># for python 2
-sudo apt-get -y python-pudb
-# for python 3
-sudo apt-get -y python3-pudb
-
-# pudb is even better when debugging with ipython
-# so that's install ipython
-sudo apt-get install ipython
 </code></pre>
 
 	</div>
@@ -868,7 +763,7 @@ sudo apt-get install ipython
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
   
   
-  <script src="https://swem.github.io//js/App.js"></script>
+  <script src="https://chenhan1218.github.io//js/App.js"></script>
   
 </body>
 </html>

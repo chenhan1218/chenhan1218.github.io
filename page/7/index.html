@@ -9,7 +9,7 @@
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
-    <meta property="og:url" content="https://swem.github.io/">
+    <meta property="og:url" content="https://chenhan1218.github.io/">
     <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
     
     <meta name="generator" content="Hugo 0.22.1" />
@@ -17,12 +17,12 @@
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
-    <link rel="stylesheet" href="https://swem.github.io/css/style.css">
+    <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://swem.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
     
     
-    <link rel="icon" href="https://swem.github.io/favicon.ico" />
+    <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
     
 
     
@@ -40,16 +40,16 @@
 				<span class="icon-bar"></span>
 			</button>
 			
-				<a class="navbar-brand" href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a>
+				<a class="navbar-brand" href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a>
 			
 		</div>
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				
 				
-					<li><a href="https://swem.github.io/about">About</a></li>
+					<li><a href="https://chenhan1218.github.io/about">About</a></li>
 				
-					<li><a href="https://swem.github.io/post">Post</a></li>
+					<li><a href="https://chenhan1218.github.io/post">Post</a></li>
 				
 			</ul>
 		</div>
@@ -60,7 +60,7 @@
 		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
 	<div id="menu-content" class="vertical-align">
 		
-			<h1 class="text-center"><a href="https://swem.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
+			<h1 class="text-center"><a href="https://chenhan1218.github.io/">Chen-Han (Stanley) Hsiao</a></h1>
 		
 		
 		
@@ -68,11 +68,11 @@
 		
 		
 		
-			<img id="profile-pic" src="https://swem.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+			<img id="profile-pic" src="https://chenhan1218.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
 		
 		<div id="social" class="text-center">
 			
-				<a href="https://github.com/swem"><i class="fa fa-github fa-2x"></i></a>
+				<a href="https://github.com/chenhan1218"><i class="fa fa-github fa-2x"></i></a>
 			
 				<a href="https://www.linkedin.com/in/chen-han-hsiao-2b486049"><i class="fa fa-linkedin fa-2x"></i></a>
 			
@@ -84,9 +84,9 @@
 		<div id="links" class="text-center">
 			
 			
-				<a href="https://swem.github.io/about">About</a>
+				<a href="https://chenhan1218.github.io/about">About</a>
 			
-				<a href="https://swem.github.io/post">Post</a>
+				<a href="https://chenhan1218.github.io/post">Post</a>
 			
 		</div>
 	</div>
@@ -107,7 +107,101 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-20-operating-systems-three-easy-pieces/">Operating Systems: Three Easy Pieces</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/">Mutexes VS Semaphores 大揭秘</a>
+			<br>
+			<small>
+				2014-01-30
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>尋著 jserv 的文章，找到了這一篇文章 <a href="http://www.barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore">Mutexes and Semaphores Demystified</a> 。</p>
+
+<p>Mutex 與 Semaphore 都是用在保護 critical section，確保多個 process 平行運作並存取資源時，執行結果不會因為執行程序的時間先後的影響而導致錯誤。
+Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
+1. process 使用 mutex 時，process 的運作是持有 Mutex，執行critical section 來存取資源，然後釋放 Mutex. Mutex 就像是資源的一把鎖。
+2. process 使用 semaphore 時，process 總是發出信號(signal)，或者總是接收信號(wait)，同一個 process 不會先後進行 signal 與 wait。也就是說，process 要嘛當 producer，要嘛當 consumer，不能兩者都是。Semaphore 是為了保護 process 的執行同步性。</p>
+
+<p>Mutex 與 Semaphore 要解決的是不同的問題。了解這個部份後，就可以來區分 mutex 與 binary semaphore。mutex 確保數個 process 在一個時間點上，只能有一個 process 存取單項資源，而 semaphore 則是讓數個 producer 與 數個 consumer 在訊號上進行合作。</p>
+
+<p>另一個 mutex 與 binary semaphore 的差異在於，使用 mutex 會導致 priority inversion。也因此 mutex 中多半採用了一些機制來防止 <a href="http://www.barrgroup.com/Embedded-Systems/How-To/RTOS-Priority-Inversion">Priority Inversion</a>。Priority Inversion 是基於 process 持有 mutex 的概念，使得數個不同 priority 的 process ，在等待資源時透過 mutex 傳遞 priority，避免 priority inversion 發生。</p>
+
+<p>註：Mutex與Semaphore在很多書、文章中都有很多不同的解釋。我認為這篇文章談的是最嚴格定義的 Semaphore (Dijkstra 所提出)，因此兩者有相當不同的區分。而後衍生出的 semaphore ，則包含了 counting semaphore 與 binary semaphore，也才能夠用於保護資源，或是處理 multiple identical resources 的問題。</p>
+
+<p>Other Link:<br />
+- <a href="http://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex">Difference between binary semaphore and mutex</a>
+- <a href="http://en.wikipedia.org/wiki/Semaphore_(programming)#Example:_Producer.2Fconsumer_problem">Wikipedia: Example: Producer/consumer problem</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/">每個C語言開發者都要了解的 Undefined Behavior</a>
+			<br>
+			<small>
+				2014-01-21
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #<sup>1</sup>&frasl;<sub>3</sub></a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
+
+<p><iframe src="//www.slideshare.net/slideshow/embed_code/36318298" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/ssusercd43c4/2014-0626-a-guide-to-undefined-behavior-in-c-and-c-stanley" title="2014-06-26 - A guide to undefined behavior in c and c++" target="_blank">2014-06-26 - A guide to undefined behavior in c and c++</a> </strong> from <strong><a href="http://www.slideshare.net/ssusercd43c4" target="_blank">辰翰 蕭</a></strong> </div></p>
+
+<p>如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章
+1. <a href="http://sohulinux.blog.sohu.com/176185110.html">未定义行为：What Every C Programmer Should Know #<sup>1</sup>&frasl;<sub>3</sub></a>
+2. <a href="http://sohulinux.blog.sohu.com/176211282.html">未定义行为：What Every C Programmer Should Know #<sup>2</sup>&frasl;<sub>3</sub></a>
+3. <a href="http://sohulinux.blog.sohu.com/176282266.html">未定义行为：What Every C Programmer Should Know #<sup>3</sup>&frasl;<sub>3</sub></a>
+4. <a href="http://www.cnblogs.com/foohack/p/3582239.html">About Undefined Behavior[译文]</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2014-01-20-kaggle-playing/">kaggle 試玩</a>
+			<br>
+			<small>
+				2014-01-20
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p><a href="https://www.kaggle.com/">Kaggle</a>，是machine learning 的 crowd-sourcing網站。有需要的公司可以在上面提出專案，讓大家去解，通常會給獎金，甚至是一份工作。已經在上面提出專案的包括</p>
+
+<ol>
+<li>Amazon，獎金$5000，<a href="https://www.kaggle.com/c/amazon-employee-access-challenge">Amazon.com - Employee Access Challenge</a></li>
+<li>Facebook，一份工作，<a href="https://www.kaggle.com/c/FacebookRecruiting">Facebook Recruiting Competition</a>、<a href="https://www.kaggle.com/c/facebook-ii">Facebook II - Mapping the Internet</a>、<a href="https://www.kaggle.com/c/facebook-recruiting-iii-keyword-extraction">Facebook Recruiting III - Keyword Extraction</a></li>
+<li>StumbleUpon，獎金$5000，<a href="https://www.kaggle.com/c/stumbleupon">StumbleUpon Evergreen Classification Challenge</a></li>
+</ol>
+
+<p>以前在學校時上過 Machine Learning 的課，而 kaggle 提供了很棒的資源讓大家接觸更大規模的資料。這2周試玩 <a href="https://www.kaggle.com/">Kaggle</a>，我先做了由 kaggle 所提供範例。<br />
+<a href="https://www.kaggle.com/c/titanic-gettingStarted">Titanic: Machine Learning from Disaster</a> 這個練習有很詳細的說明，教大家使用 excel 做最基本的資料分析，或是改用 python 寫最基本的運算。最後是用 random forest 這項演算法來做機器學習。初學者從這項練習可以了解到進行機器學習時會遇到的狀況。</p>
+
+<p><a href="https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience">https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience</a></p>
+
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2014-01-20-operating-systems-three-easy-pieces/">Operating Systems: Three Easy Pieces</a>
 			<br>
 			<small>
 				2014-01-20
@@ -128,7 +222,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/">kimono Turn websites into structured APIs</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/">kimono Turn websites into structured APIs</a>
 			<br>
 			<small>
 				2014-01-16
@@ -151,7 +245,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/">Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/">Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a>
 			<br>
 			<small>
 				2014-01-15
@@ -177,7 +271,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/">2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/">2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</a>
 			<br>
 			<small>
 				2014-01-15
@@ -208,7 +302,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/">那些年，我們一起上的 BBS: 洪任諭 PCMan at TEDxNCTU 2013</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/">那些年，我們一起上的 BBS: 洪任諭 PCMan at TEDxNCTU 2013</a>
 			<br>
 			<small>
 				2014-01-13
@@ -240,7 +334,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-11-embed-base64-image-in-markdown/">Embed base64 image in markdown</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-11-embed-base64-image-in-markdown/">Embed base64 image in markdown</a>
 			<br>
 			<small>
 				2014-01-11
@@ -264,7 +358,7 @@
 	<div class="panel panel-default">
 	<div class="panel-header">
 		<h3>
-			<a href="https://swem.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/">TechTalk@TW Episode 24 - 開放原始碼授權</a>
+			<a href="https://chenhan1218.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/">TechTalk@TW Episode 24 - 開放原始碼授權</a>
 			<br>
 			<small>
 				2014-01-10
@@ -274,122 +368,6 @@
 	<div class="panel-body">
 		<p><a href="http://www.techtalk.tw/2013/11/episode-24.html">TechTalk@TW: 專訪 Episode 24 - 開放原始碼授權</a>
 中央研究院資訊科學所的林誠夏介紹數種開放原始碼的授權。聽完後對軟體授權有一些基本的認知，推薦給像我一樣的軟體專利新手。</p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-01-10-move-to-logdown/">Move to Logdown</a>
-			<br>
-			<small>
-				2014-01-10
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>決定把部落格搬到 <a href="http://logdown.com">Logdown</a>。新網站：<a href="http://swem.logdown.com">http://swem.logdown.com</a></p>
-
-<p>過去我採用 <a href="http://octopress.org/">Octopress</a> 來編寫技術部落格，對需要分享程式碼的人來說，Octopress 採用 Markdown 格式，並且附帶有 Syntax Highlight，程式碼放在文章中很清楚，是技術部落格很棒的選擇。但時間一久，覺得每次寫文章總要手動 <code>rake new_post</code>，手動 deploy 上 <a href="https://github.com">github</a> ，總還是覺得麻煩了些。而且 <a href="http://octopress.org/">Octopress</a> 也是一項不斷有新 patch 的專案。有時候寫一寫部落格，還得要思考是不是該跟上新版本，把新版 Octopress Merge 進來。這些零碎的小事也讓寫部落格這件事變的不是很俐落。<br />
-最近發現 tumblr 也可以用 Markdown 來寫，而且相片與文章的連接也很順暢，每天有不少相片容量可以使用，高興之餘，卻發現程式碼的 block 功能在 tumblr 是沒有作用的，當然也沒有 Syntax Highlight 的功能。<br />
-最後找到了 logdown ，這幾天試用過幾次後，就決定把部落格搬過去了。有幾個部份是 logdown 吸引我的部份</p>
-
-<ol>
-<li>採用 Markdown 格式撰寫文章。這是寫技術文的首要功能</li>
-<li>與 Octopress 互通文檔。這也是很重要的部份，未來如果想要拿回來自已 host，把 Exporting 拿回來的文檔直接放進 Octopress 裡的 <code>_post</code> 資料夾就可以再次 deploy 出去。這項優點使得我們在切換 blog 平台的時候可以減少很多轉換痛苦。</li>
-<li>Logdown 的 theme 調整的很乾淨，畫面看起來也很清爽，也具有 Responsive Design。</li>
-</ol>
-
-<p>目前我是使用 logdown 免費的方案，可以 host 一個部落格。進階功能則是要採用付費的方案，像是10GB的圖片上傳、同時host 5個部落格、Custom Domain對應。我想 logdown 確實是技術部落格很棒的選擇，有寫技術文的朋友一定要試試看。</p>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/">2014/1/9 Front-End Developers Taiwan Party - 4 筆記</a>
-			<br>
-			<small>
-				2014-01-09
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>2014/1/9 Front-End Developers Taiwan Party - 4 心得</p>
-
-<p>今天來了3組講者，另外有一個 lighting talk。過去我參加的都是偏向技術的社群聚會，第一次來到Front-End Developers的社群活動。今天的演講內容都很精采，而且全部都是 User Experience 相關的分享。以下簡單整理</p>
-
-<ol>
-<li><p>卓致遠 (Thinker Mobile co-founder) 分享了他在製作<a href="http://zh.towalk.cc/">toWalk</a> 這款離線導航軟體的過程，前期的使用者研究花了很多心力。其中一項是利用手繪prototype模擬app畫面，以這樣的 prototype 讓使用者實際在街上進行找路體驗。在這項體驗中，觀察使用者在運用 APP 找路時的情境，並且就這些觀察去設計 APP 使用流程，包含加大地圖比例、標明方向指示、運用手機擺放角度來分別呈現地圖、街景。前期運用手繪 prototype 確認需求，後期才開始真正開發 APP<br />
-講者特別談到一件事，在改善使用者體驗的時候，要從系統面去看一件事情，而不是複製同樣的東西。例如黃色小鴨活動時，我們要設想的是整個人潮在活動中有什麼可以加強的體驗，像是可以增加食物攤位、廁所等等來滿足人的需求，而不是再多去複製一個等比例縮小的夢想鴨。</p></li>
-
-<li><p>HearMe 為視障朋友設計的app。
-在與視障朋友訪談後，觀察到視障朋友在生活上面臨幾項問題。</p>
-
-<ul>
-<li>生活資訊難以記錄</li>
-<li>只能用聽覺回憶過往</li>
-<li>無法便利的與友人分享聲音</li>
-<li>聲音檔案整理困難
-因此他們結合視障朋友已經很熟悉的 iOS VoiceOver 介面，開發運用手勢來操作的行動軟體。
-就技術實作上來說，ios的VoiceOver對視障朋友很棒，可是工程師往往只寫了button1, image1 ，視障朋友很難知道這是什麼，也使得一般的 app  沒辦法發揮這項輔助視障者的功能。這是實作上需要去注意的部份。<br />
-開發者也談到他們挖掘視障者的使用需求，與視障朋友反覆確認、並轉化出適合的使用模式。這裡有關於 HearMe 團隊的訪談及報告</li>
-</ul></li>
-
-<li><p><a href="http://www.appguru.com.tw/appguru/blog/21958/taiwan-ux-design-soft-power-hear-me-gold-team-interview">台灣UX設計的軟實力~Hear Me金獎團隊專訪</a></p></li>
-
-<li><p><a href="http://www.slideshare.net/drhhtang/dittkeynote">HearMe Final Face-to-face Presentation</a></p></li>
-
-<li><p><a href="http://www.slideshare.net/drhhtang/hearme-design-report">DITT 作品設計報告</a></p></li>
-
-<li><p><a href="http://www.slideshare.net/drhhtang/hearme-ux-study">DITT 需求分析與設計驗證報告</a></p></li>
-
-<li><p>Akane 分享了她去東京迪士尼的時候，上到官方網站時的用戶體驗。可以看的出來這個官方網站十分用心，操作動線很清楚，也包含了各項所需資訊(地圖、FP券，排隊時間、餐點資訊、設施介紹、表演情報)<br />
-<a href="http://s.tokyodisneyresort.jp">東京迪士尼度假區官方網站 東京ディズニーリゾート・オフィシャルウェブサイト</a></p></li>
-
-<li><p>陳怡靜 分享了（那些訪談/測試的問話小技巧）<br />
-其中幾項訣竅</p></li>
-
-<li><p>用戶訪談時避免反客為主，以 「嗯，你覺得呢?」等等的方式讓使用者主動說出他們的看法</p></li>
-
-<li><p>盡可能黑白分明，清楚的表達</p></li>
-
-<li><p>訪談在可能脫離主題時要適時拉回主軸，單刀直入的切入問題點。</p></li>
-</ol>
-
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://swem.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/">沒有三星電子也能支撐下的韓國經濟</a>
-			<br>
-			<small>
-				2014-01-07
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://cn.chosun.com/big5/site/data/html_dir/2014/01/08/20140108000003.html">“韓國引擎”遇挫 三星電子業績下滑 - 朝鮮日報中文網</a>
-不少人提出，要重新研究沒有三星電子也能支撐下的韓國經濟。</p>
-
-<p>這句話是關鍵。
-產業轉型就是這樣來的。技術在進步，過去的解決方案就讓它停留在過去，把力氣花在對未來更有幫助的事物。</p>
 
 	</div>
 	<div class="panel-footer">
@@ -553,7 +531,7 @@
   <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
   
   
-  <script src="https://swem.github.io//js/App.js"></script>
+  <script src="https://chenhan1218.github.io//js/App.js"></script>
   
 </body>
 </html>

@@ -2,30 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Chen-Han (Stanley) Hsiao</title>
-    <link>https://swem.github.io/post/</link>
+    <link>https://chenhan1218.github.io/post/</link>
     <description>Recent content in Posts on Chen-Han (Stanley) Hsiao</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Jul 2017 11:13:57 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 30 Aug 2017 16:04:13 +0800</lastBuildDate>
     
-	<atom:link href="https://swem.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://chenhan1218.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>disable suspend via polkit</title>
+      <link>https://chenhan1218.github.io/post/2017-08-30-disable-suspend/</link>
+      <pubDate>Wed, 30 Aug 2017 16:04:13 +0800</pubDate>
+      
+      <guid>https://chenhan1218.github.io/post/2017-08-30-disable-suspend/</guid>
+      <description>https://gist.github.com/schlomo/183524530d17d6a888d0
+/var/lib/polkit-1/localauthority/50-local.d/disable-suspend.pkla
+[Completely disable suspend and hibernate] Identity=unix-user:* Action=org.freedesktop.upower.suspend;org.freedesktop.upower.hibernate;org.freedesktop.login1.suspend*;org.freedesktop.login1.hibernate* ResultAny=no ResultInactive=no ResultActive=no  </description>
+    </item>
+    
+    <item>
+      <title>autostart x11vnc in gnome-session</title>
+      <link>https://chenhan1218.github.io/post/2017-08-09-gnome-session-autostart/</link>
+      <pubDate>Wed, 09 Aug 2017 19:12:42 +0800</pubDate>
+      
+      <guid>https://chenhan1218.github.io/post/2017-08-09-gnome-session-autostart/</guid>
+      <description>$ cat ~/.config/autostart/x11vnc.desktop [Desktop Entry] Type=Application Exec=sh -c &amp;quot;/usr/bin/x11vnc -auth $XAUTHORITY -rfbauth $HOME/.x11vnc/passwd -forever -shared -bg --noxfixes -noxrecord -noxdamage -rfbport 5900 -display $DISPLAY -o $HOME/.x11vnc/vnc_server.log&amp;quot; Hidden=false NoDisplay=false X-GNOME-Autostart-enabled=true Name[en_US]=x11vnc Name=x11vnc Comment[en_US]= Comment=  </description>
+    </item>
+    
+    <item>
+      <title>Build external kernel module</title>
+      <link>https://chenhan1218.github.io/post/2017-08-08-build-external-kernel-module/</link>
+      <pubDate>Tue, 08 Aug 2017 20:35:42 +0800</pubDate>
+      
+      <guid>https://chenhan1218.github.io/post/2017-08-08-build-external-kernel-module/</guid>
+      <description>First, apply patches if any.
+git am --whitespace=nowarn ${patches}/*.patch  Second, built the module
+# take amdgpu as an example cd drivers/gpu/drm/amd/amdgpu/ make -C /lib/modules/`uname -r`/build M=$PWD   https://www.kernel.org/doc/Documentation/kbuild/modules.txt  </description>
+    </item>
+    
+    <item>
       <title>Build Ubuntu kernel</title>
-      <link>https://swem.github.io/post/2017-07-30-build-ubuntu-kernel/</link>
+      <link>https://chenhan1218.github.io/post/2017-07-30-build-ubuntu-kernel/</link>
       <pubDate>Sun, 30 Jul 2017 11:13:57 +0800</pubDate>
       
-      <guid>https://swem.github.io/post/2017-07-30-build-ubuntu-kernel/</guid>
+      <guid>https://chenhan1218.github.io/post/2017-07-30-build-ubuntu-kernel/</guid>
       <description>Build Ubuntu 16.04 (Xenial) kernel on launchpad git clone git://kernel.ubuntu.com/ubuntu/ubuntu-xenial.git cd ubuntu-xenial fakeroot debian/rules clean debuild -S # upload source package to launchpad dput &amp;lt;Your ppa&amp;gt; ../linux_4.4.0-87.110_source.changes  Build Ubuntu 16.04 (Xenial) HWE kernel on launchpad git clone git://kernel.ubuntu.com/ubuntu/ubuntu-xenial.git cd ubuntu-xenial git checkout origin/hwe -b hwe fakeroot debian/rules clean debuild -S # upload source package to launchpad dput &amp;lt;Your ppa&amp;gt; ../linux-hwe_4.10.0-29.33~16.04.1_source.changes  Build Ubuntu unstable kernel on launchpad git clone git://kernel.</description>
     </item>
     
     <item>
       <title>Launchpad API</title>
-      <link>https://swem.github.io/post/2017-07-06-launchpad-api/</link>
+      <link>https://chenhan1218.github.io/post/2017-07-06-launchpad-api/</link>
       <pubDate>Thu, 06 Jul 2017 16:08:26 +0800</pubDate>
       
-      <guid>https://swem.github.io/post/2017-07-06-launchpad-api/</guid>
+      <guid>https://chenhan1218.github.io/post/2017-07-06-launchpad-api/</guid>
       <description>Launchpad provide a web service api for developer. The main area I use launchpad api on:
  Grab/Edit bug information Grab/Attach attachment  For full functionality, please refer to online document: https://api.launchpad.net/devel.html
 There is a launchpadapi python client/library let you use launchpad web api easily. The key concept is to get the launchpad object. And then manipulate the objects.
@@ -34,19 +65,19 @@ I recommended trying lp-shell in lptools packages. With lp-shell utility which p
     
     <item>
       <title>Migrate to Hugo</title>
-      <link>https://swem.github.io/post/2017-07-01-migrate-to-hugo/</link>
+      <link>https://chenhan1218.github.io/post/2017-07-01-migrate-to-hugo/</link>
       <pubDate>Sat, 01 Jul 2017 23:35:17 +0800</pubDate>
       
-      <guid>https://swem.github.io/post/2017-07-01-migrate-to-hugo/</guid>
+      <guid>https://chenhan1218.github.io/post/2017-07-01-migrate-to-hugo/</guid>
       <description>Due to some software issues not fixing for long time on logdown.com [2], I decided to finding other blog solutions for hosting my tech blog. After considering several options (Such as Hugo, Ghost, Octopress, Jekyll, Jekyll-Now). The final choice goes to Hugo. Hugo is a popular static website generator which built on top of Golang. The community support is actively. Over 18 thousands stars on Hugo github repository. And Debian/Ubuntu has hugo packages which is very easily for normal user to install.</description>
     </item>
     
     <item>
       <title>利用 RTL-SDB 接收 ads-b 訊號</title>
-      <link>https://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/</link>
+      <link>https://chenhan1218.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/</link>
       <pubDate>Sat, 01 Jul 2017 05:21:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/</guid>
+      <guid>https://chenhan1218.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/</guid>
       <description>Automatic dependent surveillance – broadcast (ADS–B) 是 廣播式自動回報監視（ADS-B）[1]。航機每秒發射一次之航機位置、高度、位置完整性、航機識別、航機24 bit位址、速度及其他資料。只要準備一個簡易的 ADS-B 接收器，就可以收到這些訊息。下面介紹怎麼使用 dump1090 ，來觀察這些航機發送出來的訊息。
 無論使用哪種方式啟動，都要先確定一些 driver 不會被自動載入。設定 driver blacklist 後，重開機讓設定生效。
 $ cat &amp;lt;&amp;lt; EOF &amp;gt; /tmp/blacklist-rtl-sdr.conf blacklist dvb_usb_rtl28xxu blacklist e4000 blacklist rtl2832 EOF $ sudo mv /tmp/blacklist-rtl-sdr.conf /etc/modprobe.d $ sudo reboot  接上 Realtek 2838 DVB-T usb stick。可以用 lsusb 確認己連接
@@ -55,10 +86,10 @@ $ lsusb Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB
     
     <item>
       <title>推薦 gnome extensions</title>
-      <link>https://swem.github.io/post/2017-07-01-must-have-gnome-extensions/</link>
+      <link>https://chenhan1218.github.io/post/2017-07-01-must-have-gnome-extensions/</link>
       <pubDate>Sat, 01 Jul 2017 01:35:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2017-07-01-must-have-gnome-extensions/</guid>
+      <guid>https://chenhan1218.github.io/post/2017-07-01-must-have-gnome-extensions/</guid>
       <description>Ubuntu 將在 17.10 切換到 Gnome Desktop。其實我覺得 Ubuntu Unity 的 UI 設計是很不錯的，簡潔又不失功能性。Gnome 3 的預設版型我反倒不這麼喜歡。
 關於 Gnome Shell 的設計文件：Projects/GnomeShell/Design - GNOME Wiki!
 不過使用者可以透過 gnome extensions 來改造自己的 UI。以下介紹 4 個我個人必裝的 gnome extensions：
@@ -67,20 +98,20 @@ $ lsusb Bus 003 Device 014: ID 0bda:2838 Realtek Semiconductor Corp. RTL2838 DVB
     
     <item>
       <title>How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</title>
-      <link>https://swem.github.io/post/2016-09-23-905130/</link>
+      <link>https://chenhan1218.github.io/post/2016-09-23-905130/</link>
       <pubDate>Fri, 23 Sep 2016 07:29:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-09-23-905130/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-09-23-905130/</guid>
       <description>Recently I&amp;rsquo;ve trace how cloud-init is being run. First, I try to find service file in /etc/system/system or /lib/systemd/system. Although I can locate the unit files, I can&amp;rsquo;t see any systemd target that will bring up these cloud-init services. I did&amp;rsquo;t see how cloud-init.target is activated by systemd.
 Finally, I found that cloud-init project utilize the systemd generator to generate the unit files dynamically. The dynamic unit files is located at /run/system/generator.</description>
     </item>
     
     <item>
       <title>use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</title>
-      <link>https://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/</link>
+      <link>https://chenhan1218.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/</link>
       <pubDate>Tue, 16 Aug 2016 04:13:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/</guid>
       <description>Snapper is a great tool for making snapshot on linux. You can download it on ArchLinux/Debian/OpenSUSE/Ubuntu
 Personally I use btrfs as underlying file system. Here are some basic command to snapshot my data.
 # install snapper sudo apt install -y snapper # Suppose /dev/sda3 is formatted as btrfs file system. # mount the file system sudo mount /dev/sda3 /mnt # create a btrfs subvolme &amp;quot;data&amp;quot; sudo btrfs subvolume create /mnt/data # unmount /dev/sda3 sudo umount /mnt # mount only the subvolume &amp;quot;data&amp;quot;, instead of whole file system sudo mount -o subvol=data /dev/sda3 /data # create the snapper config for &amp;quot;/data&amp;quot; folder.</description>
@@ -88,20 +119,20 @@ Personally I use btrfs as underlying file system. Here are some basic command to
     
     <item>
       <title>LXD container Getting Started</title>
-      <link>https://swem.github.io/post/2016-08-14-lxd-container-getting-started/</link>
+      <link>https://chenhan1218.github.io/post/2016-08-14-lxd-container-getting-started/</link>
       <pubDate>Sun, 14 Aug 2016 04:04:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-08-14-lxd-container-getting-started/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-08-14-lxd-container-getting-started/</guid>
       <description>Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&amp;rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.
 # check current status of lxd. If you install lxd the first time, it should containing no virtual machines.</description>
     </item>
     
     <item>
       <title>Build Debian/Ubuntu LiveCD</title>
-      <link>https://swem.github.io/post/2016-07-06-763254/</link>
+      <link>https://chenhan1218.github.io/post/2016-07-06-763254/</link>
       <pubDate>Wed, 06 Jul 2016 11:39:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-07-06-763254/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-07-06-763254/</guid>
       <description>Note that this article introduces how to build Debian/Ubuntu LiveCD iso image from scratch. With this method, you have great flexibility to customize the LiveCD.
 However, if you only want to customize the LiveCD a little bit. Such as adding some packages for installation, or changing the preseed configuration, you can refer to DebianCustomCD, Simple-CDD and LiveCDCustomization
 Debian Jessie # within Debian jessie git clone git://anonscm.debian.org/git/debian-live/live-build.git cd live-build git checkout debian/4.</description>
@@ -109,10 +140,10 @@ Debian Jessie # within Debian jessie git clone git://anonscm.debian.org/git/debi
     
     <item>
       <title>PuDB Python Debugging Tool. A full-screen, console-based Python debugger</title>
-      <link>https://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/</link>
+      <link>https://chenhan1218.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/</link>
       <pubDate>Thu, 31 Mar 2016 02:51:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/</guid>
       <description>I highly recommened pudb, which is a full-screen, console-based visual debugger for Python. The user-interface is nicely designed for python developers.
 Here is an example debugging a simple python script: Introduction to the PuDB Python Debugging Tool 
 Also, another great tutorial is from Jordi Gutiérrez Hermoso. Montreal, QC, September 14, 2015 - Jordi Gutiérrez Hermoso presents PuDB, a full-screen, console-based visual debugger for Python. An interesting comment from the speaker: &amp;gt; Everyone should use a debugger &amp;gt; &amp;hellip; &amp;gt; &amp;gt; But If pdb is the only debugger you&amp;rsquo;ve every seen, I won&amp;rsquo;t blame you not using a debugger &amp;gt; &amp;gt; &amp;hellip; &amp;gt; because the debugger is ugly, not because the source code is ugly</description>
@@ -120,10 +151,10 @@ Also, another great tutorial is from Jordi Gutiérrez Hermoso. Montreal, QC, Sep
     
     <item>
       <title>How to prevent Linux from waking up due to USB devices</title>
-      <link>https://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/</link>
+      <link>https://chenhan1218.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/</link>
       <pubDate>Sat, 26 Mar 2016 03:06:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/</guid>
       <description>最近換了一台工作機，但我發現在 Ubuntu 14.04.3 上，有時候會休眠失敗。 在失敗的時候，機器有 suspend 成功，但是過2秒後機器就會自動醒來。查看了 /var/log/kern.log, /var/log/syslog, /var/log/pm-suspend.log 沒有太異常的訊息。後來上網查了一下，這可能是有 BIOS 有問題或 device 不正常運作。
 在 /proc/acpi/wakeup 中，列出了數種 wakeup event, 以下面的表來說，代表了機器開放了 EHC1, EHC2, PWRB, LID0 這幾種 wakeup event
 RP06 S4 *disabled PXSX S4 *disabled RP07 S4 *disabled PXSX S4 *disabled EHC1 S0 *enabled pci:0000:00:1d.0 EHC2 S4 *enabled pci:0000:00:1a.0 PWRB S4 *enabled platform:PNP0C0C:00 LID0 S4 *enabled platform:PNP0C0D:00  試著開關 wakeup trigger 來找出問題
@@ -132,20 +163,20 @@ RP06 S4 *disabled PXSX S4 *disabled RP07 S4 *disabled PXSX S4 *disabled EHC1 S0 
     
     <item>
       <title>AlphaGo is not the solution to AI</title>
-      <link>https://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/</link>
+      <link>https://chenhan1218.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/</link>
       <pubDate>Tue, 15 Mar 2016 04:53:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/</guid>
+      <guid>https://chenhan1218.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/</guid>
       <description>Addressing global exploration effectively is only one of the significant challenges between what is well known now and what needs to be addressed for what I would consider a real AI.
  Ref: AlphaGo is not the solution to AI</description>
     </item>
     
     <item>
       <title>在 NAS 上架設 ubuntu chroot 環境</title>
-      <link>https://swem.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/</link>
+      <link>https://chenhan1218.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/</link>
       <pubDate>Thu, 08 Oct 2015 15:47:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/</guid>
       <description>今天發現可以透過 Canonical Ltd. 的 linuxcontainer image 快速的在 NAS 上建立一個 chroot 環境。我的機器 cpu 是 armhf ，下面示範建立 Ubuntu 15.04 Vivid 的 chroot 環境。
 步驟1：下載 Image，解開後進入 rootfs，並修改 nameserver
 wget http://images.linuxcontainers.org/images/ubuntu/vivid/armhf/default/20151008_03:49/rootfs.tar.xz mkdir rootfs tar xvf rootfs.tar.xz -C rootfs cd rootfs echo &amp;quot;nameserver 8.8.8.8&amp;quot; &amp;gt; etc/resolv.conf  步驟2：mount 需要的 sysfs
@@ -155,19 +186,19 @@ chroot . su -l  </description>
     
     <item>
       <title>backports driver</title>
-      <link>https://swem.github.io/post/2015-09-17-backports-driver/</link>
+      <link>https://chenhan1218.github.io/post/2015-09-17-backports-driver/</link>
       <pubDate>Thu, 17 Sep 2015 03:12:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-09-17-backports-driver/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-09-17-backports-driver/</guid>
       <description>git clone git://git.kernel.org/pub/scm/linux/kernel/git/backports/backports.git git clone git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git cd backports/ ./gentree.py --clean --git-revision next-20150525 ../linux-next/ release cd release/ make menuconfig make  </description>
     </item>
     
     <item>
       <title>使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視</title>
-      <link>https://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/</link>
+      <link>https://chenhan1218.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/</link>
       <pubDate>Fri, 11 Sep 2015 12:46:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/</guid>
       <description>手上有一支 UPMOST DVB193 數位電視棒，最近測試了它是不是能在 Ubuntu 14.04 下運作。原本以為需要自己編譯 driver，不過把數位電視棒插入筆電， lsusb 後發現其實 driver 已被 Kernel 收錄成為 built-in driver。 Driver 的訊息如下
 filename: /lib/modules/3.19.0-28-generic/kernel/drivers/media/tuners/it913x.ko license: GPL author: Antti Palosaari &amp;lt;crope@iki.fi&amp;gt; description: ITE IT913X silicon tuner driver srcversion: 3A631200871E9FCB4913859 alias: i2c:it913x depends: intree: Y vermagic: 3.19.0-28-generic SMP mod_unload modversions signer: Magrathea: Glacier signing key sig_key: 29:4D:C0:12:70:6F:48:B7:CD:DF:63:74:E2:D7:9F:E1:B0:60:92:69 sig_hashalgo: sha512  Firmware 也已經被收進 Ubuntu 的 linux-firmware
 $ dpkg -L linux-firmware| grep it9135 /lib/firmware/dvb-usb-it9135-02.fw /lib/firmware/dvb-usb-it9135-01.fw  所以接下來只要處理好看數位電視的軟體就可以。以 apt-get 安裝好 vlc ，再用 vlc 開啟 channels.</description>
@@ -175,10 +206,10 @@ $ dpkg -L linux-firmware| grep it9135 /lib/firmware/dvb-usb-it9135-02.fw /lib/fi
     
     <item>
       <title>Debugging system hang by blacklist kernel module</title>
-      <link>https://swem.github.io/post/2015-08-26-blacklist-kernel-module/</link>
+      <link>https://chenhan1218.github.io/post/2015-08-26-blacklist-kernel-module/</link>
       <pubDate>Wed, 26 Aug 2015 06:54:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-08-26-blacklist-kernel-module/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-08-26-blacklist-kernel-module/</guid>
       <description>有時在機器上會遇到 system hang 的狀況，特別是在 enable 新硬體時。遇到這種情況，可以試著 blacklist 可疑的 kernel module
 以 mwifiex_sdio 為例
 # Do not load the &#39;mwifiex_sdio&#39; module on boot. echo &amp;gt; /etc/modprobe.d/debug.conf &amp;lt;EOF blacklist mwifiex_sdio EOF  再重開機即可
@@ -188,10 +219,10 @@ $ dpkg -L linux-firmware| grep it9135 /lib/firmware/dvb-usb-it9135-02.fw /lib/fi
     
     <item>
       <title>基於 upstream git-tree 產生 debian package patch</title>
-      <link>https://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/</link>
+      <link>https://chenhan1218.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/</link>
       <pubDate>Wed, 19 Aug 2015 03:21:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/</guid>
       <description>最近在工作上遇到一個 bug，在某些狀況下執行 lshw (02.16-2ubuntu1.2) 會 segmentation fault。找了 lshw 最新的 code 編譯執行後發現沒有這個問題。於是就開始了 git bisect。最後找到是 d048d300b5daeb44887a7fc06ddeb120119cac8a 這筆修改在 src/core/scsi.cc 上面的 commit 解決了這個問題
 順著這筆 commit，找到了 lshw project 的 bug report lshw segfaults, with some 16GB USB-3 sticks from Patriot 。也了解是 USB3.0 stick plugged 時會出現問題。在手上的機器上試了一下，果然是這樣沒錯。原本沒有頭緒的 random segmentation fault，現在則是有了 root cause 的 issue。
 既然找到了 Solution，就開始要加 patch 進 Ubuntu source 了。為了將 patch 加到 Ubuntu 14.04 (Trusty) 目前的 lshw (02.16-2ubuntu1.2) 裡，我們還必須加上 src/core/scsi.cc 的前一個 commit b79f299319f61bc80e8d38e61631cfee7521a729
@@ -200,19 +231,19 @@ $ dpkg -L linux-firmware| grep it9135 /lib/firmware/dvb-usb-it9135-02.fw /lib/fi
     
     <item>
       <title>bloxp, rss to ebook</title>
-      <link>https://swem.github.io/post/2015-07-05-bloxp-rss-to-ebook/</link>
+      <link>https://chenhan1218.github.io/post/2015-07-05-bloxp-rss-to-ebook/</link>
       <pubDate>Sun, 05 Jul 2015 05:19:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-07-05-bloxp-rss-to-ebook/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-07-05-bloxp-rss-to-ebook/</guid>
       <description>今天用了一個很棒的服務，Bloxp, the blog to ebook exporter，可以把 blog 透過 rss 轉成 ebook (epub)。很方便，推薦給大家。</description>
     </item>
     
     <item>
       <title>一般使用者權限安裝 python package (無root 權限)</title>
-      <link>https://swem.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/</link>
+      <link>https://chenhan1218.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/</link>
       <pubDate>Wed, 17 Jun 2015 16:01:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/</guid>
       <description>在一些工作站上，有時需要用到一些 python package，但不具有 root 權限時。Python 設定了一個方法，可以安裝在家目錄下的 .local/ 資料夾中
 Alternate installation: the user scheme — Python 2.7.10 documentatio
 python setup.py install --user  之後再設定 PYTHONPATH, PATH 變數即可
@@ -221,10 +252,10 @@ export PYTHONPATH=$HOME/.local/lib/python2.7/site-packages:$PYTHONPATH PATH=$PAT
     
     <item>
       <title>debugging fork child process in GDB</title>
-      <link>https://swem.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/</link>
+      <link>https://chenhan1218.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/</link>
       <pubDate>Sat, 25 Apr 2015 08:06:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/</guid>
       <description>剛在 python 遇到 subprocess 的問題，處理一陣子後突然想到，如果是 C++ 的話要怎麼用 GDB 來 debug. 查了文件後發現有2個方式：
  讓 child sleep 一段時間，手動取得 PID 後，再讓 GDB attach 上去  這個方式可以想的到，有點暴力解的感覺。看來處理 multi-process 真的沒什麼好方法。 2. 設定 follow-fork-mode
 GDB 預設只會 attach 在 parent process 上，而不會控制 child process。但如果將 follow-fork-mode 設為 child，那在 fork() 之後，parent process 將不受 GDB 控制，只有 child process 在 GDB 的控制中。換句話說，同一時間只有一個 process 會被 attached。
@@ -233,19 +264,19 @@ set follow-fork-mode parent # The original process is debugged after a fork. The
     
     <item>
       <title>Linux Kernel Development Process</title>
-      <link>https://swem.github.io/post/2015-04-22-linux-kernel-development-process/</link>
+      <link>https://chenhan1218.github.io/post/2015-04-22-linux-kernel-development-process/</link>
       <pubDate>Wed, 22 Apr 2015 02:20:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-04-22-linux-kernel-development-process/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-04-22-linux-kernel-development-process/</guid>
       <description>kernel.org - HOW THE DEVELOPMENT PROCESS WORKS</description>
     </item>
     
     <item>
       <title>python3 UnicodeDecodeError</title>
-      <link>https://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/</link>
+      <link>https://chenhan1218.github.io/post/2015-04-16-python3-unicodedecodeerror/</link>
       <pubDate>Thu, 16 Apr 2015 10:08:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-04-16-python3-unicodedecodeerror/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-04-16-python3-unicodedecodeerror/</guid>
       <description>遇到 python UnicodeDecodeError 其實有點頭大。
 #!/usr/bin/python3 # -*- coding: utf-8 -*- import subprocess import os import sys import locale if __name__ == &amp;quot;__main__&amp;quot;: locale.setlocale(locale.LC_ALL, &#39;en_US.UTF8&#39;) proc = subprocess.Popen([&#39;date&#39;], stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE, env={&#39;LANG&#39;: &#39;zh_TW.UTF8&#39;, &#39;LANGUAGE&#39;: &#39;zh_TW:zh&#39;}, universal_newlines=True, shell=True) (out, err) = proc.communicate() import codecs sys.stdout = codecs.getwriter(&amp;quot;utf-8&amp;quot;)(sys.stdout.detach()) print(out) print(err)  $ ./date.py  再進一步查了一下，發現這跟環境變數有關。
 $ env -i LANG=&#39;en_US.UTF8&#39; /usr/bin/python3 -c &#39;import locale; print(locale.getpreferredencoding(False))&#39; UTF-8 $ env -i /usr/bin/python3 -c &#39;import locale; print(locale.getpreferredencoding(False))&#39; ANSI_X3.</description>
@@ -253,10 +284,10 @@ $ env -i LANG=&#39;en_US.UTF8&#39; /usr/bin/python3 -c &#39;import locale; print
     
     <item>
       <title>kindle 7 (2014)</title>
-      <link>https://swem.github.io/post/2015-01-10-kindle-7-2014/</link>
+      <link>https://chenhan1218.github.io/post/2015-01-10-kindle-7-2014/</link>
       <pubDate>Sat, 10 Jan 2015 01:52:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2015-01-10-kindle-7-2014/</guid>
+      <guid>https://chenhan1218.github.io/post/2015-01-10-kindle-7-2014/</guid>
       <description>幾天前拿到了 Kindle 7 (2014)，基本款kindle。今年即使在最基本款也已經有 touch 功能了。這幾天用下來，確實覺得滿特別的。有一些優缺點跟大家分享
 優點： 1. 相較一般螢幕，透過電子紙閱讀，對眼睛確實舒服很多，也確實不容易受到其它網路資訊的干擾。 2. Kindle 提供 Chrome Extension 來將網路文章 Send to Kindle，如此一來以後較長的文章都可以送到 Kindle 上來閱讀。
 缺點： 1. Send to Kindle 的同步功能做的不是很好。當文章被 Send to Kindle 後，實際上是存到 Amazon Cloud Drive，然後手上 Kindle 會自動下載一份在裝置上。但當閱讀完畢後，2邊的刪除不會同步，造成我想刪除文章必須去2個地方刪除。這點也很確實的寫在 Kindle 文件上，但這點應該是很重要需要改進的地方。 Kindle Personal Documents Service 2. PDF 也可以 Send to Kindle，但提供的方式不夠好。最好的話能提供 Web 界面讓使用者上傳 PDF。另外要注意的是，Send to Kindle 會將文件轉檔為 Amazona 使用的 azw 格式，所以文件有可能格式會跑掉，如果想在Kindle 上閱讀手上PDF，可能要有心理準備會有一些小問題。(補充一下，PDF是可以直接透過 USB 傳輸線不轉檔直接存到 Kindle 上，不過一來Kindle資料夾管理看起來很麻煩，二來 Kindle 6吋大小顯示 A4 內容閱讀起來會滿辛苦的。透過 Send to kindle 轉檔雖然格式會掉，但至少是易閱讀的電子書格式。)</description>
@@ -264,10 +295,10 @@ $ env -i LANG=&#39;en_US.UTF8&#39; /usr/bin/python3 -c &#39;import locale; print
     
     <item>
       <title>Docker Insight</title>
-      <link>https://swem.github.io/post/2014-12-11-docker-insight/</link>
+      <link>https://chenhan1218.github.io/post/2014-12-11-docker-insight/</link>
       <pubDate>Thu, 11 Dec 2014 23:26:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-12-11-docker-insight/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-12-11-docker-insight/</guid>
       <description>這幾天弄懂了 cgroup, kernel capbability 的機制，再搭配這份投影片 Docker Insight，有種很多東西都串起來的感覺。
 Docker 1.2 新增的 cap-add, cap-drop，再加上 Docker 本身附有的 Volume mount，讓 container 又有了更多方便的使用方式。
   Docker Insight  from Tiago Pires</description>
@@ -275,49 +306,49 @@ Docker 1.2 新增的 cap-add, cap-drop，再加上 Docker 本身附有的 Volume
     
     <item>
       <title>QEMU Advent Calendar (每日 QEMU)</title>
-      <link>https://swem.github.io/post/2014-12-10-qemu-advent-calendar/</link>
+      <link>https://chenhan1218.github.io/post/2014-12-10-qemu-advent-calendar/</link>
       <pubDate>Wed, 10 Dec 2014 00:25:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-12-10-qemu-advent-calendar/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-12-10-qemu-advent-calendar/</guid>
       <description>QEMU Advent Calendar 這個project 滿有趣的，到 Chrismas 前，每天介紹一個 qemu 的image 讓大家去玩。
 今天 Canonical 發佈實驗性的作業系統 Ubuntu Core， Canonical 也跟他們合作，成為今天的 QEMU Advent Calendar image.</description>
     </item>
     
     <item>
       <title>backtrace debian package</title>
-      <link>https://swem.github.io/post/2014-11-26-backtrace-debian-package/</link>
+      <link>https://chenhan1218.github.io/post/2014-11-26-backtrace-debian-package/</link>
       <pubDate>Wed, 26 Nov 2014 06:13:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-11-26-backtrace-debian-package/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-11-26-backtrace-debian-package/</guid>
       <description>$ apt-cache search hello | grep dbg  # apt-get install hello-dbg gdb /usr/bin/hello   HowToGetABacktrace - Debian Wiki  </description>
     </item>
     
     <item>
       <title>Build a debian package and upload to Launchpad ppa</title>
-      <link>https://swem.github.io/post/2014-11-22-established-at-launchpad-ppa/</link>
+      <link>https://chenhan1218.github.io/post/2014-11-22-established-at-launchpad-ppa/</link>
       <pubDate>Sat, 22 Nov 2014 02:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-11-22-established-at-launchpad-ppa/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-11-22-established-at-launchpad-ppa/</guid>
       <description>Create Launchpad PPA at https://launchpad.net/people/+me/+activate-ppa Creating your OpenPGP keys with gpg command
  Open a terminal and type: bash gpg --gen-key  GPG will now ask you a number of questions about the type of key you want to generate. follow the steps below to select the default option each time. Check that your key has been generated by typing gpg &amp;ndash;list-keys and, if successful. pub 1024D/12345678 -&amp;gt; this is the important number Launchpad doesn&amp;rsquo;t store your key directly, so you need to export your public key to a key server, such as keyserver.</description>
     </item>
     
     <item>
       <title>An expert is a person who has made all the mistakes that can be made in a very narrow field</title>
-      <link>https://swem.github.io/post/2014-11-20-an-expert-is-a-person-who-has-made-all-the-mistakes-that-can-be-made-in-a-very-narrow-field/</link>
+      <link>https://chenhan1218.github.io/post/2014-11-20-an-expert-is-a-person-who-has-made-all-the-mistakes-that-can-be-made-in-a-very-narrow-field/</link>
       <pubDate>Thu, 20 Nov 2014 02:36:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-11-20-an-expert-is-a-person-who-has-made-all-the-mistakes-that-can-be-made-in-a-very-narrow-field/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-11-20-an-expert-is-a-person-who-has-made-all-the-mistakes-that-can-be-made-in-a-very-narrow-field/</guid>
       <description>Brendan Gregg，是一位 Computer performance analyst，前幾個月很有名的那張 Linux Performance Observability Tools 就是他作的。(Linux Performance Tools at LinuxCon North America 2014)
 今天在網路上看到他的書裡的一段話，滿受到激勵的。資訊技術發展到現在已是博大精深，每個系統深入下去了解都有很大的學問，學習的過程難免遇到挫折、犯錯，但這些累積，就是成為專家的過程。 &amp;gt;For a beginner, feeling lost when you’re studying a performance issue can be discouraging. This feeling, too, is normal: you will feel lost, you will make mistakes, and you will often be wrong. Quoting Niels Bohr, a Danish physicist: An expert is a person who has made all the mistakes that can be made in a very narrow field.</description>
     </item>
     
     <item>
       <title>Xvfb (X virtual framebuffer)</title>
-      <link>https://swem.github.io/post/2014-11-15-xvfb-x-virtual-framebuffer/</link>
+      <link>https://chenhan1218.github.io/post/2014-11-15-xvfb-x-virtual-framebuffer/</link>
       <pubDate>Sat, 15 Nov 2014 17:08:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-11-15-xvfb-x-virtual-framebuffer/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-11-15-xvfb-x-virtual-framebuffer/</guid>
       <description>最近才知道原來有 X virtual framebuffer 這種東西，可以在 Linux Server 端先把畫面 render 好，而 Client 端只要準備好 VNC Client，就可以連過去使用。啟動 X virtual framebuffer 與 x11vnc，並且開啟 window manager 與簡單的 gnome-panel 範例如下，初步試了一下滿順暢的(我跟server之間的 Round-trip time 約 38 ms)：
 (以下範例的 vnc port 為6000，登入密碼為 pass)
 Xvfb :33 -screen 0 800x600x16 &amp;amp; x11vnc -storepasswd pass ~/.vnc/passwd x11vnc -display :33 -geometry 800x600 -rfbauth ~/.vnc/passwd -forever -rfbport 6000 -httpport 6001 &amp;amp; export DISPLAY=:33 openbox-session &amp;amp; gnome-panel &amp;amp;  Ref. 1. fcwu/docker-ubuntu-vnc-desktop 2. Xvfb - Wikipedia</description>
@@ -325,10 +356,10 @@ Xvfb :33 -screen 0 800x600x16 &amp;amp; x11vnc -storepasswd pass ~/.vnc/passwd x
     
     <item>
       <title>使用 qemu (or KVM) 建立 debian VM</title>
-      <link>https://swem.github.io/post/2014-10-30-debian-using-qemu-vm/</link>
+      <link>https://chenhan1218.github.io/post/2014-10-30-debian-using-qemu-vm/</link>
       <pubDate>Thu, 30 Oct 2014 00:14:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-10-30-debian-using-qemu-vm/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-10-30-debian-using-qemu-vm/</guid>
       <description>有很多工具可以用來建立 Virtual Machine ，例如 VirtualBox, VMware, LXC, Qemu, Qemu with KVM, Xen 等等。
 QEMU - Debian Wiki 簡單的介紹了如何使用 Qemu 來運行虛擬環境
 使用現有 Image Debian developer Aurelien Jarno 提供了數個預先建立的 Image https://people.debian.org/~aurel32/qemu/，這邊我使用 amd64 的架構做示範幾種啟動虛擬環境的方式：
@@ -340,20 +371,20 @@ qemu-system-x86_64 -hda debian_wheezy_amd64_standard.</description>
     
     <item>
       <title>在 Archlinux 上啟動Avahi-daemon</title>
-      <link>https://swem.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/</link>
+      <link>https://chenhan1218.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/</link>
       <pubDate>Tue, 28 Oct 2014 02:38:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-10-28-archlinux-start-on-avahi-daemon/</guid>
       <description>這篇回覆介紹了如何在 Archlinux 上使用 systemd 來開啟 avahi-daemon，使得區域網路內的電腦可以用 .local 來連線到其它電腦。
  pacman -S avahi nss-mdns Installs the Avahi services daemon and the Multicast DNS resolver. nano /etc/nsswitch.conf This file tells the C library how to obtain name-service information. Change the line hosts: files dns myhostname to hosts: files mdns_minimal [NOTFOUND=return] dns myhostname, save and exit. systemctl start avahi-daemon Starts the Avahi service manually since we&amp;rsquo;re already booted.look for errors) systemctl enable avahi-daemon Enables the Avahi service on boot.</description>
     </item>
     
     <item>
       <title>用python fcntl 取得 file lock</title>
-      <link>https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</link>
+      <link>https://chenhan1218.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</link>
       <pubDate>Tue, 23 Sep 2014 05:01:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-09-23-obtained-with-python-fcntl-file-lock/</guid>
       <description>在 Stack Overflow 上看到的問答。稍微修改了一下為可執行的版本，下面的Python程式碼可以對一個檔案做lock。同時執行2個這樣的 python script，先取得 file lock 的 process 可以順利印出 &amp;ldquo;No error&amp;rdquo;，沒取得 file lock 的 process 則會得到 IOError, 印出 &amp;ldquo;can&amp;rsquo;t immediately lock the file&amp;rdquo; 後結束程式。
 #!/usr/bin/env python # -*- coding: utf-8 -*- import fcntl import time f = open(&#39;/tmp/locktest&#39;, &#39;r&#39;) try: fcntl.flock(f, fcntl.LOCK_EX | fcntl.LOCK_NB) except IOError: print(&amp;quot;can&#39;t immediately lock the file&amp;quot;) else: print(&amp;quot;No error&amp;quot;) time.sleep(10) f.close()  先取得 file lock 的 process：
 # python test.py No error  沒取得 file lock 的 process：</description>
@@ -361,10 +392,10 @@ qemu-system-x86_64 -hda debian_wheezy_amd64_standard.</description>
     
     <item>
       <title>Setup Domain Controller on Ubuntu 14.04</title>
-      <link>https://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/</link>
+      <link>https://chenhan1218.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/</link>
       <pubDate>Mon, 22 Sep 2014 11:09:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/</guid>
       <description>在ubuntu 14.04 上架設 Samba Domain Controller 的步驟： 1. 安裝 samba libpam-smbpass
 sudo apt-get install samba libpam-smbpass  samba 版本目前是4.1.6 (4.0以上的 Samba 才有提供 Domain Controller 的功能)
 samba -V Version 4.1.6-Ubuntu   使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io  samba-tool domain provision --use-rfc2307 --interactive   設定成功，過程的設定記錄如下：
@@ -373,10 +404,10 @@ vagrant@vagrant-ubuntu-trusty-64:~$ sudo samba-tool domain provision --use-rfc23
     
     <item>
       <title>編譯 Upstart 1.13.2</title>
-      <link>https://swem.github.io/post/2014-09-20-compile-the-upstart/</link>
+      <link>https://chenhan1218.github.io/post/2014-09-20-compile-the-upstart/</link>
       <pubDate>Sat, 20 Sep 2014 04:55:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-09-20-compile-the-upstart/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-09-20-compile-the-upstart/</guid>
       <description>編譯 Upstart 1.13.2：
 sudo apt-get install libnih-dbus-dev libjson-c-dev cd upstart 1.13.2/ ./configure make  編譯完成後，會得到以下的執行檔，這樣就得到一組 userspace 上開關機所需要的 utility 了
 init/init util/initctl util/reboot util/runlevel shutdown telinit upstart-event-bridge upstart--bridge upstart-dbus-bridge upstart-socket-bridge upstart-local-bridge  </description>
@@ -384,20 +415,20 @@ init/init util/initctl util/reboot util/runlevel shutdown telinit upstart-event-
     
     <item>
       <title>Interactive map of Linux kernel</title>
-      <link>https://swem.github.io/post/2014-09-19-interactive-map-of-linux-kernel/</link>
+      <link>https://chenhan1218.github.io/post/2014-09-19-interactive-map-of-linux-kernel/</link>
       <pubDate>Fri, 19 Sep 2014 00:26:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-09-19-interactive-map-of-linux-kernel/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-09-19-interactive-map-of-linux-kernel/</guid>
       <description>博大精深的 Linux kernel
 Interactive map of Linux kernel: </description>
     </item>
     
     <item>
       <title>GNU Autotools自動編譯</title>
-      <link>https://swem.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/</link>
+      <link>https://chenhan1218.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/</link>
       <pubDate>Sat, 30 Aug 2014 07:32:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-08-30-gnu-autotools-automatically-compiles/</guid>
       <description>在開發 Open Source 項目時，經常會遇到 Autotools。翻了一下網路文章，覺得這張圖給出不錯的表示。 瘋狂駭客的技術隨筆 - 使用GNU Autotools自動編譯項目
  圖中橢圓形狀的就是gnu autotools里的主要工具了，包括１autoscan２aclocal３autoheader４automake５autoconf等.而方形形狀只有Makefile.am和configure.ac是需要我們寫的，别的方框里除了Makefile是最終的配置文件，其它都是中間文件。(Makefile文件是由６configure生成的)
  Ref: http://en.wikipedia.org/wiki/Autoconf</description>
@@ -405,10 +436,10 @@ Interactive map of Linux kernel: </description>
     
     <item>
       <title>Comparing two Git Branch with common ancestor</title>
-      <link>https://swem.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/</link>
+      <link>https://chenhan1218.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/</link>
       <pubDate>Tue, 26 Aug 2014 10:16:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-08-26-comparing-two-git-branch-with-common-ancestor/</guid>
       <description>今天在c9s的 facebook 上看到這個，才發現有這種用法。
 http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來還有這種用法 two dots 跟three dots 是不一樣的
 # produce the diff between the tips of the two branches. git diff branch_1..branch_2 # use three dots instead of two to find the diff from their common ancestor git diff branch_1...branch_2  </description>
@@ -416,10 +447,10 @@ http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來�
     
     <item>
       <title>資助維基百科</title>
-      <link>https://swem.github.io/post/2014-08-14-wikipedia-donate/</link>
+      <link>https://chenhan1218.github.io/post/2014-08-14-wikipedia-donate/</link>
       <pubDate>Thu, 14 Aug 2014 23:57:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-08-14-wikipedia-donate/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-08-14-wikipedia-donate/</guid>
       <description>以前捐過一次，那時捐贈金額只能以美金計價，用VISA金融卡捐了 $35 美元，換算台幣是1033元，手續費15元(約1.45%)。現在在 wikipedia 上的捐贈可以用台幣計價了，上周在Wikipedia 上一樣用VISA金融卡捐了台幣1000元，手續費是13元 (換算起來是1.3%)。
 本來以為用台幣計價是不是可以省去一些手續費，不過看起來是差不多的。但平常 Wikipedia 惠我良多，這些錢付出的很值得。刷完卡以後會收到一封信，感謝捐贈者的付出(其實我才要好好感謝Wikimedia foundation的貢獻)。
  您好 辰翰,
@@ -436,10 +467,10 @@ http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來�
     
     <item>
       <title>台灣天氣雲圖 cwb-radarmap</title>
-      <link>https://swem.github.io/post/2014-08-08-taiwan-weather-imagery/</link>
+      <link>https://chenhan1218.github.io/post/2014-08-08-taiwan-weather-imagery/</link>
       <pubDate>Fri, 08 Aug 2014 00:29:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-08-08-taiwan-weather-imagery/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-08-08-taiwan-weather-imagery/</guid>
       <description>最近做了一款簡單的 Web App cwb-radarmap
 其實我想做這個是因為看到這篇文章 其實我覺得中央氣象局的資料不輸日本 只差在資料的開放性跟呈現程度 https://www.facebook.com/chihchun/posts/10152654161372915
 點開 cwb-radarmap ，可以幫你定出自己的位置，並顯示15分鐘內的雷達回波圖。在快出門的時候點開看一下，可以簡單的判斷即時天氣。
@@ -449,10 +480,10 @@ http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來�
     
     <item>
       <title>取得 Google API 金鑰</title>
-      <link>https://swem.github.io/post/2014-08-01-get-google-api-key/</link>
+      <link>https://chenhan1218.github.io/post/2014-08-01-get-google-api-key/</link>
       <pubDate>Fri, 01 Aug 2014 05:27:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-08-01-get-google-api-key/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-08-01-get-google-api-key/</guid>
       <description>Google API 提供了很多好用的 API，可以用來存取Google 提供的資源(包含資料、運算資源等等)。之前貢獻了一個 patch 在 Hackfoldr 上，就是透過 YouTube Data API v3 去取得 Youtube 的影片相關資訊。要發佈使用Google API的專案時，就要記得先去取得一組 Google API 金鑰。步驟可參考Google的說明 (介面可能稍有不同，但差異應該不大)。
 取得 API 金鑰
 如何建立 API 金鑰：
@@ -461,10 +492,10 @@ http://stackoverflow.com/questions/9834689/comparing-two-branches-in-git 原來�
     
     <item>
       <title>Ubuntu 14.04 上使用嘸蝦米輸入法 with hime</title>
-      <link>https://swem.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/</link>
+      <link>https://chenhan1218.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/</link>
       <pubDate>Wed, 30 Jul 2014 05:12:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-07-30-use-on-ubuntu-1404-boshiamy-input-method-with-hime/</guid>
       <description>Facebook Ubuntu 正體中文社團 上有人提問如何在 Ubuntu 14.04 上使用嘸蝦米輸入法。我的回應看來有幫忙解決問題了，順手貼在自己的部落格供大家參考。
 14.04上面可以安裝 hime (有hime-chewing套件提供注音輸入) ，安裝好以後把嘸蝦米字典檔放到 ~/.config/hime/ ，再用 im-config 把預設輸入法改為 hime 即可.
 hime 細部設定可以用 hime-setup
@@ -476,10 +507,10 @@ sudo apt-get install fcitx-chewing  進入 System Settings 的 Lauguage Support 
     
     <item>
       <title>Openfire 即時訊息伺服器</title>
-      <link>https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/</link>
+      <link>https://chenhan1218.github.io/post/2014-07-09-openfire-instant-messaging-server/</link>
       <pubDate>Wed, 09 Jul 2014 10:08:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-07-09-openfire-instant-messaging-server/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-07-09-openfire-instant-messaging-server/</guid>
       <description>最近嘗試使用 Openfire，來架構私人使用的即時訊息server。 Openfire 是一套使用 xmpp protocol 的開源軟體，安裝上也非常簡單，提供有 deb 安裝檔。在 Debian/Ubuntu 上很快就可以安裝好了。之後就可以透過 9090 port 登入 admin 帳號進行設定。
 這裡分享一下我設定的心得，我架設的是單一伺服器。假設我決定 xmpp domain 為 openfire.example.io，那麼就必須把 dns 設定好，讓 openfire.example.io 指向安裝有 openfire 的機器。並且在 Openfire 的軟體設定， xmpp.domain 的值設定為 openfire.example.io。之後再新增 user1, user2 的帳號，就可以讓雙方(user1@openfire.example.io, user2@openfire.example.io )相互傳訊息。 Client端我是使用 Xabber on Android, Jitsi on Ubuntu14.04
 如果手上沒有 domain，xmpp domain也是可以直接設定成 ip ，像是 192.168.0.2。
@@ -490,29 +521,29 @@ Ref: How To Install Openfire XMPP Server on a Debian or Ubuntu VPS</description>
     
     <item>
       <title>Standard Predefined Macros</title>
-      <link>https://swem.github.io/post/2014-06-09-standard-predefined-macros/</link>
+      <link>https://chenhan1218.github.io/post/2014-06-09-standard-predefined-macros/</link>
       <pubDate>Mon, 09 Jun 2014 13:51:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-06-09-standard-predefined-macros/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-06-09-standard-predefined-macros/</guid>
       <description>系統開發時，常在 SYSLOG 裡面加入 FILE, LINE 等資訊方便追蹤程式出錯的點。今天特別去查了才知道這叫 Standard Predefined Macros ，另外甚至有 DATE，__cplusplus等較少見的 Standard Predefined Macros
 Ref: FILE, LINE, and FUNCTION usage in C++</description>
     </item>
     
     <item>
       <title>推薦開發者小工具列表</title>
-      <link>https://swem.github.io/post/2014-06-09-the-developer-gadget/</link>
+      <link>https://chenhan1218.github.io/post/2014-06-09-the-developer-gadget/</link>
       <pubDate>Mon, 09 Jun 2014 03:38:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-06-09-the-developer-gadget/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-06-09-the-developer-gadget/</guid>
       <description> tmux vim ag git alias  </description>
     </item>
     
     <item>
       <title>利用台北市地價查詢系統 計算自用住宅土地地價稅</title>
-      <link>https://swem.github.io/post/2014-05-24-taipei-city-land-price-query-system-to-calculate-their-own-land-value-tax/</link>
+      <link>https://chenhan1218.github.io/post/2014-05-24-taipei-city-land-price-query-system-to-calculate-their-own-land-value-tax/</link>
       <pubDate>Sat, 24 May 2014 15:33:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-05-24-taipei-city-land-price-query-system-to-calculate-their-own-land-value-tax/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-05-24-taipei-city-land-price-query-system-to-calculate-their-own-land-value-tax/</guid>
       <description>在 中華民國內政部地政司全球資訊網-資訊與服務-地政相關系統查詢-&amp;gt;公告土地現值 可以連結到各縣市的地政系統，查詢各地的公告土地現值、公告地價。
 我們先來了解公告土地現值與公告地價的不同，根據公告地價 - Wikipedia * 公告土地現值作為土地移轉或設定典權時之參考；並作為主管機關審核土地移轉現值（例如官司糾紛時）及補償徵收土地地價之依據 * 公告地價作為土地所有權人申報地價之參考，政府依據土地所有權人所申報之地價課徵地價稅。
 簡單的說在稅務上來說，公告土地現值是土地移轉時的土地價值依據，公告地價是課徵持有稅時的地價依據。[1]
@@ -525,10 +556,10 @@ Ref: FILE, LINE, and FUNCTION usage in C++</description>
     
     <item>
       <title>Cairo-Dock on Ubuntu</title>
-      <link>https://swem.github.io/post/2014-05-14-cairo-dock-on-ubuntu/</link>
+      <link>https://chenhan1218.github.io/post/2014-05-14-cairo-dock-on-ubuntu/</link>
       <pubDate>Wed, 14 May 2014 02:52:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-05-14-cairo-dock-on-ubuntu/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-05-14-cairo-dock-on-ubuntu/</guid>
       <description>Ubuntu 的 Unity Launcher 實在是不太好用，特別是開啟視窗的數量一多，很多 Icon 都擠在下面，相較之下 Apple 的 dock 就好多了。最近發現一款 Linux 上優秀的 Launcher Cairo-Dock，目前切換過去大致還滿能符合工作上需要。
 安裝：
 sudo apt-get install cairo-dock  推薦設定：
@@ -537,20 +568,20 @@ Simple Mode  Visibility -&amp;gt; Reserve space for the dock  Advance Mode Appea
     
     <item>
       <title>mozmill-tests debugging</title>
-      <link>https://swem.github.io/post/2014-04-30-mozmill-tests-debugging/</link>
+      <link>https://chenhan1218.github.io/post/2014-04-30-mozmill-tests-debugging/</link>
       <pubDate>Wed, 30 Apr 2014 13:29:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-04-30-mozmill-tests-debugging/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-04-30-mozmill-tests-debugging/</guid>
       <description> 之前曾經想幫忙解 Mozilla 上的一個 first good bug，可惜 patch 送過去來來回回很多次後，後來沒空能完成它。不過過程中學到很多在 mozmill-tests 這項專案上 debug 的技巧。這邊做一下記錄。
 編寫 mozmill-tests 的 module 時，可運用 controller.window.dump 輸出訊息 controller.window.dump(&amp;quot;message&amp;quot;)  使用 mozmill-tests 時，搭配 Firefox Nightly Build (約29.0版) 與 javascript debugger 的方式： mozmill -t firefox/lib/tests/testFindBar.js -b ~/Downloads/FirefoxNightly.app/ --show-errors -a javascript_debugger-0.9.89-sm+tb+fx.xpi --app-arg=-venkman  </description>
     </item>
     
     <item>
       <title>Hangouts Clock! 為你的 Hangouts 視訊加上時間註記</title>
-      <link>https://swem.github.io/post/2014-04-10-hangouts-clock-add-time-note-for-your-hangouts-video/</link>
+      <link>https://chenhan1218.github.io/post/2014-04-10-hangouts-clock-add-time-note-for-your-hangouts-video/</link>
       <pubDate>Thu, 10 Apr 2014 10:59:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-04-10-hangouts-clock-add-time-note-for-your-hangouts-video/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-04-10-hangouts-clock-add-time-note-for-your-hangouts-video/</guid>
       <description>Hangouts Clock!
 今天寫了一個可以在 Google Hangouts 的影片加上時間註記的 extention. 視訊時開啟就會在影片下面即時顯示當地時間。
 很多社群朋友或是最近太陽花社會運動運用 Google Hangout 進行現場轉播，日後再回顧這些影片的時候，常會覺得缺了時間的訊息，影片整理起來比較不方便。有了 Hangouts Clock! 影片內直接嵌入時間註記，整理起來方便的多。
@@ -561,10 +592,10 @@ Facebook g0v.tw 後勤中心 - Hangouts Clock</description>
     
     <item>
       <title>Quality Without A Name</title>
-      <link>https://swem.github.io/post/2014-03-18-quality-without-a-name/</link>
+      <link>https://chenhan1218.github.io/post/2014-03-18-quality-without-a-name/</link>
       <pubDate>Tue, 18 Mar 2014 13:31:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-03-18-quality-without-a-name/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-03-18-quality-without-a-name/</guid>
       <description>今天聊到 Quality Without A Name 的概念。這個是2月參加C.C. Agile Sprint18 - 那一夜我們說Pattern: Design Patterns 20周年紀念，講者 Teddy 在介紹Design Pattern 20年歷史所提到的。這個概念是由Christopher Alexander在 The Timeless Way of Building 書中提出的，意思是好品質是沒有辦法用言語完整形容的，但品質存在人們的心中。
 一開始聽這段話也覺得滿玄的，仔細再聽 Teddy 講下去才覺得這確實很有道理。Quality是我們要追求的目標，而為了達到這個目標，於是我們設定了一些評價方式來衡量它，但並不是達成了我們的評價方式就叫做好。
 以 Design Pattern 來說，在 GOF 書裡就列出了二十多項Pattern。但是一個軟體系統並不是套用了Pattern就叫做好，而是要看這個系統哪個地方發生了應力(Bad Smell 等等)，而讓我們需要去對這個應力去採取一些方式化解。
@@ -575,49 +606,49 @@ Quality Without A Name，一種精確但卻無法被命名的特質。雖然無�
     
     <item>
       <title>論辯而成長的環境</title>
-      <link>https://swem.github.io/post/2014-03-04-growth-environment/</link>
+      <link>https://chenhan1218.github.io/post/2014-03-04-growth-environment/</link>
       <pubDate>Tue, 04 Mar 2014 15:03:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-03-04-growth-environment/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-03-04-growth-environment/</guid>
       <description>「老師忘掉他是老師，學生忘掉他是學生」- 感動！
 我是屬於提出疑問進而找尋解答而成長的人。 葉丙成教授這篇文章讓我意識到我在追尋的是什麼。其實就是一個能夠透過論辯而成長的環境。我想我是屬於在這種環境中會表現的比較好的。就像以前在研究所也經常跟教授論辯很久，當下很辛苦，但也有很好的結果。</description>
     </item>
     
     <item>
       <title>你做的是一份工作，還是事業上的一步？</title>
-      <link>https://swem.github.io/post/2014-02-28-youre-doing-a-job-or-a-career-step/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-28-youre-doing-a-job-or-a-career-step/</link>
       <pubDate>Fri, 28 Feb 2014 15:26:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-28-youre-doing-a-job-or-a-career-step/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-28-youre-doing-a-job-or-a-career-step/</guid>
       <description>翟本喬 - 你做的是一份工作，還是事業上的一步？ 翟本喬說的這一句精準的點出我很認同的想法。未來要好好為自己的前途計劃、努力改進。</description>
     </item>
     
     <item>
       <title>圖書館休館日與四色定理</title>
-      <link>https://swem.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/</link>
       <pubDate>Mon, 17 Feb 2014 09:19:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-17-monthly-closed-day-of-library-and-four-color-theorem/</guid>
       <description>最近注意到台北市圖書館是每月第一個星期四為清館日不開放，而新北市圖書館是最後一個星期四為清館日不開放。這樣恰好錯開了不開放的時間。
 進一步想到如果其它縣市像是桃園縣、基隆市等等也希望跟相鄰的縣市錯開清館日的時間，而且都要安排在周四。考慮到一個月通常有4個星期四，這樣就變成是四色定理的問題了..</description>
     </item>
     
     <item>
       <title>新聞出現 deadlock 這個詞</title>
-      <link>https://swem.github.io/post/2014-02-17-news-the-word-deadlock/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-17-news-the-word-deadlock/</link>
       <pubDate>Mon, 17 Feb 2014 04:32:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-17-news-the-word-deadlock/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-17-news-the-word-deadlock/</guid>
       <description>第一次新聞看到 deadlock 這個詞 Kerry Blames Syrian Government for Deadlocked Talks
 查了一下發現其實在歐美新聞中，這個詞不算少用。像是：Government Shutdown Begins as Deadlocked Congress Flails，Compromise breaks deadlock at UN climate talks</description>
     </item>
     
     <item>
       <title>Understanding Javascript Delete</title>
-      <link>https://swem.github.io/post/2014-02-14-understanding-javascript-delete/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-14-understanding-javascript-delete/</link>
       <pubDate>Fri, 14 Feb 2014 01:58:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-14-understanding-javascript-delete/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-14-understanding-javascript-delete/</guid>
       <description>Understanding delete 這篇文章討論 Javascript 的 delete 行為，並且釐清一些常見的誤解。全文很長，最後總結是精華，我把它整理翻譯後分享出來如下。
  變數跟函式宣告都是屬性。他們會是Activation Object(啟動物件)的屬性。或是Global Object(全域物件)的屬性。 屬性具有 attributes (像是 ReadOnly, DontEnum, DontDelete and Internal，可視為一種旗標)。其中 DontDelete 是負責表示這項屬性可否被刪除的 attribute 不管在全域或是函式作用域中，變數與函式宣告總是具有 DontDelete 函式參數是 Activation Object 的屬性，具有 DontDelete Eval code 裡的變數、函式宣告不具有 DontDelete 由配值(assignment)產出的屬性一定沒有任何 attributes ，也就不會有 DontDelete host 物件對 delete 的反應是無法預料的，他們想回應 true 或 false 都行  如果想更進一步了解，可以查閱 ECMA-262 3rd edition specification.
 其它相關Reference Link: stackoverflow - How to unset a Javascript variable?</description>
@@ -625,30 +656,30 @@ Quality Without A Name，一種精確但卻無法被命名的特質。雖然無�
     
     <item>
       <title>10項系統監控</title>
-      <link>https://swem.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/</link>
       <pubDate>Wed, 12 Feb 2014 03:36:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-12-10-things-we-forgot-to-monitor/</guid>
       <description>10 Things We Forgot to Monitor 在做系統監控時，我們常想到Disk Usage, Memory Usage, CPU Load, Ping latency。bitly的工程師 Jehiah 分享10項有用但平常少提及的系統監控項目，有些項目甚至附上了 script 供 Devops 參考。
  Fork Rate  異常的 Fork Rate 可能表示系統設置有問題。作者舉了一個例子，某次系統設置錯誤， curl 不斷觸發 modprobe  flow control packets  確定網路流量管控機制的設定不會使得系統在某一時刻停止接受封包  Swap in/out rate  藉由記錄 vmstat 的數據, 推算 swap in/out rate，確定系統流暢  Server Boot Notification  系統重開機時，寄email給管理員  NTP Clock Offset  確定 ntpd 在背景執行，並且記錄機器時鐘誤差，以及機房時間伺服器與外部的時鐘誤差  DNS Resolutions  監控內部 DNS Resolutions 狀態，也監控外部 nameserver 的穩定性  SSL Expiration  在 SSL 快過期前發出通知  DELL OpenManage Server Administrator (OMSA)  購買硬體伺服器所需做的監控  Connection Limits  了解系統並確定限制連線設定符合需求，作者這邊給的限制是 65536  Load Balancer Status.</description>
     </item>
     
     <item>
       <title>Mutex VS Spinlock</title>
-      <link>https://swem.github.io/post/2014-02-07-mutex-vs-spinlock/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-07-mutex-vs-spinlock/</link>
       <pubDate>Fri, 07 Feb 2014 04:10:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-07-mutex-vs-spinlock/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-07-mutex-vs-spinlock/</guid>
       <description>這篇發問的最佳回答 When should one use a spinlock instead of mutex? 說明了 mutex 與 spinlock 的不同。 mutex 的機制是當 process 無法鎖定 mutex 時，process 會進入 sleep，中間會需要付出 context switch 的代價。spinlock 的機制是採用 busy-waiting，直到鎖定 spinlock 為止。 依據兩者的特性，一般來說，在單核心的系統中，會採用 mutex。而多核心，且 critical section 只耗用一小段時間的狀況下，適合使用 spinlock。
 解答者 Mecki 還補充了實務上的狀況。由於要預期應用情境下的 lock 狀況相當困難，現代的作業系統中也加入一些機制增加彈性，發展出了 hybrid mutex, hybrid spinlock。當 process 無法鎖住 hybrid mutex 時，作業系統不會馬上讓 process 進入睡眠，而是以類似 spinlock 的方式 busy-waiting 一小段時間，確定真的無法鎖住 hybrid mutex，才讓 process 進入睡眠。而當 process 無法鎖住 hybrid spinlock 時，作業系統會允許 process 進行 busy-waiting。但超過某個時間限制，則會讓 process 進入睡眠，讓其它 thread 運作。</description>
     </item>
     
     <item>
       <title>The Magic of Strace</title>
-      <link>https://swem.github.io/post/2014-02-04-the-magic-of-strace/</link>
+      <link>https://chenhan1218.github.io/post/2014-02-04-the-magic-of-strace/</link>
       <pubDate>Tue, 04 Feb 2014 03:22:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-02-04-the-magic-of-strace/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-02-04-the-magic-of-strace/</guid>
       <description>過年讀了這篇 The Magic of Strace ，裡面介紹了使用 strace 來追蹤 unix 下的程序使用 system call 的運作情況。觀察 process 對 system call 的呼叫，包括 file read/write, database read/write, Inter-process communication，可以找出其中出現的 bug, error 。對於某些很難重現的錯誤，可以藉由 strace 進行 log 。下次在 unix 上多個工具可以試試了。
 updata: Understanding how killall works using strace 這篇文章也很有意思，利用 strace 去追蹤 killall 的流程。
 首先 killall 爬過所有 process 的 stat (/proc/$PID/stat)，找到相同的 process name 就把 PID 送進 kill system call。
@@ -657,10 +688,10 @@ updata: Understanding how killall works using strace 這篇文章也很有意思
     
     <item>
       <title>Mutexes VS Semaphores 大揭秘</title>
-      <link>https://swem.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/</link>
       <pubDate>Thu, 30 Jan 2014 02:46:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/</guid>
       <description>尋著 jserv 的文章，找到了這一篇文章 Mutexes and Semaphores Demystified 。
 Mutex 與 Semaphore 都是用在保護 critical section，確保多個 process 平行運作並存取資源時，執行結果不會因為執行程序的時間先後的影響而導致錯誤。 Mutex(Mutual Exclusion) 與 Semaphore 的差別在於: 1. process 使用 mutex 時，process 的運作是持有 Mutex，執行critical section 來存取資源，然後釋放 Mutex. Mutex 就像是資源的一把鎖。 2. process 使用 semaphore 時，process 總是發出信號(signal)，或者總是接收信號(wait)，同一個 process 不會先後進行 signal 與 wait。也就是說，process 要嘛當 producer，要嘛當 consumer，不能兩者都是。Semaphore 是為了保護 process 的執行同步性。
 Mutex 與 Semaphore 要解決的是不同的問題。了解這個部份後，就可以來區分 mutex 與 binary semaphore。mutex 確保數個 process 在一個時間點上，只能有一個 process 存取單項資源，而 semaphore 則是讓數個 producer 與 數個 consumer 在訊號上進行合作。</description>
@@ -668,10 +699,10 @@ Mutex 與 Semaphore 要解決的是不同的問題。了解這個部份後，就
     
     <item>
       <title>每個C語言開發者都要了解的 Undefined Behavior</title>
-      <link>https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</link>
       <pubDate>Tue, 21 Jan 2014 00:54:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/</guid>
       <description>在閱讀LLVM 部落格中的 What Every C Programmer Should Know About Undefined Behavior #1&amp;frasl;3 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。
   2014-06-26 - A guide to undefined behavior in c and c++  from 辰翰 蕭 
 如果需要中文翻譯的讀者，已有中國網友翻譯，可參考以下文章 1. 未定义行为：What Every C Programmer Should Know #1&amp;frasl;3 2. 未定义行为：What Every C Programmer Should Know #2&amp;frasl;3 3. 未定义行为：What Every C Programmer Should Know #3&amp;frasl;3 4. About Undefined Behavior[译文]</description>
@@ -679,10 +710,10 @@ Mutex 與 Semaphore 要解決的是不同的問題。了解這個部份後，就
     
     <item>
       <title>kaggle 試玩</title>
-      <link>https://swem.github.io/post/2014-01-20-kaggle-playing/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-20-kaggle-playing/</link>
       <pubDate>Mon, 20 Jan 2014 09:08:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-20-kaggle-playing/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-20-kaggle-playing/</guid>
       <description>Kaggle，是machine learning 的 crowd-sourcing網站。有需要的公司可以在上面提出專案，讓大家去解，通常會給獎金，甚至是一份工作。已經在上面提出專案的包括
  Amazon，獎金$5000，Amazon.com - Employee Access Challenge Facebook，一份工作，Facebook Recruiting Competition、Facebook II - Mapping the Internet、Facebook Recruiting III - Keyword Extraction StumbleUpon，獎金$5000，StumbleUpon Evergreen Classification Challenge  以前在學校時上過 Machine Learning 的課，而 kaggle 提供了很棒的資源讓大家接觸更大規模的資料。這2周試玩 Kaggle，我先做了由 kaggle 所提供範例。
 Titanic: Machine Learning from Disaster 這個練習有很詳細的說明，教大家使用 excel 做最基本的資料分析，或是改用 python 寫最基本的運算。最後是用 random forest 這項演算法來做機器學習。初學者從這項練習可以了解到進行機器學習時會遇到的狀況。
@@ -691,19 +722,19 @@ https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience</description>
     
     <item>
       <title>Operating Systems: Three Easy Pieces</title>
-      <link>https://swem.github.io/post/2014-01-20-operating-systems-three-easy-pieces/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-20-operating-systems-three-easy-pieces/</link>
       <pubDate>Mon, 20 Jan 2014 08:50:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-20-operating-systems-three-easy-pieces/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-20-operating-systems-three-easy-pieces/</guid>
       <description>Operating Systems: Three Easy Pieces 剛翻到這本線上作業系統書，他的表格整理的很不錯。把作業系統的功能規類到 Virtualization, Concurrency, Persistence。把這些小分類的名詞弄懂了，也大致能了解作業系統的作用了。</description>
     </item>
     
     <item>
       <title>kimono Turn websites into structured APIs</title>
-      <link>https://swem.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/</link>
       <pubDate>Thu, 16 Jan 2014 01:21:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/</guid>
       <description>kimono : Turn websites into structured APIs from your browser in seconds  kimono: a 60 second introduction from Kimono Labs on Vimeo.
 今天看到這東西滿酷的。過去我們需要撈網站資訊時，常要自已動手做爬蟲、再做成API。以前氣象局還沒有開放資料平臺時，想做氣象app的人就等自已想辦法做API來餵。像是這個我送過小patch的專案 twweather。
 而kimono 把這個過程變的相當簡單。不過這種東西會面臨到一個問題，就是內容來源始終是別人提供的，所以一旦 html 格式改了(像是以前氣象局常大改格式)，data extraction就得重做(當然在kimono上看起來相對簡單)。但我覺得最好的方式還是能想辦法找來源提供者合作，如果是公家機關就要要求開放資料，如果是商業機關就談商業授權，能夠由來源提供穩定一致的API還是最好的解決方式。</description>
@@ -711,20 +742,20 @@ https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience</description>
     
     <item>
       <title>Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</title>
-      <link>https://swem.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/</link>
       <pubDate>Wed, 15 Jan 2014 12:52:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/</guid>
       <description>Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10 你可以在 7分半鐘的時間內，利用他們的工具架出一套架構，包含一台 load balance, 數百台 apache server 可以接受 1M/second 的 Request.
 等於是自已加 64台機器當 client, 用 curl 每秒發送 1M http request 然後架一台 load balance, 200台 apache server，當做server 來接收 request 用這樣的方式來模擬網路服務</description>
     </item>
     
     <item>
       <title>2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</title>
-      <link>https://swem.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/</link>
       <pubDate>Wed, 15 Jan 2014 11:28:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/</guid>
       <description>2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform
 Session #0: A Tour of Google Cloud Platform LittleQ, Organizer, GDG Taipei 上半場的session，講者littlq介紹Google Cloud Platform的ecosystem，以及他們團隊所開發的BigData lab，有需要分析大量資料的人非常推薦去看一下他們的作品。他們將Google App Engine 與 Google Cloud Platform, Google Bigquery 等服務串接在一起，只要在網頁上就可以寫簡單的程式進行 Bigdata 的分析、圖表甚至是機器學習。
 這讓我想到 Jeff Bezos 的演講，未來資訊的應用將會像水電一樣讓一般人容易使用，而我覺得 BigData Lab 我們向前推了一大步。   A Tour of Google Cloud Platform  from Colin Su 
@@ -733,10 +764,10 @@ Session #1: Google Compute Engine 101 Karthikeyan Rajasekharan, Technical Lead o
     
     <item>
       <title>那些年，我們一起上的 BBS: 洪任諭 PCMan at TEDxNCTU 2013</title>
-      <link>https://swem.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/</link>
       <pubDate>Mon, 13 Jan 2014 15:58:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/</guid>
       <description>我的偶像PCMan，精采的演講
 如果你有自己的興趣 希望不要放棄他 不管你做的工作你到底喜不喜歡 其實你都不需要放棄你自己的興趣 大家永遠都不要放棄自己的特色 不要放棄自己的興趣 永遠不要放棄一個讓自己與眾不同的機會
 永遠</description>
@@ -744,28 +775,28 @@ Session #1: Google Compute Engine 101 Karthikeyan Rajasekharan, Technical Lead o
     
     <item>
       <title>Embed base64 image in markdown</title>
-      <link>https://swem.github.io/post/2014-01-11-embed-base64-image-in-markdown/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-11-embed-base64-image-in-markdown/</link>
       <pubDate>Sat, 11 Jan 2014 13:03:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-11-embed-base64-image-in-markdown/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-11-embed-base64-image-in-markdown/</guid>
       <description>Today I come up an idea with embedded image inside markdown. When writing document with markdown syntax, we can embedded inline html code to enhance the content. It turns out that base64 images could also be embedded inside markdown document by using img tag. Below is an example showing HTML5 Logo using embedded base64 image (instead of external resources). However, be careful about this kind of inline base64 image. Size of document would be largely increased which would make your webpage slow even you only embedded a medium-size (100KB) image.</description>
     </item>
     
     <item>
       <title>TechTalk@TW Episode 24 - 開放原始碼授權</title>
-      <link>https://swem.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/</link>
       <pubDate>Fri, 10 Jan 2014 11:21:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/</guid>
       <description>TechTalk@TW: 專訪 Episode 24 - 開放原始碼授權 中央研究院資訊科學所的林誠夏介紹數種開放原始碼的授權。聽完後對軟體授權有一些基本的認知，推薦給像我一樣的軟體專利新手。</description>
     </item>
     
     <item>
       <title>Move to Logdown</title>
-      <link>https://swem.github.io/post/2014-01-10-move-to-logdown/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-10-move-to-logdown/</link>
       <pubDate>Fri, 10 Jan 2014 09:02:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-10-move-to-logdown/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-10-move-to-logdown/</guid>
       <description>決定把部落格搬到 Logdown。新網站：http://swem.logdown.com
 過去我採用 Octopress 來編寫技術部落格，對需要分享程式碼的人來說，Octopress 採用 Markdown 格式，並且附帶有 Syntax Highlight，程式碼放在文章中很清楚，是技術部落格很棒的選擇。但時間一久，覺得每次寫文章總要手動 rake new_post，手動 deploy 上 github ，總還是覺得麻煩了些。而且 Octopress 也是一項不斷有新 patch 的專案。有時候寫一寫部落格，還得要思考是不是該跟上新版本，把新版 Octopress Merge 進來。這些零碎的小事也讓寫部落格這件事變的不是很俐落。
 最近發現 tumblr 也可以用 Markdown 來寫，而且相片與文章的連接也很順暢，每天有不少相片容量可以使用，高興之餘，卻發現程式碼的 block 功能在 tumblr 是沒有作用的，當然也沒有 Syntax Highlight 的功能。
@@ -775,10 +806,10 @@ Session #1: Google Compute Engine 101 Karthikeyan Rajasekharan, Technical Lead o
     
     <item>
       <title>2014/1/9 Front-End Developers Taiwan Party - 4 筆記</title>
-      <link>https://swem.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/</link>
       <pubDate>Thu, 09 Jan 2014 12:06:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-09-2014-1-9-front-end-developers-taiwan-party-4-notes/</guid>
       <description>2014/1/9 Front-End Developers Taiwan Party - 4 心得
 今天來了3組講者，另外有一個 lighting talk。過去我參加的都是偏向技術的社群聚會，第一次來到Front-End Developers的社群活動。今天的演講內容都很精采，而且全部都是 User Experience 相關的分享。以下簡單整理
  卓致遠 (Thinker Mobile co-founder) 分享了他在製作toWalk 這款離線導航軟體的過程，前期的使用者研究花了很多心力。其中一項是利用手繪prototype模擬app畫面，以這樣的 prototype 讓使用者實際在街上進行找路體驗。在這項體驗中，觀察使用者在運用 APP 找路時的情境，並且就這些觀察去設計 APP 使用流程，包含加大地圖比例、標明方向指示、運用手機擺放角度來分別呈現地圖、街景。前期運用手繪 prototype 確認需求，後期才開始真正開發 APP
@@ -794,39 +825,39 @@ Session #1: Google Compute Engine 101 Karthikeyan Rajasekharan, Technical Lead o
     
     <item>
       <title>3D不動產實價查詢服務</title>
-      <link>https://swem.github.io/post/2014-01-07-3d-real-estate-firm-access-service/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-07-3d-real-estate-firm-access-service/</link>
       <pubDate>Tue, 07 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-07-3d-real-estate-firm-access-service/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-07-3d-real-estate-firm-access-service/</guid>
       <description>將近一年前分享的連結，在這裡也做個分享。實價登錄也進行超過1年了，資訊的公開能減少資訊不對稱，對多數人是有益的。(當然，還是不厭其煩的說一次，實價登錄只是房屋資訊的一部份，買賣任何東西都有各項資訊需要深入了解，才能讓買賣雙方有滿意的交易)
 中華電信推出的「3D不動產實價查詢服務」， 目前為止看起來還不錯。 3D不動產實價查詢服務</description>
     </item>
     
     <item>
       <title>Digital Ocean vs. Linode</title>
-      <link>https://swem.github.io/post/2014-01-07-digital-ocean-vs-linode/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-07-digital-ocean-vs-linode/</link>
       <pubDate>Tue, 07 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-07-digital-ocean-vs-linode/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-07-digital-ocean-vs-linode/</guid>
       <description>今天看到的文章 Digital Ocean vs. Linode Digital Ocean 確實是很好的選擇。雖然是個較新的服務，但在價錢、收費彈性、管理介面、API 上都表現非常好。以我個人的使用來說，有時只是要開機器來做幾小時的試驗。在 Digital Ocean 上 instance 的啟動速度真的很好，而且以小時為單位的收費讓人可以很放心的使用。 對我來說唯一美中不足的是目前 Digital Ocean 只有在美國紐約、舊金山、荷蘭阿姆斯特丹，從台灣連線過去的 round-trip 的時間約需 200ms。</description>
     </item>
     
     <item>
       <title>沒有三星電子也能支撐下的韓國經濟</title>
-      <link>https://swem.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/</link>
       <pubDate>Tue, 07 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-07-korea-economy-without-samsung-electronics/</guid>
       <description>“韓國引擎”遇挫 三星電子業績下滑 - 朝鮮日報中文網 不少人提出，要重新研究沒有三星電子也能支撐下的韓國經濟。
 這句話是關鍵。 產業轉型就是這樣來的。技術在進步，過去的解決方案就讓它停留在過去，把力氣花在對未來更有幫助的事物。</description>
     </item>
     
     <item>
       <title>Hacker News outage</title>
-      <link>https://swem.github.io/post/2014-01-06-hacker-news-outage/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-06-hacker-news-outage/</link>
       <pubDate>Mon, 06 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-06-hacker-news-outage/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-06-hacker-news-outage/</guid>
       <description>精神、技術食糧 Hacker News 這兩天突然出現問題無法運作。連到 Hacker News 就會傳回一個頁面表示正在維修中。但仔細探究回傳的訊息，會發現其中不恰當的地方。有網友寫了一篇 HackerNews down, unwisely returning http 200 for outage message，我簡短做個摘要。
 首先，維修頁面回傳了 HTTP 200 的 status code，這樣的訊息表示伺服器正常的回應。但一個正在維修的頁面，不應該回傳 HTTP 200。否則，這樣的頁面會被視為資料而被快取下來。以Google 為例，他會保有一些 webpage cache。如果Google 沒有更進一步判讀這其實是維修頁面，那這個記錄就會留存。任何像 Google 這樣的搜尋服務或是第3方服務都會受到影響。比較好的做法是回傳 503 Service Temporarily Unavailable 的 status code.
 第二，這個維修頁面的 expire time 太久了，設置的 expire time 到 Thu, 04 Jan 2024 13:14:48 GMT，也就是10年之後。換句話說如果一個使用者或 http proxy 沒有進行 hard refresh，即使 Hacker News 恢復運作，當使用者造訪 Hacker News 的時候，他看到的仍然會是這個維修頁面。
@@ -835,30 +866,30 @@ Session #1: Google Compute Engine 101 Karthikeyan Rajasekharan, Technical Lead o
     
     <item>
       <title>遠傳電收 eTag 網站密碼外洩</title>
-      <link>https://swem.github.io/post/2014-01-06-far-conduction-collection-etag-website-passwords-leaked/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-06-far-conduction-collection-etag-website-passwords-leaked/</link>
       <pubDate>Mon, 06 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-06-far-conduction-collection-etag-website-passwords-leaked/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-06-far-conduction-collection-etag-website-passwords-leaked/</guid>
       <description>遠傳電收 eTag 網站出包，仔細看了一下，發現遠傳電收在資訊安全上犯了很基本的錯。提供服務的伺服器通常只允許客戶端存取特定資料夾以內的檔案。如果沒有過濾好，密碼等等重要檔案很容易就外洩。這種 Directory traversal 的防範通常在資安書籍的頭幾章就可以讀到了。
 遠通eTag網站被「真駭客」破解！伺服器密碼全部看光光</description>
     </item>
     
     <item>
       <title>SQL practice</title>
-      <link>https://swem.github.io/post/2014-01-02-sql-practice/</link>
+      <link>https://chenhan1218.github.io/post/2014-01-02-sql-practice/</link>
       <pubDate>Thu, 02 Jan 2014 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2014-01-02-sql-practice/</guid>
+      <guid>https://chenhan1218.github.io/post/2014-01-02-sql-practice/</guid>
       <description>推薦以下三個網站給想要學習 SQL 的人。他們都有線上的 interactive 練習，跟著一步一步做很容易就上手了。從最基本的 select, order, 到進階一點的 join 3 tables 都可以練習的到。
  SQLCourse - Interactive Online SQL Training for Beginners SQLCourse2 - Advanced Online SQL Training PostgreSQL Exercises  前2個是較為基本的練習，第3個則有較為複雜的練習。在做 PostgreSQL Exercises 的時候如果遇到問題，PostgreSQL Tutorial 會是一個很棒的 tutorial</description>
     </item>
     
     <item>
       <title>FastMail’s servers are in the US: what this means for you</title>
-      <link>https://swem.github.io/post/2013-10-06-fastmails-servers-are-in-the-us-what-this-means-for-you/</link>
+      <link>https://chenhan1218.github.io/post/2013-10-06-fastmails-servers-are-in-the-us-what-this-means-for-you/</link>
       <pubDate>Sun, 06 Oct 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-10-06-fastmails-servers-are-in-the-us-what-this-means-for-you/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-10-06-fastmails-servers-are-in-the-us-what-this-means-for-you/</guid>
       <description>想必是受到Lavabit被美國法院判決必須交出SSL private Key的影響，電子郵件服務商FastMail，今天在官方部落格上發表的文章，向使用者說明，FastMail位在美國的伺服器，對使用者來說有什麼潛在的風險。
 首先，FastMail提到，他們是澳洲公司，遵守澳洲法律。若澳洲法庭簽署了執行令，則他們必須對澳洲法律當局交出特定使用者的資料。然而，這一類的海外法律互助申請是極為少見的。因為申請方必須具備許多犯罪證明，而且也必須確定使用者的行為不只違反了所屬國家法律，也違反了澳洲法律。
 曾有人表示由於FastMail的伺服器位在美國，所以也受到美國的管轄權。不過這樣的說法FastMail認為並不正確。FastMail並不具有任何美國法律身分，也沒有任何在美國的工作人員。因此即使美國法院簽署批淮令要求交出使用者資料，在澳洲隱私權法律的限制下，FastMail也不能這麼做。
@@ -872,10 +903,10 @@ Ref:
     
     <item>
       <title>Skype Supernode</title>
-      <link>https://swem.github.io/post/2013-10-04-skype-supernode/</link>
+      <link>https://chenhan1218.github.io/post/2013-10-04-skype-supernode/</link>
       <pubDate>Fri, 04 Oct 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-10-04-skype-supernode/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-10-04-skype-supernode/</guid>
       <description>今天讀了一些關於UDP hole punching，才知道原來VOIP這一類的技術，如何穿越NAT。
 位在NAT後的A,B兩方要進行通話前，必須先透過一個STUN Server，取得對方於公開網路上的IP位址及PORT埠口，然後再進行NAT Traversal。
 在Skype的實作中，本身具有Public IP位址的使用者，也可能擔任這個STUN server(Skype稱之為，Supernode)，分擔主伺服器的工作。因此，也需要耗用一些頻寬與運算效能。關於這點，台灣的網路追追追有訪問過Skype:
@@ -887,10 +918,10 @@ Ref:
     
     <item>
       <title>Install RVM, Ruby and Gems without sudo permission</title>
-      <link>https://swem.github.io/post/2013-05-26-install-rvm/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-26-install-rvm/</link>
       <pubDate>Sun, 26 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-26-install-rvm/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-26-install-rvm/</guid>
       <description>最近接觸 Ruby on Rails，把一些使用心得補上。
 正如同很多進化中的語言，Ruby on Rails 經常會遇到函式庫版本、執行環境的管理問題。我們可以使用Ruby Version Manager (RVM)來解決這個問題。 事實上我建議新手在第一次安裝 Ruby 前，就先安裝 RVM 來避免未來可能的問題。
 這邊我示範如何在沒有 sudo 的權限下，安裝 RVM, Ruby, Rails Gem在自己的家目錄下。每位使用者獨力安裝自己的 Ruby Environment 有個好處，就是不會相互干擾，容易除錯。 我的環境是 Ubuntu 12.04，以下流程在 MAC OS 上也是可以運作的。(事實上這也是Ruby Version Manager (RVM)所提供的預設安裝方法，這裡只是提供我的經驗給大家參考)
@@ -901,20 +932,20 @@ Ref:
     
     <item>
       <title>Software Community Meeting in Taiwan</title>
-      <link>https://swem.github.io/post/2013-05-26-software-community-meeting-in-taiwan/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-26-software-community-meeting-in-taiwan/</link>
       <pubDate>Sun, 26 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-26-software-community-meeting-in-taiwan/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-26-software-community-meeting-in-taiwan/</guid>
       <description>http://www.linux.org.tw/node/1 這個是很多熱心的軟體人收集起來的聚會日曆，有很多活動可以報名參加，不少在台北。 我是大約1年多前就把它加入自己的 Google Calendar，
 最近發現很多朋友還不知道有這樣的東西，很推薦可以多去參加自己有興趣的聚會活動。不只可以學到很多有趣的新技術，也可以認識到很多熱心的軟體人。</description>
     </item>
     
     <item>
       <title>TOEIC Preparation</title>
-      <link>https://swem.github.io/post/2013-05-26-toeic-preparation/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-26-toeic-preparation/</link>
       <pubDate>Sun, 26 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-26-toeic-preparation/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-26-toeic-preparation/</guid>
       <description>昨天參加了一場 TOEIC 英語測驗。我趕在這個場次最後一個報名日2013/4/17日報名，而後大約花5個星期的時間準備。 我第一次寫模擬測驗的成績大約是815分。現在考完估計應該有900分，如果沒有應該就是他們的讀卡機有問題(誤)。這邊分享一下我考試的心得。
 Update: &amp;ldquo; :00&amp;rdquo; 聽力成績： 475 閱讀成績： 470 總成績： 945 成績公佈，閱讀發揮的比考前模疑好。在考試的當下就感覺的出來，快速的閱讀很重要。全部寫完我還剩約5~8分鐘檢查。
 考前準備 準備用書有：
@@ -930,10 +961,10 @@ Update: &amp;ldquo; :00&amp;rdquo; 聽力成績： 475 閱讀成績： 470 總�
     
     <item>
       <title>雲端架構的構成要件</title>
-      <link>https://swem.github.io/post/2013-05-22-service-component/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-22-service-component/</link>
       <pubDate>Wed, 22 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-22-service-component/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-22-service-component/</guid>
       <description>在Slide Share上看到Openstack Tutorial ，其中第12頁點出了雲端架構的構成要件。
  Strategic Planning 策略規畫
  Consultants 顧問 Business Process Automation 自動化商業流程  Operations 運作
@@ -945,10 +976,10 @@ Update: &amp;ldquo; :00&amp;rdquo; 聽力成績： 475 閱讀成績： 470 總�
     
     <item>
       <title>AWSome Day on May 16 in Taipei.</title>
-      <link>https://swem.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/</link>
       <pubDate>Wed, 15 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-15-awsome-day-on-may-16-in-taipei/</guid>
       <description>2013/5/16 參加了Amazon辦的 AWSome Day，在台北國際會議中心的201會議室，大約有500人參與了這次活動。 這是Amazon 第一次在台北舉辦這樣的活動。透過這樣的活動，大家可以更加認識目前 Amazon Web Services 所提供的服務。 事實上已經有很多台灣的團隊使用了 AWS，現場也有幾位Amazon 技術人員提供咨詢服務
 開場的 Keynote 是介紹 Amazon Web Services 的核心理念(Help Customers to save money)、規模成長。 這一段就像是產品推銷，不過其實很適合還不認識這些服務的用途的人來聽。以目前 AWS 的服務來說，確實可以為企業帶來穩定且相對收費不高的基礎資訊服務，讓企業在打造應用的時候，可以無後顧之憂.
 無數的知名應用服務中，我想 Dropbox 是台灣使用者最為熟悉的。而美國 Netflix 則是應用了Amazon Web Services，打造了目前最熱門的電影串流服務，據統計Netflix 就佔去了北美1/3的下載網路流量。
@@ -959,10 +990,10 @@ Update: &amp;ldquo; :00&amp;rdquo; 聽力成績： 475 閱讀成績： 470 總�
     
     <item>
       <title>offline access for google drive</title>
-      <link>https://swem.github.io/post/2013-05-12-offline-access-for-google-drive/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-12-offline-access-for-google-drive/</link>
       <pubDate>Sun, 12 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-12-offline-access-for-google-drive/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-12-offline-access-for-google-drive/</guid>
       <description>Google 推出行動硬碟、日曆的離線存取已經有一段時間，我覺得這是個很棒的功能，不過實際使用後才發現有些眉角。 有些使用者安裝了離線版的 Google 行動硬碟、Google 日曆，卻發現仍然沒辦法離線使用
 原因出在於 Google 的離線功能需要進行啟用，而且使用者若有多台電腦，則必須為每一台分別開啟離線功能。 你有10台電腦，就要啟用10次。
 我想這樣的設計是為了確保使用者的資料是安全的，使用者只在安全的個人電腦上使用離線資料， 不會說在1台電腦上啟用了離線，另外9台也跟著啟用，導致使用者的資料有外洩的可能。
@@ -976,10 +1007,10 @@ Google 離線啟用的步驟如下，文章最後附上Google 說明連結。
     
     <item>
       <title>cURL HTTP redirects</title>
-      <link>https://swem.github.io/post/2013-05-09-curl-http-redirects/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-09-curl-http-redirects/</link>
       <pubDate>Thu, 09 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-09-curl-http-redirects/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-09-curl-http-redirects/</guid>
       <description>cURL 是一個 unix 下以命令操作來取得檔案、頁面的工具，在網頁測試中經常使用到。不過要注意的是，cURL 預設並不處理 HTTP 重導向。
 昨天在 github 上看到了一個有趣的專案 screenshot-as-a-service，這個專案給使用者的第一個範例就是用 cURL 來進行操作。不過在 Readme.md 裡有點小錯誤。於是我就將它改正過來，並送了一個 Pull Request。 revise usage example in Readme.md
 今天發現作者已經將我的 patch 合併進了專案，有興趣的人可以抓下來試一試。
@@ -991,10 +1022,10 @@ Ref:
     
     <item>
       <title>File Descriptor in Bash Shell</title>
-      <link>https://swem.github.io/post/2013-05-08-file-descriptor-in-bash-shell/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-08-file-descriptor-in-bash-shell/</link>
       <pubDate>Wed, 08 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-08-file-descriptor-in-bash-shell/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-08-file-descriptor-in-bash-shell/</guid>
       <description>一個程式至少會開啟三個Input/Output 串流，分別為
  Standard input (stdin) 標準輸入 Standard output (stdout) 標準輸出 Standard error (stderr) 標準錯誤訊息  操作時相對應的代號就是file descriptor。
 在 Bash Shell 中，你最多可以有10個 file descriptor。利用這些 descriptor，你可以結合他們把輸出訊息、錯誤訊息，都導到同一個檔案中，並同時在螢幕上顯示出來。
@@ -1004,10 +1035,10 @@ $ sh script.sh &amp;gt;log.txt 2&amp;gt;&amp;amp;1 $ sh script.sh 2&amp;gt;&amp;
     
     <item>
       <title>git submodule</title>
-      <link>https://swem.github.io/post/2013-05-05-git-submodule/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-05-git-submodule/</link>
       <pubDate>Sun, 05 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-05-git-submodule/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-05-git-submodule/</guid>
       <description>我們可以透過 git submodule 來組合眾多小專案、函式庫，形成一個大專案。這樣的流程特別常見於應用程式依賴於底層的Library時。 (例如Web App 可能會想要引用 facebook-ios-sdk)
 使用 git submodule 要先掌握2件事
  git 使用 .gitmodules 來對應小專案、函式庫於大專案中的資料夾位置。 每個開發者可以自行管理要不要取出各個小專案，每個小專案的設定將被註冊在 .git/config  ##Add submodule
@@ -1021,10 +1052,10 @@ git submodule update --recursive  ##Remove submodule 移除 submodule 時，修�
     
     <item>
       <title>git subtree merge strategy</title>
-      <link>https://swem.github.io/post/2013-05-01-git-subtree-merge-strategy/</link>
+      <link>https://chenhan1218.github.io/post/2013-05-01-git-subtree-merge-strategy/</link>
       <pubDate>Wed, 01 May 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-05-01-git-subtree-merge-strategy/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-05-01-git-subtree-merge-strategy/</guid>
       <description>最近工作上遇到一個問題，我們希望在自己的專案中保有專案所依賴的函式庫，而不隨著函式庫的版本更新而變動。例如我們也許想使用 boost 1.5.3 做為我們的依賴函式庫，未來等 boost 改版到 1.6 以後，也許先不急著更換，等到時機恰當再做更換。
 在專案中保有的函式庫，檔案結構如：
 project ├── lib │ └── boost └── src └── test.cpp  對於這樣的開發需求，我們可以採用 git 裡的 subtree 來幫助我們做到這件事。
@@ -1035,10 +1066,10 @@ $ rm -rf lib/project1 $ git add -u $ git merge -s ours --no-commit boost/master 
     
     <item>
       <title>npm install</title>
-      <link>https://swem.github.io/post/2013-04-24-npm-install/</link>
+      <link>https://chenhan1218.github.io/post/2013-04-24-npm-install/</link>
       <pubDate>Wed, 24 Apr 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-04-24-npm-install/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-04-24-npm-install/</guid>
       <description>NPM (Node Packaged Modules) 是 Node.js 裡很好用的模組安裝工具。從 npm 1.0 開始，有兩個方式來安裝模組。
  全域安裝，通常會把模組安裝在 /usr/local/lib/node_modules 的位置。
 $ npm install -g express  專案資料夾內的安裝，
@@ -1050,20 +1081,20 @@ Ref: npm 1.0: Global vs Local installation</description>
     
     <item>
       <title>Code School Hall Passes</title>
-      <link>https://swem.github.io/post/2013-04-23-code-school-hall-passes/</link>
+      <link>https://chenhan1218.github.io/post/2013-04-23-code-school-hall-passes/</link>
       <pubDate>Tue, 23 Apr 2013 16:00:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-04-23-code-school-hall-passes/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-04-23-code-school-hall-passes/</guid>
       <description>Code School 現在可以啟用兩天完全免費的課程 Code School - Hall Pass
 目前他們的商業模式是少部份課程免費，其餘課程要成為收費會員才能上課，1個月 25 美元。 大多是 Web development 相關，課程的品質很好，對初學者很好上手，有興趣的人可以試一試。</description>
     </item>
     
     <item>
       <title>DigitalOcean 初體驗</title>
-      <link>https://swem.github.io/post/2013-04-10-digitalocean/</link>
+      <link>https://chenhan1218.github.io/post/2013-04-10-digitalocean/</link>
       <pubDate>Wed, 10 Apr 2013 07:02:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-04-10-digitalocean/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-04-10-digitalocean/</guid>
       <description>前幾天剛好有虛擬機器的需要，所以上 DigitalOcean 開了一台最便宜的來試試。
 架設 Server 十分容易，方案選一下，信用卡開下去就有了。 設備：512MB Memory, 1 Core, 20GB SSD Disk, 1TB Transfer
 我選在 New York 的 Data Center，從台灣連過去的 Latency 大約是230ms。差強人意，但以我的用途可接受。 使用12小時花了 $0.09 美元，實在是非常划算。
@@ -1075,10 +1106,10 @@ Ref[2]: Linode vs DigitalOcean, performance benchmarks</description>
     
     <item>
       <title>Boost Unit Test Framework in UVa Online Judge</title>
-      <link>https://swem.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/</link>
+      <link>https://chenhan1218.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/</link>
       <pubDate>Wed, 27 Mar 2013 08:07:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-03-27-boost-unit-test-framework-in-uva-online-judge/</guid>
       <description>利用 Boost Unit Test Framework，可以方便的進行單元測試。 而在 UVa Online Judge 的練習中，我們也可以導入 Boost Unit Test Framework 來對我們寫的 function 進行測試。 不過 UVa Online Judge 的編譯環境是不支援 Boost 的，但在編譯時，它會給一個特別的編譯參數 -DONLINE_JUDGE。 所以我們可以利用Uva 這個特有的編譯參數，在導入 Boost Unit Test Framework 時，又不會發生Compiler Error.
 單元測試時：
 $ g++ 530.cpp -lboost_unit_test_framework $ ./a.out Running 2 test cases... *** No errors detected  以測資做為輸入的測試：
@@ -1088,10 +1119,10 @@ $ g++ 530.cpp -DONLINE_JUDGE $ ./a.out &amp;lt;input.txt 6 252 13983816  程式�
     
     <item>
       <title>RIP, Google Reader</title>
-      <link>https://swem.github.io/post/2013-03-14-rip/</link>
+      <link>https://chenhan1218.github.io/post/2013-03-14-rip/</link>
       <pubDate>Thu, 14 Mar 2013 04:15:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2013-03-14-rip/</guid>
+      <guid>https://chenhan1218.github.io/post/2013-03-14-rip/</guid>
       <description>今天 Google 宣布了 Google Reader 將於 2013/7/1 結束運作。
 另一個 RSS 訂閱服務 Feedly 則馬上做出了回應， Feedly 這項服務提供 Google Reader 使用者連結自己所訂閱的 RSS, 並以 Feedly 較為活潑清爽的版面來進行閱讀。 於 Feedly 上連結 Google Reader 的使用者，將可以在 2013/7/1 後，無痛延續閱讀自己訂閱的 RSS 來源.
 就我先前的經驗來說，Feedly是個有趣的閱讀介面， 雖然我比較喜歡簡單的閱讀介面，所以還是維持使用 Google Reader, 不過既然現在 Feedly 提供這樣的服務(事實上提供Google Reader的連結訂閱，一直是Feedly的主力服務)， 我想就開始使用看看吧。
@@ -1102,10 +1133,10 @@ Ref:
     
     <item>
       <title>Memory blocks are possibly lost (Valgrind example again!!)</title>
-      <link>https://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/</link>
+      <link>https://chenhan1218.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/</link>
       <pubDate>Tue, 25 Dec 2012 01:47:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/</guid>
+      <guid>https://chenhan1218.github.io/post/2012-12-25-memory-blocks-are-possibly-lost-valgrind-example-again/</guid>
       <description>今天讀到的文章 Using Valgrind to debug memory leaks {% codeblock lang:c %} #include  #include  #include 
 char *lower;
 char *to_lower (const char *str) { char *l = strdup (str); char *c;
@@ -1116,10 +1147,10 @@ while (*lower) putchar (*(lower++)); puts (&amp;quot;&amp;quot;); return 0;  } {
     
     <item>
       <title>Valgrind - 檢查程式記憶體的小工具</title>
-      <link>https://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/</link>
+      <link>https://chenhan1218.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/</link>
       <pubDate>Mon, 17 Dec 2012 04:46:00 +0000</pubDate>
       
-      <guid>https://swem.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/</guid>
+      <guid>https://chenhan1218.github.io/post/2012-12-17-valgrind-jian-cha-cheng-shi-ji-yi-ti-de-xiao-gong-ju/</guid>
       <description>Octopress 的第一篇文章，簡單介紹 Valgrind - 檢查程式記憶體的小工具
 前陣子我對 project 進行 Debug 其中有一些 runtime error, 包含 memory leak
 我使用 Valgrind 來檢查 Memory Leak
