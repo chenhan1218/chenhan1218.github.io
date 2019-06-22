@@ -6,10 +6,21 @@
     <description>Recent content on ChenHan&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Aug 2017 16:04:13 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 01 Jan 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://chenhan1218.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>About</title>
+      <link>https://chenhan1218.github.io/about/</link>
+      <pubDate>Tue, 01 Jan 2019 00:00:00 +0800</pubDate>
+      
+      <guid>https://chenhan1218.github.io/about/</guid>
+      <description>Chen-Han(Stanley) Hsiao (a.k.a. swem). Geek of open source software. Studied in Mathematics and Computer Science (Especilly Robotics and Artificial Intelligence fields.) in National Taiwan University. Interesting in web servies build upon Node.js, Ruby on Rails. Believe the information technology would change people&amp;rsquo;s lives.
+蕭辰翰，自由軟體愛好者。希望透過軟體來讓這個世界變的更美好
+Experience  Translator in TEDTalks community Teaching assistant, CALCULUS (GENERAL MATHEMATICS), National Taiwan University (Fall 2008 &amp;amp; Spring 2009). Teaching assistant, Introduction to Computer Programming, National Taiwan University (Fall 2009).</description>
+    </item>
     
     <item>
       <title>disable suspend via polkit</title>
@@ -1158,17 +1169,6 @@ while (*lower) putchar (*(lower++)); puts (&amp;quot;&amp;quot;); return 0;  } {
 int main() { vector array(1024); cout &amp;lt;&amp;lt; array[1024] &amp;lt;&amp;lt; endl ; return 0; } {% endcodeblock %}
 $g++ -g test.cpp $valgrind ./a.out
 輸出訊息 {% codeblock %} ==9247== Memcheck, a memory error detector ==9247== Copyright &amp;copy; 2002-2011, and GNU GPL&amp;rsquo;d, by Julian Seward et al.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://chenhan1218.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://chenhan1218.github.io/about/</guid>
-      <description>Chen-Han(Stanley) Hsiao (a.k.a. swem). Geek of open source software. Studied in Mathematics and Computer Science (Especilly Robotics and Artificial Intelligence fields.) in National Taiwan University. Interesting in web servies build upon Node.js, Ruby on Rails. Believe the information technology would change people&amp;rsquo;s lives.
-蕭辰翰，自由軟體愛好者。希望透過軟體來讓這個世界變的更美好
-Experience  Translator in TEDTalks community Teaching assistant, CALCULUS (GENERAL MATHEMATICS), National Taiwan University (Fall 2008 &amp;amp; Spring 2009). Teaching assistant, Introduction to Computer Programming, National Taiwan University (Fall 2009).</description>
     </item>
     
     <item>

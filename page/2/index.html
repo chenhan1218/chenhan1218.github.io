@@ -102,12 +102,18 @@
 </header>
 
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2016-08-14-lxd-container-getting-started/'> LXD container Getting Started</a> </h2>
-    <div class="post-meta">2016-08-14</div>
-  </header>
-  <p>Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.</p>
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2016-08-14-lxd-container-getting-started/">LXD container Getting Started</a>
+			<br>
+			<small>
+				2016-08-14
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>Below I give some simple command to run a ubuntu:16.04 lxd container. LXD container is fast, very efficient, very low-footprint virtual machine. I recommend people who didn&rsquo;t need low-level system control (such as disk, loopback device) give it a try. I think this kind of lightweight virtual machine would benefit people who study machine learning or similar scientific computing.</p>
 
 <pre><code># check current status of lxd. If you install lxd the first time, it should containing no virtual machines.
 lxc list
@@ -151,14 +157,25 @@ lxc list
 &hellip;
 (But if you choose to run a priviledged lxd virtual machine, some limitations might not exist anymore. But I haven&rsquo;t dig into it currently.)</p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2016-07-06-763254/'> Build Debian/Ubuntu LiveCD</a> </h2>
-    <div class="post-meta">2016-07-06</div>
-  </header>
-  
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2016-07-06-763254/">Build Debian/Ubuntu LiveCD</a>
+			<br>
+			<small>
+				2016-07-06
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		
 
 <p>Note that this article introduces how to build Debian/Ubuntu LiveCD iso image from scratch. With this method, you have great flexibility to customize the LiveCD.</p>
 
@@ -246,14 +263,25 @@ lb build
 </a>
 [7] <a href="https://wiki.ubuntu.com/ReleaseTeam/CDImageSetup">ReleaseTeam/CDImageSetup - Ubuntu Wiki</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/'> PuDB Python Debugging Tool. A full-screen, console-based Python debugger</a> </h2>
-    <div class="post-meta">2016-03-31</div>
-  </header>
-  <p>I highly recommened pudb, which is a full-screen, console-based visual debugger for Python. The user-interface is nicely designed for python developers.</p>
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2016-03-31-pudb-python-debugging-tool-a-full-screen-console-based-python-debugger/">PuDB Python Debugging Tool. A full-screen, console-based Python debugger</a>
+			<br>
+			<small>
+				2016-03-31
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>I highly recommened pudb, which is a full-screen, console-based visual debugger for Python. The user-interface is nicely designed for python developers.</p>
 
 <p>Here is an example debugging a simple python script:
 <a href="http://heather.cs.ucdavis.edu/~matloff/pudb.html">Introduction to the PuDB Python Debugging Tool
@@ -282,14 +310,25 @@ sudo apt-get -y python3-pudb
 sudo apt-get install ipython
 </code></pre>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/'> How to prevent Linux from waking up due to USB devices</a> </h2>
-    <div class="post-meta">2016-03-26</div>
-  </header>
-  <p>最近換了一台工作機，但我發現在 Ubuntu 14.04.3 上，有時候會休眠失敗。
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2016-03-26-how-to-prevent-linux-from-waking-up-due-to-usb-devices/">How to prevent Linux from waking up due to USB devices</a>
+			<br>
+			<small>
+				2016-03-26
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>最近換了一台工作機，但我發現在 Ubuntu 14.04.3 上，有時候會休眠失敗。
 在失敗的時候，機器有 suspend 成功，但是過2秒後機器就會自動醒來。查看了 /var/log/kern.log, /var/log/syslog, /var/log/pm-suspend.log 沒有太異常的訊息。後來上網查了一下，這可能是有 BIOS 有問題或 device 不正常運作。</p>
 
 <p>在 /proc/acpi/wakeup 中，列出了數種 wakeup event, 以下面的表來說，代表了機器開放了 EHC1, EHC2, PWRB, LID0 這幾種 wakeup event</p>
@@ -337,27 +376,49 @@ end script
 - <a href="http://linux.die.net/man/1/acpitool">acpitool(1) - Linux man page</a>
 - <a href="https://01.org/blogs/rzhang/2015/best-practice-debug-linux-suspend/hibernate-issues">Best practice to debug Linux* suspend/hibernate issues | 01.org</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/'> AlphaGo is not the solution to AI</a> </h2>
-    <div class="post-meta">2016-03-15</div>
-  </header>
-  <blockquote>
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2016-03-15-alphago-is-not-the-solution-to-ai/">AlphaGo is not the solution to AI</a>
+			<br>
+			<small>
+				2016-03-15
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<blockquote>
 <p>Addressing global exploration effectively is only one of the significant challenges between what is well known now and what needs to be addressed for what I would consider a real AI.</p>
 </blockquote>
 
 <p>Ref: <a href="http://hunch.net/?p=3692542">AlphaGo is not the solution to AI</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/'> 在 NAS 上架設 ubuntu chroot 環境</a> </h2>
-    <div class="post-meta">2015-10-08</div>
-  </header>
-  <p>今天發現可以透過 Canonical Ltd. 的 <a href="https://linuxcontainers.org">linuxcontainer</a> image 快速的在 NAS 上建立一個 chroot 環境。我的機器 cpu 是 armhf ，下面示範建立 Ubuntu 15.04 Vivid 的 chroot 環境。</p>
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2015-10-08-set-up-ubuntu-chroot-environment-on-nas/">在 NAS 上架設 ubuntu chroot 環境</a>
+			<br>
+			<small>
+				2015-10-08
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>今天發現可以透過 Canonical Ltd. 的 <a href="https://linuxcontainers.org">linuxcontainer</a> image 快速的在 NAS 上建立一個 chroot 環境。我的機器 cpu 是 armhf ，下面示範建立 Ubuntu 15.04 Vivid 的 chroot 環境。</p>
 
 <p>步驟1：下載 Image，解開後進入 rootfs，並修改 nameserver</p>
 
@@ -381,14 +442,25 @@ mount -t devpts pts dev/pts/
 <pre><code>chroot . su -l
 </code></pre>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2015-09-17-backports-driver/'> backports driver</a> </h2>
-    <div class="post-meta">2015-09-17</div>
-  </header>
-  <pre><code>git clone git://git.kernel.org/pub/scm/linux/kernel/git/backports/backports.git
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2015-09-17-backports-driver/">backports driver</a>
+			<br>
+			<small>
+				2015-09-17
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<pre><code>git clone git://git.kernel.org/pub/scm/linux/kernel/git/backports/backports.git
 git clone git://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
 cd backports/
 ./gentree.py --clean --git-revision next-20150525 ../linux-next/ release
@@ -398,14 +470,25 @@ make menuconfig
 make
 </code></pre>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/'> 使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視</a> </h2>
-    <div class="post-meta">2015-09-11</div>
-  </header>
-  
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2015-09-11-watch-digital-tv-on-ubuntu-using-the-upmost-dvb193-1404/">使用 UPMOST DVB193 在 Ubuntu/Debian 上看數位電視</a>
+			<br>
+			<small>
+				2015-09-11
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		
 
 <p>手上有一支 UPMOST DVB193 數位電視棒，最近測試了它是不是能在 Ubuntu 14.04 下運作。原本以為需要自己編譯 driver，不過把數位電視棒插入筆電， lsusb 後發現其實 driver 已被 Kernel 收錄成為 built-in driver。 Driver 的訊息如下</p>
 
@@ -481,14 +564,25 @@ sudo apt install -y firmware-misc-non-free
 - <a href="http://git.linuxtv.org/cgit.cgi/dtv-scan-tables.git">http://git.linuxtv.org/cgit.cgi/dtv-scan-tables.git</a>
 - <a href="https://github.com/oliv3r/dtv-scan-tables">github.com/oliv3r/dtv-scan-tables Digital TV scan tables</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2015-08-26-blacklist-kernel-module/'> Debugging system hang by blacklist kernel module</a> </h2>
-    <div class="post-meta">2015-08-26</div>
-  </header>
-  <p>有時在機器上會遇到 system hang 的狀況，特別是在 enable 新硬體時。遇到這種情況，可以試著 blacklist 可疑的 kernel module</p>
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2015-08-26-blacklist-kernel-module/">Debugging system hang by blacklist kernel module</a>
+			<br>
+			<small>
+				2015-08-26
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>有時在機器上會遇到 system hang 的狀況，特別是在 enable 新硬體時。遇到這種情況，可以試著 blacklist 可疑的 kernel module</p>
 
 <p>以 mwifiex_sdio 為例</p>
 
@@ -510,14 +604,25 @@ EOF
 
 <p><a href="https://wiki.archlinux.org/index.php/Kernel_modules#Using_files_in_.2Fetc.2Fmodprobe.d.2F_2">Using files in /etc/modprobe.d/</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
 
-<article class="post">
-  <header>
-    <h2><a href='https://chenhan1218.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/'> 基於 upstream git-tree 產生 debian package patch</a> </h2>
-    <div class="post-meta">2015-08-19</div>
-  </header>
-  <p>最近在工作上遇到一個 bug，在某些狀況下執行 lshw (02.16-2ubuntu1.2) 會 segmentation fault。找了 <a href="https://github.com/lyonel/lshw">lshw</a> 最新的 code 編譯執行後發現沒有這個問題。於是就開始了 git bisect。最後找到是 <a href="https://github.com/lyonel/lshw/commit/d048d300b5daeb44887a7fc06ddeb120119cac8a">d048d300b5daeb44887a7fc06ddeb120119cac8a</a> 這筆修改在 src/core/scsi.cc 上面的 commit 解決了這個問題</p>
+
+	<div class="panel panel-default">
+	<div class="panel-header">
+		<h3>
+			<a href="https://chenhan1218.github.io/post/2015-08-19-have-a-debian-package-based-on-upstream-git-tree-patch/">基於 upstream git-tree 產生 debian package patch</a>
+			<br>
+			<small>
+				2015-08-19
+			</small>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<p>最近在工作上遇到一個 bug，在某些狀況下執行 lshw (02.16-2ubuntu1.2) 會 segmentation fault。找了 <a href="https://github.com/lyonel/lshw">lshw</a> 最新的 code 編譯執行後發現沒有這個問題。於是就開始了 git bisect。最後找到是 <a href="https://github.com/lyonel/lshw/commit/d048d300b5daeb44887a7fc06ddeb120119cac8a">d048d300b5daeb44887a7fc06ddeb120119cac8a</a> 這筆修改在 src/core/scsi.cc 上面的 commit 解決了這個問題</p>
 
 <p>順著這筆 commit，找到了 lshw project 的 bug report <a href="http://www.ezix.org/project/ticket/653">lshw segfaults, with some 16GB USB-3 sticks from Patriot</a> 。也了解是 USB3.0 stick plugged 時會出現問題。在手上的機器上試了一下，果然是這樣沒錯。原本沒有頭緒的 random segmentation fault，現在則是有了 root cause 的 issue。</p>
 
@@ -554,7 +659,12 @@ debcommit
 2. <a href="https://www.debian.org/doc/manuals/maint-guide/modify.en.html">Chapter 3. Modifying the source</a>
 3. <a href="https://stuff.mit.edu/afs/athena/system/i386_deb50/os/usr/share/doc/quilt/quilt.html">How To Survive With Many Patches or Introduction to Quilt</a></p>
 
-</article>
+	</div>
+	<div class="panel-footer">
+		
+	</div>
+</div>
+
 
 
 <div class="text-center center-block">
