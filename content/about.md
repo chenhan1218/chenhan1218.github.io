@@ -2,9 +2,8 @@
 menu = "main"
 title = "About"
 +++
-[![Facebook](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-facebook-m.png)](http://www.facebook.com/chenhan.hsiao)
-[![Github](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-github-m.png)](http://github.com/swem)
-[![Google-Plus](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-googleplus-m.png)](https://plus.google.com/115154486338673377998/)
+[![Facebook](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-facebook-m.png)](https://www.facebook.com/chenhan.hsiao)
+[![Github](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-github-m.png)](https://github.com/chenhan1218)
 [![Linkedin](https://github.com/adamfairhead/webicons/raw/master/webicons/webicon-linkedin-m.png)](https://www.linkedin.com/in/chen-han-hsiao-2b486049)
 
 
