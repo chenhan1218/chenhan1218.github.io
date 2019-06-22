@@ -26,9 +26,6 @@ paginate = 10
 	[[params.socialbuttons]]
 	faicon = "linkedin"
 	url = "https://www.linkedin.com/in/chen-han-hsiao-2b486049"
-	[[params.socialbuttons]]
-	faicon = "google-plus"
-	url = "https://plus.google.com/u/0/115154486338673377998"
 
 	[[params.navlinks]]
 	name = "About"
