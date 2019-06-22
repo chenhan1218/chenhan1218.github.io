@@ -4,22 +4,22 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="description" content="">
-    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:title" content="ChenHan&#39;s blog">
     
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
     <meta property="og:url" content="https://chenhan1218.github.io/">
-    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.22.1" />
-    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    <meta name="generator" content="Hugo 0.40.1" />
+    <title>ChenHan&#39;s blog &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ChenHan&#39;s blog" />
     
     
     <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
@@ -104,18 +104,12 @@
 </header>
 
 
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-08-30-disable-suspend/">disable suspend via polkit</a>
-			<br>
-			<small>
-				2017-08-30
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="https://gist.github.com/schlomo/183524530d17d6a888d0">https://gist.github.com/schlomo/183524530d17d6a888d0</a></p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-08-30-disable-suspend/'> disable suspend via polkit</a> </h2>
+    <div class="post-meta">2017-08-30</div>
+  </header>
+  <p><a href="https://gist.github.com/schlomo/183524530d17d6a888d0">https://gist.github.com/schlomo/183524530d17d6a888d0</a></p>
 
 <p>/var/lib/polkit-1/localauthority/50-local.d/disable-suspend.pkla</p>
 
@@ -127,30 +121,14 @@ ResultInactive=no
 ResultActive=no
 </code></pre>
 
-	</div>
-	<div class="panel-footer">
-		
-		<small class="text-muted">
-			
-			
-		</small>
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-08-09-gnome-session-autostart/">autostart x11vnc in gnome-session</a>
-			<br>
-			<small>
-				2017-08-09
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<pre><code>$ cat ~/.config/autostart/x11vnc.desktop
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-08-09-gnome-session-autostart/'> autostart x11vnc in gnome-session</a> </h2>
+    <div class="post-meta">2017-08-09</div>
+  </header>
+  <pre><code>$ cat ~/.config/autostart/x11vnc.desktop
 [Desktop Entry]
 Type=Application
 Exec=sh -c &quot;/usr/bin/x11vnc -auth $XAUTHORITY -rfbauth $HOME/.x11vnc/passwd -forever -shared -bg --noxfixes -noxrecord -noxdamage -rfbport 5900 -display $DISPLAY -o $HOME/.x11vnc/vnc_server.log&quot;
@@ -163,30 +141,14 @@ Comment[en_US]=
 Comment=
 </code></pre>
 
-	</div>
-	<div class="panel-footer">
-		
-		<small class="text-muted">
-			
-			
-		</small>
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-08-08-build-external-kernel-module/">Build external kernel module</a>
-			<br>
-			<small>
-				2017-08-08
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>First, apply patches if any.</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-08-08-build-external-kernel-module/'> Build external kernel module</a> </h2>
+    <div class="post-meta">2017-08-08</div>
+  </header>
+  <p>First, apply patches if any.</p>
 
 <pre><code>git am --whitespace=nowarn ${patches}/*.patch
 </code></pre>
@@ -202,30 +164,14 @@ make -C /lib/modules/`uname -r`/build M=$PWD
 <li><a href="https://www.kernel.org/doc/Documentation/kbuild/modules.txt">https://www.kernel.org/doc/Documentation/kbuild/modules.txt</a></li>
 </ol>
 
-	</div>
-	<div class="panel-footer">
-		
-		<small class="text-muted">
-			
-			
-		</small>
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-07-30-build-ubuntu-kernel/">Build Ubuntu kernel</a>
-			<br>
-			<small>
-				2017-07-30
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-07-30-build-ubuntu-kernel/'> Build Ubuntu kernel</a> </h2>
+    <div class="post-meta">2017-07-30</div>
+  </header>
+  
 
 <h2 id="build-ubuntu-16-04-xenial-kernel-on-launchpad">Build Ubuntu 16.04 (Xenial) kernel on launchpad</h2>
 
@@ -261,25 +207,14 @@ debuild -S
 dput &lt;Your ppa&gt; ../linux_4.13.0-2.3_source.changes
 </code></pre>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-07-06-launchpad-api/">Launchpad API</a>
-			<br>
-			<small>
-				2017-07-06
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Launchpad provide a web service api for developer. The main area I use launchpad api on:</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-07-06-launchpad-api/'> Launchpad API</a> </h2>
+    <div class="post-meta">2017-07-06</div>
+  </header>
+  <p>Launchpad provide a web service api for developer. The main area I use launchpad api on:</p>
 
 <ol>
 <li>Grab/Edit bug information</li>
@@ -302,30 +237,14 @@ print(b.message_count)
 
 <p>Here is more sample scripts: <a href="https://help.launchpad.net/API/Examples">https://help.launchpad.net/API/Examples</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-		<small class="text-muted">
-			
-			
-		</small>
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-07-01-migrate-to-hugo/">Migrate to Hugo</a>
-			<br>
-			<small>
-				2017-07-01
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Due to some software issues not fixing for long time on logdown.com [2], I decided to finding other blog solutions for hosting my tech blog. After considering several options (Such as Hugo, Ghost, Octopress, Jekyll, Jekyll-Now). The final choice goes to Hugo. Hugo is a popular static website generator which built on top of Golang. The community support is actively. Over 18 thousands stars on Hugo github repository. And Debian/Ubuntu has hugo packages which is very easily for normal user to install.</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-07-01-migrate-to-hugo/'> Migrate to Hugo</a> </h2>
+    <div class="post-meta">2017-07-01</div>
+  </header>
+  <p>Due to some software issues not fixing for long time on logdown.com [2], I decided to finding other blog solutions for hosting my tech blog. After considering several options (Such as Hugo, Ghost, Octopress, Jekyll, Jekyll-Now). The final choice goes to Hugo. Hugo is a popular static website generator which built on top of Golang. The community support is actively. Over 18 thousands stars on Hugo github repository. And Debian/Ubuntu has hugo packages which is very easily for normal user to install.</p>
 
 <p>For migrating to Hugo, I exported all my articles on logdown, which content is served with similar format to Octopress. And then dump all the markdown files into content/post/ folder in newly created hugo repository. Everything went well except two steps were needed.</p>
 
@@ -371,32 +290,14 @@ print(b.message_count)
 
 <p>[2] I can&rsquo;t login via facebook account. This feature have been broken for nearly half year. Another feature broken is url auto-generate.</p>
 
-	</div>
-	<div class="panel-footer">
-		
-		<small class="text-muted">
-			
-			
-				<a href="https://chenhan1218.github.io/tags/hugo"><span class="label label-success">hugo</span></a>
-			
-		</small>
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/">利用 RTL-SDB 接收 ads-b 訊號</a>
-			<br>
-			<small>
-				2017-07-01
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-07-01-receive-ads-b-via-rtl-sdb/'> 利用 RTL-SDB 接收 ads-b 訊號</a> </h2>
+    <div class="post-meta">2017-07-01</div>
+  </header>
+  
 
 <p>Automatic dependent surveillance – broadcast (ADS–B) 是
 廣播式自動回報監視（ADS-B）[1]。航機每秒發射一次之航機位置、高度、位置完整性、航機識別、航機24 bit位址、速度及其他資料。只要準備一個簡易的 ADS-B 接收器，就可以收到這些訊息。下面介紹怎麼使用 dump1090 ，來觀察這些航機發送出來的訊息。</p>
@@ -455,25 +356,14 @@ sudo systemctl restart snap.adsb-box.piaware.service
 
 <p>[3] <a href="https://github.com/mutability/dump1090">https://github.com/mutability/dump1090</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2017-07-01-must-have-gnome-extensions/">推薦 gnome extensions</a>
-			<br>
-			<small>
-				2017-07-01
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Ubuntu 將在 17.10 切換到 Gnome Desktop。其實我覺得 Ubuntu Unity 的 UI 設計是很不錯的，簡潔又不失功能性。Gnome 3 的預設版型我反倒不這麼喜歡。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2017-07-01-must-have-gnome-extensions/'> 推薦 gnome extensions</a> </h2>
+    <div class="post-meta">2017-07-01</div>
+  </header>
+  <p>Ubuntu 將在 17.10 切換到 Gnome Desktop。其實我覺得 Ubuntu Unity 的 UI 設計是很不錯的，簡潔又不失功能性。Gnome 3 的預設版型我反倒不這麼喜歡。</p>
 
 <p>關於 Gnome Shell 的設計文件：<a href="https://wiki.gnome.org/Projects/GnomeShell/Design/">Projects/GnomeShell/Design - GNOME Wiki!</a></p>
 
@@ -506,25 +396,14 @@ sudo systemctl restart snap.adsb-box.piaware.service
 </ul></li>
 </ul>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2016-09-23-905130/">How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</a>
-			<br>
-			<small>
-				2016-09-23
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Recently I&rsquo;ve trace how cloud-init is being run. First, I try to find service file in /etc/system/system or /lib/systemd/system. Although I can locate the unit files, I can&rsquo;t see any systemd target that will bring up these cloud-init services. I did&rsquo;t see how cloud-init.target is activated by systemd.</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2016-09-23-905130/'> How cloud-init systemd service is activated on Ubuntu 16.04 (xenial)</a> </h2>
+    <div class="post-meta">2016-09-23</div>
+  </header>
+  <p>Recently I&rsquo;ve trace how cloud-init is being run. First, I try to find service file in /etc/system/system or /lib/systemd/system. Although I can locate the unit files, I can&rsquo;t see any systemd target that will bring up these cloud-init services. I did&rsquo;t see how cloud-init.target is activated by systemd.</p>
 
 <p>Finally, I found that cloud-init project utilize the systemd generator to generate the unit files dynamically. The dynamic unit files is located at /run/system/generator.early/multi-user.target.wants/cloud-init.target. With this unit file, when the multi-user.target is activated by systemd, the cloud-init.target will also be activated. Then the systemd will further activate related cloud-init service in /etc/systemd/system/cloud-init.target.wants/.</p>
 
@@ -546,25 +425,14 @@ lrwxrwxrwx 1 root root 37 Jul 14 07:52 /run/systemd/generator.early/multi-user.t
 
 <p>Ref: <a href="https://www.freedesktop.org/software/systemd/man/systemd.generator.html">https://www.freedesktop.org/software/systemd/man/systemd.generator.html</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/">use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</a>
-			<br>
-			<small>
-				2016-08-16
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://snapper.io/">Snapper</a> is a great tool for making snapshot on linux. You can download it on ArchLinux/Debian/OpenSUSE/Ubuntu</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2016-08-16-use-snapper-to-travel-back-in-time-and-compare-the-ultimate-snapshot-tool-for-linux/'> use snapper to Travel back in time and compare (The ultimate snapshot tool for Linux)</a> </h2>
+    <div class="post-meta">2016-08-16</div>
+  </header>
+  <p><a href="http://snapper.io/">Snapper</a> is a great tool for making snapshot on linux. You can download it on ArchLinux/Debian/OpenSUSE/Ubuntu</p>
 
 <p>Personally I use btrfs as  underlying file system. Here are some basic command to snapshot my data.</p>
 
@@ -612,12 +480,7 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
 <pre><code>sudo snapper -c root create-config /
 </code></pre>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
+</article>
 
 
 <div class="text-center center-block">
@@ -638,7 +501,7 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
     
     
     
-     
+    
         
         
     
@@ -650,7 +513,7 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
     
     
     
-     
+    
         
         
     
@@ -662,7 +525,7 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
     
     
     
-     
+    
         
         
     
@@ -730,7 +593,7 @@ drwxr-xr-x 1 root root  32 Aug 16 12:17 4/
     
     
     
-     
+    
         
         
     

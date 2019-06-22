@@ -4,22 +4,22 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="description" content="">
-    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:title" content="ChenHan&#39;s blog">
     
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
     <meta property="og:url" content="https://chenhan1218.github.io/">
-    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.22.1" />
-    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    <meta name="generator" content="Hugo 0.40.1" />
+    <title>ChenHan&#39;s blog &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ChenHan&#39;s blog" />
     
     
     <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
@@ -104,18 +104,12 @@
 </header>
 
 
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/">Mutexes VS Semaphores 大揭秘</a>
-			<br>
-			<small>
-				2014-01-30
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>尋著 jserv 的文章，找到了這一篇文章 <a href="http://www.barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore">Mutexes and Semaphores Demystified</a> 。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-30-mutexes-and-semaphores-demystified/'> Mutexes VS Semaphores 大揭秘</a> </h2>
+    <div class="post-meta">2014-01-30</div>
+  </header>
+  <p>尋著 jserv 的文章，找到了這一篇文章 <a href="http://www.barrgroup.com/Embedded-Systems/How-To/RTOS-Mutex-Semaphore">Mutexes and Semaphores Demystified</a> 。</p>
 
 <p>Mutex 與 Semaphore 都是用在保護 critical section，確保多個 process 平行運作並存取資源時，執行結果不會因為執行程序的時間先後的影響而導致錯誤。
 Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
@@ -132,25 +126,14 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 - <a href="http://stackoverflow.com/questions/62814/difference-between-binary-semaphore-and-mutex">Difference between binary semaphore and mutex</a>
 - <a href="http://en.wikipedia.org/wiki/Semaphore_(programming)#Example:_Producer.2Fconsumer_problem">Wikipedia: Example: Producer/consumer problem</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/">每個C語言開發者都要了解的 Undefined Behavior</a>
-			<br>
-			<small>
-				2014-01-21
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #<sup>1</sup>&frasl;<sub>3</sub></a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-21-what-every-programmer-should-know-about-c-undefined-behavior/'> 每個C語言開發者都要了解的 Undefined Behavior</a> </h2>
+    <div class="post-meta">2014-01-21</div>
+  </header>
+  <p>在閱讀LLVM 部落格中的 <a href="http://blog.llvm.org/2011/05/what-every-c-programmer-should-know.html">What Every C Programmer Should Know About Undefined Behavior #<sup>1</sup>&frasl;<sub>3</sub></a> 後，決定簡短的記錄這系列文章的重點並且在seminar上分享出來。我認為這篇文章是C語言開發者在開發一段時間後必讀的文章。文章中提到許多的 undefined behavior 是很容易犯的錯。這之中牽涉到 compiler 進行的最佳化，使得撰寫C語言時必須注意一些細節，才能避免在最佳化的過程中，產生與預期不相同的執行結果。</p>
 
 <p><iframe src="//www.slideshare.net/slideshow/embed_code/36318298" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/ssusercd43c4/2014-0626-a-guide-to-undefined-behavior-in-c-and-c-stanley" title="2014-06-26 - A guide to undefined behavior in c and c++" target="_blank">2014-06-26 - A guide to undefined behavior in c and c++</a> </strong> from <strong><a href="http://www.slideshare.net/ssusercd43c4" target="_blank">辰翰 蕭</a></strong> </div></p>
 
@@ -160,25 +143,14 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 3. <a href="http://sohulinux.blog.sohu.com/176282266.html">未定义行为：What Every C Programmer Should Know #<sup>3</sup>&frasl;<sub>3</sub></a>
 4. <a href="http://www.cnblogs.com/foohack/p/3582239.html">About Undefined Behavior[译文]</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-20-kaggle-playing/">kaggle 試玩</a>
-			<br>
-			<small>
-				2014-01-20
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="https://www.kaggle.com/">Kaggle</a>，是machine learning 的 crowd-sourcing網站。有需要的公司可以在上面提出專案，讓大家去解，通常會給獎金，甚至是一份工作。已經在上面提出專案的包括</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-20-kaggle-playing/'> kaggle 試玩</a> </h2>
+    <div class="post-meta">2014-01-20</div>
+  </header>
+  <p><a href="https://www.kaggle.com/">Kaggle</a>，是machine learning 的 crowd-sourcing網站。有需要的公司可以在上面提出專案，讓大家去解，通常會給獎金，甚至是一份工作。已經在上面提出專案的包括</p>
 
 <ol>
 <li>Amazon，獎金$5000，<a href="https://www.kaggle.com/c/amazon-employee-access-challenge">Amazon.com - Employee Access Challenge</a></li>
@@ -191,69 +163,36 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 
 <p><a href="https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience">https://www.kaggle.com/wiki/GettingStartedWithPythonForDataScience</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-20-operating-systems-three-easy-pieces/">Operating Systems: Three Easy Pieces</a>
-			<br>
-			<small>
-				2014-01-20
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-20-operating-systems-three-easy-pieces/'> Operating Systems: Three Easy Pieces</a> </h2>
+    <div class="post-meta">2014-01-20</div>
+  </header>
+  <p><a href="http://pages.cs.wisc.edu/~remzi/OSTEP/">Operating Systems: Three Easy Pieces</a>
 剛翻到這本線上作業系統書，他的表格整理的很不錯。把作業系統的功能規類到 Virtualization, Concurrency, Persistence。把這些小分類的名詞弄懂了，也大致能了解作業系統的作用了。</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/">kimono Turn websites into structured APIs</a>
-			<br>
-			<small>
-				2014-01-16
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://www.kimonolabs.com/">kimono : Turn websites into structured APIs from your browser in seconds</a>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-16-kimono-turn-websites-into-structured-apis/'> kimono Turn websites into structured APIs</a> </h2>
+    <div class="post-meta">2014-01-16</div>
+  </header>
+  <p><a href="http://www.kimonolabs.com/">kimono : Turn websites into structured APIs from your browser in seconds</a>
 <iframe src="//player.vimeo.com/video/82849382?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="http://vimeo.com/82849382">kimono: a 60 second introduction</a> from <a href="http://vimeo.com/user23724399">Kimono Labs</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 今天看到這東西滿酷的。過去我們需要撈網站資訊時，常要自已動手做爬蟲、再做成API。以前氣象局還沒有<a href="http://opendata.cwb.gov.tw/">開放資料平臺</a>時，想做氣象app的人就等自已想辦法做API來餵。像是這個我送過小patch的專案 <a href="https://github.com/zonble/twweather">twweather</a>。<br />
 而<a href="http://www.kimonolabs.com/">kimono</a> 把這個過程變的相當簡單。不過這種東西會面臨到一個問題，就是內容來源始終是別人提供的，所以一旦 html 格式改了(像是以前氣象局常大改格式)，data extraction就得重做(當然在kimono上看起來相對簡單)。但我覺得最好的方式還是能想辦法找來源提供者合作，如果是公家機關就要要求開放資料，如果是商業機關就談商業授權，能夠由來源提供穩定一致的API還是最好的解決方式。</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/">Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a>
-			<br>
-			<small>
-				2014-01-15
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://www.forbes.com/sites/reuvencohen/2013/11/26/google-shows-how-to-scale-apps-from-zero-to-one-million-requests-per-second-for-10/">Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-15-google-shows-how-to-scale-apps-from-zero-to-a-million-requests-per-second-for-10/'> Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a> </h2>
+    <div class="post-meta">2014-01-15</div>
+  </header>
+  <p><a href="http://www.forbes.com/sites/reuvencohen/2013/11/26/google-shows-how-to-scale-apps-from-zero-to-one-million-requests-per-second-for-10/">Google Shows How To Scale Apps From Zero To A Million Requests Per Second, For $10</a>
 你可以在 7分半鐘的時間內，利用他們的工具架出一套架構，包含一台 load balance, 數百台 apache server
 可以接受 1M/second 的 Request.</p>
 
@@ -261,25 +200,14 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 然後架一台 load balance, 200台 apache server，當做server 來接收 request
 用這樣的方式來模擬網路服務</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/">2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</a>
-			<br>
-			<small>
-				2014-01-15
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-15-2014-1-15-gdg-taipei-1-a-tour-of-google-cloud-platform-notes/'> 2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</a> </h2>
+    <div class="post-meta">2014-01-15</div>
+  </header>
+  <p>2014/1/15 GDG Taipei #1 - A Tour of Google Cloud Platform</p>
 
 <p>Session #0: A Tour of Google Cloud Platform
 <strong>LittleQ, Organizer, GDG Taipei</strong>
@@ -292,25 +220,14 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 這下半場的 session 則是Google於新加坡的 Technical Lead 來介紹 Google Compute Engine。基本上就是 cloud virtual machine。類似的服務像是Amazon EC2。這部份大家都很熟悉，不過 Google 推出的效能、價錢都不錯，未來兩家公司在雲端基礎建設有的拚了。<br />
 演講包含一些簡單的 demo，另外也有 <a href="http://gce-demos.appspot.com/">Google Compute Engine Demos</a> 讓大家可以自行體驗在 Google Compute Engine 上開機器的速度有多快，現場 demo 開10台 instances 大約是10秒鐘。體驗這個應用需要經過身份認證，要收費的，要玩的人自已得注意一下。</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/">那些年，我們一起上的 BBS: 洪任諭 PCMan at TEDxNCTU 2013</a>
-			<br>
-			<small>
-				2014-01-13
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<iframe width="560" height="315" src="//www.youtube.com/embed/-tYj8QmyiCc" frameborder="0" allowfullscreen></iframe>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-13-pcman-at-tedxnctu-2013/'> 那些年，我們一起上的 BBS: 洪任諭 PCMan at TEDxNCTU 2013</a> </h2>
+    <div class="post-meta">2014-01-13</div>
+  </header>
+  <iframe width="560" height="315" src="//www.youtube.com/embed/-tYj8QmyiCc" frameborder="0" allowfullscreen></iframe>
 
 <p>我的偶像PCMan，精采的演講</p>
 
@@ -324,57 +241,30 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
 
 <p>永遠</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-11-embed-base64-image-in-markdown/">Embed base64 image in markdown</a>
-			<br>
-			<small>
-				2014-01-11
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>Today I come up an idea with embedded image inside markdown. When writing document with markdown syntax, we can embedded inline html code to enhance the content. It turns out that base64 images could also be embedded inside markdown document by using <code>img</code> tag. Below is an example showing HTML5 Logo using embedded base64 image (instead of external resources). However, be careful about this kind of inline base64 image. Size of document would be largely increased which would make your webpage slow even you only embedded a medium-size (100KB) image.</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-11-embed-base64-image-in-markdown/'> Embed base64 image in markdown</a> </h2>
+    <div class="post-meta">2014-01-11</div>
+  </header>
+  <p>Today I come up an idea with embedded image inside markdown. When writing document with markdown syntax, we can embedded inline html code to enhance the content. It turns out that base64 images could also be embedded inside markdown document by using <code>img</code> tag. Below is an example showing HTML5 Logo using embedded base64 image (instead of external resources). However, be careful about this kind of inline base64 image. Size of document would be largely increased which would make your webpage slow even you only embedded a medium-size (100KB) image.</p>
 
 <p>今天我想到了一個可以在 markdown 中嵌入圖像的作法。使用 Markdown 編寫文件時，我們可以使用 inline html 使文件更豐富。這也代表我們可以用 <code>img</code> tag 把 base64 影像放置在 Markdown 文件中。下面是一個利用 base64 影像來顯示 HTML5 Logo 的例子(而不需用到任何外部的影像資源)。不過在使用這種嵌入 base64 影像時要特別小心。即使你只是放了一個中等大小(100KB)的圖像，你的文件大小會增大很多，使得頁面要花上很多時間載入。</p>
 
 <p><img alt="" src="data:image/gif;base64,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" /></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/">TechTalk@TW Episode 24 - 開放原始碼授權</a>
-			<br>
-			<small>
-				2014-01-10
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://www.techtalk.tw/2013/11/episode-24.html">TechTalk@TW: 專訪 Episode 24 - 開放原始碼授權</a>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-01-10-techtalktw-episode-24-the-open-source-licensing/'> TechTalk@TW Episode 24 - 開放原始碼授權</a> </h2>
+    <div class="post-meta">2014-01-10</div>
+  </header>
+  <p><a href="http://www.techtalk.tw/2013/11/episode-24.html">TechTalk@TW: 專訪 Episode 24 - 開放原始碼授權</a>
 中央研究院資訊科學所的林誠夏介紹數種開放原始碼的授權。聽完後對軟體授權有一些基本的認知，推薦給像我一樣的軟體專利新手。</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
+</article>
 
 
 <div class="text-center center-block">
@@ -395,7 +285,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -407,7 +297,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -419,7 +309,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -451,7 +341,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -463,7 +353,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -475,7 +365,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     
@@ -498,7 +388,7 @@ Mutex(Mutual Exclusion) 與 Semaphore 的差別在於:
     
     
     
-     
+    
         
         
     

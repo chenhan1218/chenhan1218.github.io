@@ -4,22 +4,22 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
     <meta name="description" content="">
-    <meta property="og:title" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:title" content="ChenHan&#39;s blog">
     
     <meta property="og:type" content="website">
     
     <meta property="og:description" content="">
     <meta property="og:url" content="https://chenhan1218.github.io/">
-    <meta property="og:site_name" content="Chen-Han (Stanley) Hsiao">
+    <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.22.1" />
-    <title>Chen-Han (Stanley) Hsiao &middot; Chen-Han (Stanley) Hsiao</title>
+    <meta name="generator" content="Hugo 0.40.1" />
+    <title>ChenHan&#39;s blog &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="https://chenhan1218.github.io/css/style.css">
     
-    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Chen-Han (Stanley) Hsiao" />
+    <link href="https://chenhan1218.github.io/index.xml" rel="alternate" type="application/rss+xml" title="ChenHan&#39;s blog" />
     
     
     <link rel="icon" href="https://chenhan1218.github.io/favicon.ico" />
@@ -104,38 +104,21 @@
 </header>
 
 
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-07-05-bloxp-rss-to-ebook/">bloxp, rss to ebook</a>
-			<br>
-			<small>
-				2015-07-05
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>今天用了一個很棒的服務，<a href="http://www.bloxp.com/">Bloxp, the blog to ebook exporter</a>，可以把 blog 透過 rss 轉成 ebook (epub)。很方便，推薦給大家。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-07-05-bloxp-rss-to-ebook/'> bloxp, rss to ebook</a> </h2>
+    <div class="post-meta">2015-07-05</div>
+  </header>
+  <p>今天用了一個很棒的服務，<a href="http://www.bloxp.com/">Bloxp, the blog to ebook exporter</a>，可以把 blog 透過 rss 轉成 ebook (epub)。很方便，推薦給大家。</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/">一般使用者權限安裝 python package (無root 權限)</a>
-			<br>
-			<small>
-				2015-06-17
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>在一些工作站上，有時需要用到一些 python package，但不具有 root 權限時。Python 設定了一個方法，可以安裝在家目錄下的 .local/ 資料夾中</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-06-17-install-python-package-as-normal-user-without-root-priviledge/'> 一般使用者權限安裝 python package (無root 權限)</a> </h2>
+    <div class="post-meta">2015-06-17</div>
+  </header>
+  <p>在一些工作站上，有時需要用到一些 python package，但不具有 root 權限時。Python 設定了一個方法，可以安裝在家目錄下的 .local/ 資料夾中</p>
 
 <p><a href="https://docs.python.org/2/install/index.html#alternate-installation-the-user-scheme">Alternate installation: the user scheme — Python 2.7.10 documentatio</a></p>
 
@@ -149,25 +132,14 @@ PATH=$PATH:$HOME/.local/bin
 export PATH
 </code></pre>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/">debugging fork child process in GDB</a>
-			<br>
-			<small>
-				2015-04-25
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>剛在 python 遇到 subprocess 的問題，處理一陣子後突然想到，如果是 C++ 的話要怎麼用 GDB 來 debug. 查了文件後發現有2個方式：</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-04-25-debugging-fork-child-process-in-gdb/'> debugging fork child process in GDB</a> </h2>
+    <div class="post-meta">2015-04-25</div>
+  </header>
+  <p>剛在 python 遇到 subprocess 的問題，處理一陣子後突然想到，如果是 C++ 的話要怎麼用 GDB 來 debug. 查了文件後發現有2個方式：</p>
 
 <ol>
 <li>讓 child sleep 一段時間，手動取得 PID 後，再讓 GDB attach 上去</li>
@@ -188,45 +160,23 @@ set follow-fork-mode child
 
 <p>Ref: <a href="https://sourceware.org/gdb/onlinedocs/gdb/Forks.html">Forks - Debugging with GDB</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-04-22-linux-kernel-development-process/'> Linux Kernel Development Process</a> </h2>
+    <div class="post-meta">2015-04-22</div>
+  </header>
+  <p><a href="https://www.kernel.org/doc/Documentation/development-process/2.Process">kernel.org - HOW THE DEVELOPMENT PROCESS WORKS</a></p>
 
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-04-22-linux-kernel-development-process/">Linux Kernel Development Process</a>
-			<br>
-			<small>
-				2015-04-22
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="https://www.kernel.org/doc/Documentation/development-process/2.Process">kernel.org - HOW THE DEVELOPMENT PROCESS WORKS</a></p>
+</article>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-04-16-python3-unicodedecodeerror/">python3 UnicodeDecodeError</a>
-			<br>
-			<small>
-				2015-04-16
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>遇到 python UnicodeDecodeError 其實有點頭大。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-04-16-python3-unicodedecodeerror/'> python3 UnicodeDecodeError</a> </h2>
+    <div class="post-meta">2015-04-16</div>
+  </header>
+  <p>遇到 python UnicodeDecodeError 其實有點頭大。</p>
 
 <pre><code class="language-python">#!/usr/bin/python3
 # -*- coding: utf-8 -*-
@@ -273,25 +223,14 @@ ANSI_X3.4-1968
 <p>或是類似 Ubiquity 的直接強制使用 C.UTF
 <a href="http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44">http://bazaar.launchpad.net/~ubuntu-installer/ubiquity/trunk/view/head:/bin/ubiquity#L44</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2015-01-10-kindle-7-2014/">kindle 7 (2014)</a>
-			<br>
-			<small>
-				2015-01-10
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>幾天前拿到了 Kindle 7 (2014)，基本款kindle。今年即使在最基本款也已經有 touch 功能了。這幾天用下來，確實覺得滿特別的。有一些優缺點跟大家分享</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2015-01-10-kindle-7-2014/'> kindle 7 (2014)</a> </h2>
+    <div class="post-meta">2015-01-10</div>
+  </header>
+  <p>幾天前拿到了 Kindle 7 (2014)，基本款kindle。今年即使在最基本款也已經有 touch 功能了。這幾天用下來，確實覺得滿特別的。有一些優缺點跟大家分享</p>
 
 <p>優點：
 1. 相較一般螢幕，透過電子紙閱讀，對眼睛確實舒服很多，也確實不容易受到其它網路資訊的干擾。
@@ -301,71 +240,38 @@ ANSI_X3.4-1968
 1. Send to Kindle 的同步功能做的不是很好。當文章被 Send to Kindle 後，實際上是存到 <a href="https://www.amazon.com/clouddrive">Amazon Cloud Drive</a>，然後手上 Kindle 會自動下載一份在裝置上。但當閱讀完畢後，2邊的刪除不會同步，造成我想刪除文章必須去2個地方刪除。這點也很確實的寫在 Kindle 文件上，但這點應該是很重要需要改進的地方。 <a href="http://www.amazon.com/gp/help/customer/display.html/ref=hp_pdoc_main_short_us?nodeId=200767340">Kindle Personal Documents Service</a>
 2. PDF 也可以 Send to Kindle，但提供的方式不夠好。最好的話能提供 Web 界面讓使用者上傳 PDF。另外要注意的是，Send to Kindle 會將文件轉檔為 Amazona 使用的 azw 格式，所以文件有可能格式會跑掉，如果想在Kindle 上閱讀手上PDF，可能要有心理準備會有一些小問題。(補充一下，PDF是可以直接透過 USB 傳輸線不轉檔直接存到 Kindle 上，不過一來Kindle資料夾管理看起來很麻煩，二來 Kindle 6吋大小顯示 A4 內容閱讀起來會滿辛苦的。透過 Send to kindle 轉檔雖然格式會掉，但至少是易閱讀的電子書格式。)</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-12-11-docker-insight/">Docker Insight</a>
-			<br>
-			<small>
-				2014-12-11
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p>這幾天弄懂了 cgroup, kernel capbability 的機制，再搭配這份投影片 <a href="http://www.slideshare.net/tandrepires/docker-insight">Docker Insight</a>，有種很多東西都串起來的感覺。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-12-11-docker-insight/'> Docker Insight</a> </h2>
+    <div class="post-meta">2014-12-11</div>
+  </header>
+  <p>這幾天弄懂了 cgroup, kernel capbability 的機制，再搭配這份投影片 <a href="http://www.slideshare.net/tandrepires/docker-insight">Docker Insight</a>，有種很多東西都串起來的感覺。</p>
 
 <p>Docker 1.2 新增的 cap-add, cap-drop，再加上 Docker 本身附有的 Volume mount，讓 container 又有了更多方便的使用方式。</p>
 
 <p><iframe src="//www.slideshare.net/slideshow/embed_code/41750502" width="425" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/tandrepires/docker-insight" title="Docker Insight" target="_blank">Docker Insight</a> </strong> from <strong><a href="//www.slideshare.net/tandrepires" target="_blank">Tiago Pires</a></strong> </div></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-12-10-qemu-advent-calendar/">QEMU Advent Calendar (每日 QEMU)</a>
-			<br>
-			<small>
-				2014-12-10
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<p><a href="http://www.qemu-advent-calendar.org/">QEMU Advent Calendar</a> 這個project 滿有趣的，到 Chrismas 前，每天介紹一個 qemu 的image 讓大家去玩。</p>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-12-10-qemu-advent-calendar/'> QEMU Advent Calendar (每日 QEMU)</a> </h2>
+    <div class="post-meta">2014-12-10</div>
+  </header>
+  <p><a href="http://www.qemu-advent-calendar.org/">QEMU Advent Calendar</a> 這個project 滿有趣的，到 Chrismas 前，每天介紹一個 qemu 的image 讓大家去玩。</p>
 
 <p>今天 Canonical 發佈實驗性的作業系統 <a href="http://www.ubuntu.com/cloud/tools/snappy">Ubuntu Core</a>， Canonical 也跟他們合作，成為今天的 QEMU Advent Calendar image.</p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-11-26-backtrace-debian-package/">backtrace debian package</a>
-			<br>
-			<small>
-				2014-11-26
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<pre><code class="language-bash">$ apt-cache search hello | grep dbg
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-11-26-backtrace-debian-package/'> backtrace debian package</a> </h2>
+    <div class="post-meta">2014-11-26</div>
+  </header>
+  <pre><code class="language-bash">$ apt-cache search hello | grep dbg
 </code></pre>
 
 <pre><code># apt-get install hello-dbg
@@ -376,25 +282,14 @@ gdb /usr/bin/hello
 <li><a href="https://wiki.debian.org/HowToGetABacktrace">HowToGetABacktrace - Debian Wiki</a></li>
 </ul>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
+</article>
 
-
-	<div class="panel panel-default">
-	<div class="panel-header">
-		<h3>
-			<a href="https://chenhan1218.github.io/post/2014-11-22-established-at-launchpad-ppa/">Build a debian package and upload to Launchpad ppa</a>
-			<br>
-			<small>
-				2014-11-22
-			</small>
-		</h3>
-	</div>
-	<div class="panel-body">
-		<ol>
+<article class="post">
+  <header>
+    <h2><a href='https://chenhan1218.github.io/post/2014-11-22-established-at-launchpad-ppa/'> Build a debian package and upload to Launchpad ppa</a> </h2>
+    <div class="post-meta">2014-11-22</div>
+  </header>
+  <ol>
 <li>Create Launchpad PPA at <a href="https://launchpad.net/people/+me/+activate-ppa">https://launchpad.net/people/+me/+activate-ppa</a></li>
 
 <li><p>Creating your OpenPGP keys with gpg command</p>
@@ -472,12 +367,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
 - <a href="http://fourdollars.blogspot.tw/2012/11/launchpad-bazaar.html">淺談 Launchpad 上面的 Bazaar 分支架構</a>
 - <a href="https://www.debian.org/doc/manuals/maint-guide/build.en.html">Chapter 6. Building the package</a></p>
 
-	</div>
-	<div class="panel-footer">
-		
-	</div>
-</div>
-
+</article>
 
 
 <div class="text-center center-block">
@@ -498,7 +388,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
     
     
     
-     
+    
         
         
     
@@ -510,7 +400,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
     
     
     
-     
+    
         
         
     
@@ -522,7 +412,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
     
     
     
-     
+    
         
         
     
@@ -534,7 +424,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
     
     
     
-     
+    
         
         
     
@@ -593,7 +483,7 @@ pbuilder-dist trusty amd64 build xxxxxxxxxxxxxxxxxx_source.dsc
     
     
     
-     
+    
         
         
     
