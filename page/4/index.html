@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://chenhan1218.github.io/">
     <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.55.6" />
     <title>ChenHan&#39;s blog &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -161,22 +161,26 @@ gnome-panel &amp;
 <li><p>開啟 QEMU，預設使用 <a href="https://www.libsdl.org/">SDL</a> 顯示 guest OS 的畫面</p>
 
 <pre><code class="language-bash">qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256
-</code></pre></li>
+</code></pre>
 
-<li><p>開啟 QEMU，使用 terminal 操作虛擬環境  (一般PC上開機約180秒)</p>
-
-<pre><code class="language-bash">qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256 -curses
-</code></pre></li>
+<ul>
+<li>開啟 QEMU，使用 terminal 操作虛擬環境  (一般PC上開機約180秒)
+<code>bash
+qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256 -curses
+</code></li>
+</ul></li>
 
 <li><p>開啟QEMU，並將 host OS port 5555 的封包轉送給 Guest OS 的 port 80</p>
 
 <pre><code class="language-bash">qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256 -curses -redir tcp:5555::80
-</code></pre></li>
+</code></pre>
 
-<li><p>開啟QEMU，並且開啟 kvm full virtualization support。如果 kernel，processor 有支援，將大大提昇虛擬環境運行速度。這項操作需 root 權限。 (一般PC上開機約30秒，可大大看出 -enable-kvm 的差異)</p>
-
-<pre><code class="language-bash">qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256 -curses -enable-kvm
-</code></pre></li>
+<ul>
+<li>開啟QEMU，並且開啟 kvm full virtualization support。如果 kernel，processor 有支援，將大大提昇虛擬環境運行速度。這項操作需 root 權限。 (一般PC上開機約30秒，可大大看出 -enable-kvm 的差異)
+<code>bash
+qemu-system-x86_64 -hda debian_wheezy_amd64_standard.qcow2 -m 256 -curses -enable-kvm
+</code></li>
+</ul></li>
 </ul>
 
 <p>特別注意的是我這邊沒有特別對網路做設定，根據 Documentation ，TCP, UDP可以運作，但ICMP 不會。我實際測試的結果確實是如此。(Note - if you are using the (default) SLiRP user networking, then ping (ICMP) will not work, though TCP and UDP will. Don&rsquo;t try to use ping to test your QEMU network configuration!)</p>
@@ -188,27 +192,34 @@ gnome-panel &amp;
 </ul>
 
 <ol>
-<li>建立虛擬硬碟
-<code>bash
-dd if=/dev/zero of=rootfs.img bs=1G count=2
-</code></li>
+<li><p>建立虛擬硬碟</p>
+
+<pre><code class="language-bash">dd if=/dev/zero of=rootfs.img bs=1G count=2
+</code></pre>
+
+<ol>
 <li>格式化虛擬硬碟為 ext4
 <code>bash
 mkfs.ext4 rootfs.img
 </code></li>
-<li>mount 虛擬硬碟 (需要 root 權限)
-<code>bash
-mount -o loop rootfs.img /mnt
-</code></li>
+</ol></li>
+
+<li><p>mount 虛擬硬碟 (需要 root 權限)</p>
+
+<pre><code class="language-bash">mount -o loop rootfs.img /mnt
+</code></pre>
+
+<ol>
 <li>執行 debootstrap (需要 root 權限)
 <code>bash
 debootstrap --no-check-gpg --arch=amd64 wheezy /mnt/ http://debian.nctu.edu.tw/debian/
 </code></li>
-<li>查詢虛擬硬碟的 UUID，我這邊是&rdquo;4cc6834a-df20-4cb3-ad55-79433346e000&rdquo;
-<code>bash
-blkid rootfs.img
-</code></li>
-</ol>
+</ol></li>
+
+<li><p>查詢虛擬硬碟的 UUID，我這邊是&rdquo;4cc6834a-df20-4cb3-ad55-79433346e000&rdquo;</p>
+
+<pre><code class="language-bash">blkid rootfs.img
+</code></pre>
 
 <blockquote>
 <p>rootfs.img: UUID=&ldquo;4cc6834a-df20-4cb3-ad55-79433346e000&rdquo; TYPE=&ldquo;ext4&rdquo;</p>
@@ -219,26 +230,30 @@ blkid rootfs.img
 <code>bash
 echo &quot;UUID=4cc6834a-df20-4cb3-ad55-79433346e000 / ext4 0 1&quot; &gt;&gt; /mnt/etc/fstab
 </code></li>
-<li>chroot 進 /mnt，安裝 linux kernel，安裝並設定 grub bootloader。結束後退出 chroot 環境。(需root權限)
-<code>
-chroot /mnt
+</ol></li>
+
+<li><p>chroot 進 /mnt，安裝 linux kernel，安裝並設定 grub bootloader。結束後退出 chroot 環境。(需root權限)</p>
+
+<pre><code>chroot /mnt
 apt-get update
 apt-get install -y linux-image-amd64
 apt-get install -y grub-pc
 grub-install /dev/hda
 update-grub
 exit
-</code></li>
-<li>umount 虛擬硬碟 (需 root 權限)
-<code>bash
-umount /mnt
-</code></li>
+</code></pre></li>
+
+<li><p>umount 虛擬硬碟 (需 root 權限)</p>
+
+<pre><code class="language-bash">umount /mnt
+</code></pre>
+
+<p>至此，rootfs.img裡面就是一個完整的 debian OS 了。可以用前面所說的方法，以 qemu 開啟。也可以將這個虛擬硬碟轉換為 qcow2 格式，可以佔用較小空間(但虛擬作業系統跑起來的時候則需多花一些計算效能)。
+```</p></li>
 </ol>
 
-<p>至此，rootfs.img裡面就是一個完整的 debian OS 了。可以用前面所說的方法，以 qemu 開啟。也可以將這個虛擬硬碟轉換為 qcow2 格式，可以佔用較小空間(但虛擬作業系統跑起來的時候則需多花一些計算效能)。</p>
-
-<pre><code>qemu-img convert -f raw -O qcow2 rootfs.img mydebian.qcow2
-</code></pre>
+<p>qemu-img convert -f raw -O qcow2 rootfs.img mydebian.qcow2
+```</p>
 
 <p>Ref:
 - <a href="https://wiki.debian.org/QEMU">QEMU - Debian Wiki</a>
@@ -329,10 +344,10 @@ Version 4.1.6-Ubuntu
 </code></pre>
 
 <ol>
-<li>使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io
-<code>
-samba-tool domain provision --use-rfc2307 --interactive
-</code></li>
+<li><p>使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io</p>
+
+<pre><code>samba-tool domain provision --use-rfc2307 --interactive
+</code></pre></li>
 </ol>
 
 <p>設定成功，過程的設定記錄如下：</p>
@@ -481,13 +496,12 @@ git diff branch_1...branch_2
 
 <ul class="pagination">
     
-    <li>
-        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    >
-    <a href="/page/3/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="/page/3/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -495,24 +509,12 @@ git diff branch_1...branch_2
     
     
     
-        
-        
-    
-    
-    <li
-    ><a href="/">1</a></li>
-    
-    
-    
-    
-    
     
         
         
     
     
-    <li
-    ><a href="/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/">1</a></li>
     
     
     
@@ -523,8 +525,7 @@ git diff branch_1...branch_2
         
     
     
-    <li
-    ><a href="/page/3/">3</a></li>
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
     
     
     
@@ -535,8 +536,7 @@ git diff branch_1...branch_2
         
     
     
-    <li
-    class="active"><a href="/page/4/">4</a></li>
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
     
     
     
@@ -547,8 +547,7 @@ git diff branch_1...branch_2
         
     
     
-    <li
-    ><a href="/page/5/">5</a></li>
+    <li class="page-item active"><a class="page-link" href="/page/4/">4</a></li>
     
     
     
@@ -559,7 +558,7 @@ git diff branch_1...branch_2
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    <li class="page-item"><a class="page-link" href="/page/5/">5</a></li>
     
     
     
@@ -569,6 +568,8 @@ git diff branch_1...branch_2
         
         
     
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -597,17 +598,24 @@ git diff branch_1...branch_2
         
     
     
-    <li
-    ><a href="/page/10/">10</a></li>
     
     
-    <li
-    >
-    <a href="/page/5/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/10/">10</a></li>
+    
+    
+    <li class="page-item">
+    <a href="/page/5/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/page/10/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>

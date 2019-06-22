@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://chenhan1218.github.io/post/2014-09-22-setup-domain-controller-on-ubuntu-1404/">
     <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.55.6" />
     <title>Setup Domain Controller on Ubuntu 14.04 &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -121,10 +121,10 @@ Version 4.1.6-Ubuntu
 </code></pre>
 
 <ol>
-<li>使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io
-<code>
-samba-tool domain provision --use-rfc2307 --interactive
-</code></li>
+<li><p>使用 samba-tool 一步一步設定，這裡我規劃 samba domain 的網域為 mysamba.test.io</p>
+
+<pre><code>samba-tool domain provision --use-rfc2307 --interactive
+</code></pre></li>
 </ol>
 
 <p>設定成功，過程的設定記錄如下：</p>

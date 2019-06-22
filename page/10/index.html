@@ -12,7 +12,7 @@
     <meta property="og:url" content="https://chenhan1218.github.io/">
     <meta property="og:site_name" content="ChenHan&#39;s blog">
     
-    <meta name="generator" content="Hugo 0.40.1" />
+    <meta name="generator" content="Hugo 0.55.6" />
     <title>ChenHan&#39;s blog &middot; ChenHan&#39;s blog</title>
     
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -113,12 +113,14 @@
 <li><p>全域安裝，通常會把模組安裝在 /usr/local/lib/node_modules 的位置。</p>
 
 <pre><code class="language-bash">$ npm install -g express
-</code></pre></li>
+</code></pre>
 
-<li><p>專案資料夾內的安裝，</p>
-
-<pre><code class="language-bash">$ npm install express
-</code></pre></li>
+<ol>
+<li>專案資料夾內的安裝，
+<code>bash
+$ npm install express
+</code></li>
+</ol></li>
 </ol>
 
 <p>如何決定要用什麼方式來安裝呢。Node.js 提供了以下的原則：</p>
@@ -424,13 +426,12 @@ $valgrind ./a.out</p>
 
 <ul class="pagination">
     
-    <li>
-        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    <li class="page-item">
+        <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
     </li>
     
-    <li
-    >
-    <a href="/page/9/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    <li class="page-item">
+    <a href="/page/9/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
     </li>
     
     
@@ -438,24 +439,12 @@ $valgrind ./a.out</p>
     
     
     
-        
-        
-    
-    
-    <li
-    ><a href="/">1</a></li>
-    
-    
-    
-    
-    
     
         
         
     
     
-    <li
-    ><a href="/page/2/">2</a></li>
+    <li class="page-item"><a class="page-link" href="/">1</a></li>
     
     
     
@@ -466,8 +455,7 @@ $valgrind ./a.out</p>
         
     
     
-    <li
-    ><a href="/page/3/">3</a></li>
+    <li class="page-item"><a class="page-link" href="/page/2/">2</a></li>
     
     
     
@@ -478,7 +466,7 @@ $valgrind ./a.out</p>
         
     
     
-    <li class="disabled"><span aria-hidden="true">&hellip;</span></li>
+    <li class="page-item"><a class="page-link" href="/page/3/">3</a></li>
     
     
     
@@ -488,6 +476,8 @@ $valgrind ./a.out</p>
         
         
     
+    
+    <li class="page-item disabled"><span aria-hidden="true">&nbsp;&hellip;&nbsp;</span></li>
     
     
     
@@ -525,8 +515,16 @@ $valgrind ./a.out</p>
         
     
     
-    <li
-    ><a href="/page/9/">9</a></li>
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li class="page-item"><a class="page-link" href="/page/9/">9</a></li>
     
     
     
@@ -537,17 +535,15 @@ $valgrind ./a.out</p>
         
     
     
-    <li
-    class="active"><a href="/page/10/">10</a></li>
+    <li class="page-item active"><a class="page-link" href="/page/10/">10</a></li>
     
     
-    <li
-    class="disabled">
-    <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    <li class="page-item disabled">
+    <a href="" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
     </li>
     
-    <li>
-        <a href="/page/10/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <li class="page-item">
+        <a href="/page/10/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
     </li>
     
 </ul>
